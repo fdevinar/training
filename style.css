@@ -1,0 +1,39 @@
+html {
+    background-color: rgb(21, 151, 226);
+    font-size: 20px;
+  }
+  
+  ul {
+    background: white;
+    color: black;
+    padding: 10px;
+    border: 3px solid black;
+  }
+  
+  li {
+    margin-left: 20px;
+  }
+
+  div {
+    background: black;
+    font-style: italic;
+    color: white;
+    padding: 12px;
+    border: 1px solid black;
+  }
+
+  dl {
+    background-color: white;
+  }
+
+  dt {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  #estadios {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+
+  }
