@@ -9,42 +9,44 @@
         <meta name="description" content="FDevinar first HTML+CSS test page">
         
         <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script type="text/javascript" src="http://livejs.com/live.js"></script>
     </head>
     
     <body>
-        <a href="index.html">
-        <img src="fdevinar logo.png"><br>
+        <img src="images/fdevinar logo.png" width="300px"><br>
         </a>
-        <div>Aqui temos um Div</div>
-        <h1>Gremio 1903<span lang="ja">ご飯が熱い</span></h1>
-        <a href="index.html" title="Refresh da pagina">Refresh</a><br><br>
-        <abbr title="Gremio Football Portoalegrense">Gremio</abbr>
-        eh o clube de maior sucesso no Sul do Brasil!<br>
-        ABCD<sup>EFGH</sup><sub>IJKL</sub>
-        MNOP<sup>QRST</sup><sub>UVXZ</sub><br>
-        CAFFEINE = C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>
+        
+        <div class="navbar">
+                <span class="navbar-item"><a href="index.html">Home</a></span>
+                <span class="navbar-item"><a href="main/titulos.html">Titulos</a></span>
+                <span class="navbar-item"><a href="main/jogadores.html">Jogadores</a></span>
+                <span class="navbar-item"><a href="main/estadios.html">Estadios</a></span>
+        </div>
 
-        <p>
+        <img src="images/escudo_gremio.svg" width="200px">
+        <h1>Gremio 1903</h1>
+
+        <main>
+            <abbr title="Gremio Football Portoalegrense">Gremio</abbr>
+            eh o clube de maior sucesso no Sul do Brasil!<br>
+
+            <p>
+                    Teste
+            </p>
+
             Data de Fundacao: <time datetime="1903-09-15">15 September 1903</time>
 
-        </p>
+        </main>
+        
+        <footer>
+                <address>
+                        <p>Fabricio Devinar, Sao Paulo, BR</p>
+                </address>
+        </footer>
 
-        <p>Secoes:
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="titulos.html">Titulos</a></li>
-                <li><a href="jogadores.html">Jogadores</a></li>
-                <li><a href="estadios.html">Estadios</a></li>
-            </ul>
-        </p>
-        <div>Aqui temos outro Div</div>
-        <address>
-            <p>Fabricio Devinar, Sao Paulo, BR</p>
-        </address>
-
-
-    <!--<script src="script.js"></script>-->
+    <!--<script src="scripts/script.js"></script>-->
 
     </body>
 
