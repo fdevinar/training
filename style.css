@@ -1,0 +1,52 @@
+  html {
+    background-color: rgb(21, 151, 226);
+    font-size: 20px;
+  }
+
+  main {
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  caption {
+    font-size: 24px;
+    font-weight:bold;
+  }
+
+  tbody {
+     background-color: white;
+  }
+
+
+  dl {
+    background-color: white;
+  }
+
+  dt {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  th {
+    background-color: black;
+    color: white;
+    font-size: 28px;
+  }
+
+  #estadios {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+  }
+
+  .navbar {
+    background: white;
+    padding: 12px;
+    border: 8px solid black;
+  }
+
+  .navbar-item {
+    margin-left: 24px;
+    font-family: Verdana;
+    font-size: 20px;
+  }
