@@ -1,15 +1,23 @@
   html {
     background-color: rgb(21, 151, 226);
     font-size: 20px;
-    font-family: "Open Sans", sans-serif; 
+    font-family: "Open Sans", sans-serif;
+    width: max-content; 
   }
 
   main {
     background-color: white;
     border: 2px solid black;
-    padding: 20px;
+    padding: 10px;
+    padding-right: 20px;
     margin: 10px;
-    width: 550px;
+    margin-top: 15px;
+    margin-left: 15px;
+    
+  }
+
+  .hino {
+    font-style: italic;
   }
 
   /*Tables*/
@@ -42,14 +50,18 @@
   }
 
   /*Navigation Bar*/
-  .navbar {
+  header {
+    text-align: center;
+  }
+
+  .nav {
+    display: inline-block;
     background: white;
     padding: 12px;
-    border: 8px solid black;
-    width: 550px;
+    border: 3px solid black;
   }
   .navbar-item {
-    margin-left: 24px;
+    margin-left: 20px;
     font-family: Verdana;
     font-size: 20px;
   }
@@ -58,11 +70,7 @@
   }
   /**/
 
+  .escudo {
+    margin-left: 0px;
+  }
   
-  img[src] {
-    margin-left: 130px;
-  }
-
-  #devlogo {
-    margin-left: 20px;
-  }
