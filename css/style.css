@@ -1,5 +1,5 @@
   html {
-    background-color: rgb(21, 151, 226);
+    background: rgb(21, 151, 226);
     font-size: 20px;
     font-family: "Open Sans", sans-serif;
     width: max-content; 
@@ -7,13 +7,9 @@
 
   main {
     background-color: white;
-    border: 2px solid black;
-    padding: 10px;
-    padding-right: 20px;
-    margin: 10px;
-    margin-top: 15px;
-    margin-left: 15px;
-    
+    border: 3px solid black;
+    padding: 10px 20px 20px 50px;
+    margin: 15px 10px 10px 15px;
   }
 
   .hino {
@@ -50,13 +46,16 @@
   }
 
   /*Navigation Bar*/
-  header {
-    text-align: center;
-  }
 
-  .nav {
+  header {
+    height: 130px;
+  }
+  nav {
     display: inline-block;
+    position: relative;
     background: white;
+    bottom: 40px;
+    left: 15px;
     padding: 12px;
     border: 3px solid black;
   }
@@ -65,12 +64,29 @@
     font-family: Verdana;
     font-size: 20px;
   }
-  .navbar-item:hover {
-    background: rgb(21, 151, 226);
+  .navbar-item:hover, .navbar-item:focus {
+    background: rgba(21, 151, 226, 0.3);
   }
   /**/
 
   .escudo {
     margin-left: 0px;
+    transform-origin: center;
+  }
+
+  .escudo:hover {
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
   
