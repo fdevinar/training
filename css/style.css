@@ -1,15 +1,17 @@
   html {
-    background: rgb(21, 151, 226);
+    background-image: linear-gradient(to right, rgb(21, 151, 226), white, black);
     font-size: 20px;
     font-family: "Open Sans", sans-serif;
-    width: max-content; 
+    width: 100%;
   }
+
 
   main {
     background-color: white;
     border: 3px solid black;
     padding: 10px 20px 20px 50px;
     margin: 15px 10px 10px 15px;
+    width: 46%
   }
 
   .hino {
@@ -58,6 +60,7 @@
     left: 15px;
     padding: 12px;
     border: 3px solid black;
+    width: 42%;
   }
   .navbar-item {
     margin-left: 20px;
@@ -89,4 +92,4 @@
       transform: rotate(360deg);
     }
   }
-  
+
