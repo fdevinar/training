@@ -12,10 +12,20 @@ for(let i = 0; i < buttons.length ; i++) {
 }
 */
 
-function addPlayer(name) {
-    let player = document.createElement('p');
-    player.textContent = name;
-    document.body.appendChild(player);
+function addPlayer() {
+    let main = document.createElement('main');
+    main.textContent = 'JogadorX';
+    document.body.appendChild(main);
+    console.log(main)
+    //removeEventListener('click', addPlayer())
 }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelector('button');
+
+console.log(buttons)
+
+//for(let i = 0; i < buttons.length ; i++) {
+buttons.addEventListener('click', addPlayer());
+//}
+
+
