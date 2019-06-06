@@ -1,31 +1,17 @@
-/*
-function createParagraph() {
-  let main = document.createElement('main');
-  main.textContent = 'You clicked the button!';
-  document.body.appendChild(main);
-}
-
-const buttons = document.querySelectorAll('button');
-
-for(let i = 0; i < buttons.length ; i++) {
-  buttons[i].addEventListener('click', createParagraph);
-}
-*/
 
 function addPlayer() {
     let main = document.createElement('main');
-    main.textContent = 'JogadorX';
+    main.textContent = value;
+    console.log(main);
     document.body.appendChild(main);
-    console.log(main)
-    //removeEventListener('click', addPlayer())
 }
 
-const buttons = document.querySelector('button');
+const button = document.querySelector('button');
+console.log(button);
 
-console.log(buttons)
+let value = "Goleiro";
+console.log(value);
 
-//for(let i = 0; i < buttons.length ; i++) {
-buttons.addEventListener('click', addPlayer());
-//}
+button.addEventListener('click', addPlayer);
 
 
