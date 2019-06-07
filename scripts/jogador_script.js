@@ -1,17 +1,19 @@
 
 function addPlayer() {
     let main = document.createElement('main');
-    main.textContent = value;
+    main.textContent = gol_value;
     console.log(main);
     document.body.appendChild(main);
 }
 
-const button = document.querySelector('button');
-console.log(button);
+const buttons = document.querySelectorAll('button');
+//console.log(button);
 
-let value = "Goleiro";
-console.log(value);
+let gol = document.getElementsByClass('goleiro');
+let gol_value = gol[0].value;
+console.log(gol_value);
 
-button.addEventListener('click', addPlayer);
-
+for(let i = 0; i < buttons.length ; i++) {
+buttons[i].addEventListener('click', addPlayer);
+}
 
