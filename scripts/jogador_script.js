@@ -9,6 +9,10 @@ function addGoleiro(value) {
   let li = document.createElement('li');
   li.textContent = value;
   let gol = document.getElementById('goleiro1');
+  console.log(gol);
+  //var item = document.getElementById('goleiro1').childNodes[0];
+  //item.replaceChild(li, item.childNodes[0]);
+  //gol.replaceChild(gol, li
   gol.appendChild(li);
   let number = document.querySelectorAll('goleiro1');
   console.log(number);
