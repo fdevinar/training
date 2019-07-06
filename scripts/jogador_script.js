@@ -1,3 +1,10 @@
+$("input:checkbox").click(function() {
+var bol = $("input:checkbox:checked").length >= 10;
+$("input:checkbox").not(":checked").attr("disabled",bol);
+});
+
+
+/*
 function addPlayer(value) {
   let li = document.createElement('li');
   li.textContent = value;
@@ -48,3 +55,4 @@ function addAtacante(value) {
   ata[0].appendChild(li);
 }
 
+*/
