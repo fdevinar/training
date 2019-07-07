@@ -26,6 +26,9 @@
   tbody {
      background-color: white;
   }
+  td {
+    text-align: center
+  }
   dl {
     background-color: white;
   }
@@ -36,7 +39,7 @@
   th {
     background-color: black;
     color: white;
-    font-size: 28px;
+    font-size: 22px;
   }
   /**/
 
