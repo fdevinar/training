@@ -103,3 +103,16 @@
 
   }
 
+  ul img {
+    border: 2px solid black;
+  }
+
+  /* input[type="radio"] {
+    border: 3px solid greenyellow !important;
+  } */
+
+  label {
+    border: 2px solid black;
+    padding: 1px;
+    background: lightskyblue
+  }
