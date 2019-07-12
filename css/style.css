@@ -116,3 +116,9 @@
     padding: 1px;
     background: lightskyblue
   }
+
+ /* sample of selecting attribute
+ 
+  img[src="../images/estadio_baixada.jpg"] {
+    border: 5px solid green;
+  } */
