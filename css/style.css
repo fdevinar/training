@@ -114,7 +114,9 @@
   label {
     border: 2px solid black;
     padding: 1px;
-    background: lightskyblue
+    background: lightskyblue;
+    text-transform: uppercase;
+    font-size: 18px;
   }
 
  /* sample of selecting attribute
