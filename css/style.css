@@ -1,5 +1,5 @@
   html {
-    background-image: linear-gradient(to right, rgb(22, 155, 222), white, black);
+    background-image: linear-gradient(to right, rgb(20, 150, 220), white, black);
     font-size: 20px;
     font-family: "Open Sans", sans-serif;
     width: 100%;
@@ -26,9 +26,6 @@
   tbody {
      background-color: white;
   }
-  td {
-    text-align: center
-  }
   dl {
     background-color: white;
   }
@@ -39,7 +36,7 @@
   th {
     background-color: black;
     color: white;
-    font-size: 22px;
+    font-size: 28px;
   }
   /**/
 
@@ -103,22 +100,3 @@
 
   }
 
-  ul img {
-    border: 2px solid black;
-  }
-
-  /* input[type="radio"] {
-    border: 3px solid greenyellow !important;
-  } */
-
-  label {
-    border: 2px solid black;
-    padding: 1px;
-    background: lightskyblue
-  }
-
- /* sample of selecting attribute
- 
-  img[src="../images/estadio_baixada.jpg"] {
-    border: 5px solid green;
-  } */
