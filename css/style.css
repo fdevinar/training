@@ -10,12 +10,15 @@
     background-color: white;
     border: 3px solid black;
     padding: 10px 20px 20px 50px;
-    margin: 15px 10px 10px 15px;
+    margin: 15px auto 10px auto;
     width: 46%
   }
 
+
+
   .hino {
     font-style: italic;
+    margin-left: 10px;
   }
 
   /*Tables*/
@@ -57,11 +60,13 @@
     position: relative;
     background: white;
     bottom: 40px;
-    left: 15px;
+    left: 80px;
     padding: 18px;
     padding-right: 10px;
     border: 3px solid black;
-    width: 42%;
+    /*width: 42%;*/
+    margin: 15px auto 10px auto;
+
   }
   .navbar-item {
     margin-left: 20px;
@@ -74,8 +79,9 @@
   /**/
 
   .escudo {
-    margin-left: 0px;
+    margin-left: 120px;
     transform-origin: center;
+    width: 10%;
   }
 
   .escudo:hover {
@@ -100,7 +106,6 @@
 
   }
 
-<<<<<<< HEAD
   ul img {
     border: 2px solid black;
   }
@@ -115,12 +120,11 @@
     background: lightskyblue;
     text-transform: uppercase;
     font-size: 18px;
+    line-height: 2;
   }
 
  /* sample of selecting attribute
- 
+
   img[src="../images/estadio_baixada.jpg"] {
     border: 5px solid green;
   } */
-=======
->>>>>>> 2d328bb09d4194b90dcc78f248753e9edca7ed09
