@@ -54,6 +54,8 @@
 
   header {
     height: 130px;
+    margin-bottom: 45px;
+
   }
   nav {
     display: inline-block;
