@@ -1,0 +1,132 @@
+  html {
+    background-image: linear-gradient(to right, rgb(20, 155, 221), white, black);
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+  }
+
+
+  main {
+    background-color: white;
+    border: 3px solid black;
+    padding: 10px 20px 20px 50px;
+    margin: 15px auto 10px auto;
+    width: 46%
+  }
+
+
+
+  .hino {
+    font-style: italic;
+    margin-left: 10px;
+  }
+
+  /*Tables*/
+  caption {
+    font-size: 24px;
+    font-weight:bold;
+  }
+  tbody {
+     background-color: white;
+  }
+  dl {
+    background-color: white;
+  }
+  dt {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  th {
+    background-color: black;
+    color: white;
+    font-size: 28px;
+  }
+  /**/
+
+
+  #estadios {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+  }
+
+  /*Navigation Bar*/
+
+  header {
+    height: 130px;
+    margin-bottom: 45px;
+
+  }
+  nav {
+    display: inline-block;
+    position: relative;
+    background: white;
+    bottom: 40px;
+    left: 80px;
+    padding: 18px;
+    padding-right: 10px;
+    border: 3px solid black;
+    /*width: 42%;*/
+    margin: 15px auto 10px auto;
+
+  }
+  .navbar-item {
+    margin-left: 20px;
+    font-family: Verdana;
+    font-size: 20px;
+  }
+  .navbar-item:hover, .navbar-item:focus {
+    background: rgba(21, 151, 226, 0.3);
+  }
+  /**/
+
+  .escudo {
+    margin-left: 120px;
+    transform-origin: center;
+    width: 10%;
+  }
+
+  .escudo:hover {
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  button {
+    font-size: 20px;
+    margin-bottom: 10px;
+
+  }
+
+  ul img {
+    border: 2px solid black;
+  }
+
+  /* input[type="radio"] {
+    border: 3px solid greenyellow !important;
+  } */
+
+  label {
+    border: 2px solid black;
+    padding: 1px;
+    background: lightskyblue;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 2;
+  }
+
+ /* sample of selecting attribute
+
+  img[src="../images/estadio_baixada.jpg"] {
+    border: 5px solid green;
+  } */
