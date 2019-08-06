@@ -10,9 +10,19 @@
 
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
         <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/style.css">
+        <!--<link rel="stylesheet" href="css/style.css">-->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <style>
+          .navbar-brand{
+            padding-top:5px;
+          }
+          .show {
+            border: 1px dotted orange;
+          }
+
+        </style>
 
 
         <script src="scripts/script.js" defer></script>
@@ -21,68 +31,62 @@
 
     <body>
 
-        <header>
-                <img class="escudo" src="images/escudo_gremio.svg" width="90px">
+                <!--<img class="escudo" src="images/escudo_gremio.svg" width="90px">
                 <nav>
                     <span class="navbar-item"><a href="index.html">Home</a></span>
                     <span class="navbar-item"><a href="main/titulos.html">Titulos</a></span>
                     <span class="navbar-item"><a href="main/jogadores.html">Jogadores</a></span>
                     <span class="navbar-item"><a href="main/estadios.html">Estadios</a></span>
                     <span class="navbar-item"><a href="main/torcida.html">Torcida</a></span>
-                </nav>
-        </header>
+                </nav>-->
 
-        <main>
-            <div id="hino">
-            <h1>Hino do Gremio</h1>
-            <p>
-            Até a pé nós iremos<br>
-            para o que der e vier<br>
-            mas o certo é que nós estaremos<br>
-            com o grêmio onde o grêmio estiver (2x)<br>
-            </p>
-            Mais de cem anos de glória<br>
-            tens oh imortal tricolor<br>
-            Os Feitos da tua história<br>
-            canta o rio grande com amor<br>
-            <p>
-            Até a pé nós iremos<br>
-            para o que der e vier<br>
-            mas o certo é que nós estaremos<br>
-            com o grêmio onde o grêmio estiver (2x)<br>
-            </p>
-            <p>
-            Nós como bons torcedores<br>
-            sem hesitarmos se quer<br>
-            aplaudiremos o grêmio<br>
-            aonde o grêmio estiver<br>
-            </p>
-            <p>
-            Até a pé nós iremos<br>
-            para o que der e vier<br>
-            mais o certo é que nós estaremos<br>
-            com o grêmio onde o grêmio estiver
-            </p>
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img class="escudo" src="images/escudo_gremio.svg" width="30px"></a>
             </div>
-            <br>
-            <strong>Data de Fundacao: <time datetime="1903-09-15">15 September 1903</time></strong>
-            <h2>
-              <p>
-              Teste Javascript:
-              </p>
-            </h2>
-              <button>Click me</button>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="main/craques.html">Craques</a></li>
+                <li><a href="main/estadios.html">Estádios</a></li>
+                <li><a href="main/galeria.html">Galeria</a></li>
+                <li><a href="main/jogadores.html">Jogadores</a></li>
+                <li><a href="main/titulos.html">Títulos</a></li>
+                <li><a href="main/torcida.html">Torcida</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
 
 
-        </main>
+        <div class="container">
 
-        <footer>
-                <img src="images/logo_gremio.jpg" width="160px"><br>
+          <div class="row">
+            <div class="col-md-4 show">1</div>
+            <div class="col-md-4 show">2</div>
+            <div class="col-md-4 show">3</div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 show">4</div>
+            <div class="col-md-4 show">5</div>
+            <div class="col-md-4 show">6</div>
+          </div>
+      </div>
 
-                <address>
-                        <p>FDevinar.com - 2019 </p>
-                </address>
-        </footer>
+
+
+
 
     </body>
 
