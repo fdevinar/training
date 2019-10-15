@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+    
+}
+
+body {
+    background: url(https://images.unsplash.com/photo-1570294646112-27ce4f174e38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);
+    background-size: cover;
+    background-position: center;
+    font-family: Georgia;
+
+}
+
+#content {
+    text-align: center;
+    padding-top:25%;
+    color: white;
+}
+
+hr {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 70px;
+    text-shadow: 0px 2px 1px gold,    
+    0px 4px 7px whitesmoke,
+    0px 10px 13px silver;
+}
+
