@@ -11,10 +11,16 @@ body {
 
 }
 
-#content {
-    text-align: center;
-    padding-top:25%;
+#box {
+    
+    margin-top:25%;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 25px 0px 25px 0px; 
     color: white;
+    background-color: #6b4f2f69;
+    width: 80%;
+    text-align: center;
 }
 
 hr {
