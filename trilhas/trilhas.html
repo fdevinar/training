@@ -13,12 +13,20 @@
     </head>
     <body>
 
+        <nav class="nav container flex-column align-items-center flex-sm-row justify-content-around 
+         mt-3 border border-success rounded bg-dark ">
+                <a class="nav-link active" href="#">Active</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </nav>
+
         <div class="container">
             <!-- <div class="row"> -->
                 <!-- <div class="col-lg-12"> -->
                     <div id="box" class="border border-success rounded-lg py-4 text-center">
                         <h1 class="display-1">Trilhas Floripa</h1>
-                        <h3> Site visual para amantes de trilhas em Floripa! </i></h3>
+                        <h3> Site visual para amantes de trilhas em Floripa!</h3>
                         <hr>
                         <p>Clique no botão abaixo para explorar!</p>
                         <hr>
@@ -28,11 +36,29 @@
                             "Em todas as coisas da natureza existe algo de maravilhoso."</p>
                             <cite class="text-light" title="Aristóteles">Aristóteles</cite>
                         </blockquote>
-
                     </div>
                 <!-- </div> -->
             <!-- </div> -->
         </div>
+        
+        
+        <div class="container mt-3 border border-success d-flex flex-column align-items-start menu">
+            <button class="btn btn-success">Mapa Virtual</button>
+            <button class="btn btn-success">Lista de Trilhas</button>
+            <button class="btn btn-success">Dicas & Regras</button>
+            <button class="btn btn-success">Top 10</button>
+        </div>
+
+        <!-- DISPLAY SCREEN-->
+        <div class="container mt-4">
+            <h4>Display Screen:</h4>
+            <button class="btn btn-info d-sm-none">XS</button>
+            <button class="btn btn-primary d-none d-sm-inline d-md-none">SM</button>
+            <button class="btn btn-success d-none d-md-inline d-lg-none">MD</button>
+            <button class="btn btn-warning d-none d-lg-inline d-xl-none">LG</button>
+            <button class="btn btn-danger d-none d-xl-inline">XL</button>
+        </div>
+        <!-- END OF DISPLAY SCREEN -->
 
         
 

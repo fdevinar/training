@@ -9,11 +9,12 @@ body {
     background-position: center;
     font-family: Georgia;
 
+
 }
 
 #box {
     
-    margin-top: 20%;
+    margin-top: 10%;
     margin-left: 10%;
     /* margin-left: 200px; */
     /* margin-right: 25px;  */
@@ -38,3 +39,10 @@ h1 {
     0px 10px 13px springgreen;
 }
 
+h4 {
+    color: ivory;
+}
+
+.menu button {
+    margin: 5px;
+}
