@@ -8,8 +8,6 @@ body {
     background-size: cover;
     background-position: center;
     font-family: Georgia;
-
-
 }
 
 #box {
@@ -45,4 +43,9 @@ h4 {
 
 .menu button {
     margin: 5px;
+}
+
+.jumbotron {
+    background: darkolivegreen;
+    opacity: 0.7;
 }
