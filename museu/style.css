@@ -1,0 +1,26 @@
+
+body {
+    background: rgb(30,142,224);
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#mainNavbar .navbar-brand {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+#mainNavbar .nav-link {
+    color: white;
+}
+
+#mainNavbar .nav-link:hover {
+    color: black;
+    /* border-bottom: 3px solid black; */
+}
