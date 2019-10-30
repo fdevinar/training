@@ -5,13 +5,13 @@ body {
 }
 
 #mainNavbar {
-    font-size: 1.5rem;
+    font-size: 1.8em;
     font-weight: 700;
 }
 
 #mainNavbar .navbar-brand {
     color: black;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
 }
 
