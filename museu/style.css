@@ -24,3 +24,18 @@ body {
     color: black;
     /* border-bottom: 3px solid black; */
 }
+
+#tituloMuseu h1 {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+#tituloMuseu span {
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    #tituloMuseu h1  {
+    font-size: 2.8rem;
+    }
+}
