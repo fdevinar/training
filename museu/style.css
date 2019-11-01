@@ -4,6 +4,25 @@ body {
     font-family: 'Roboto Condensed', Helvetica, sans-serif;
 }
 
+h2 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;  
+}
+
+i {
+    color: white;
+}
+
+p {
+    color: white;
+    line-height: 2;
+ }
+
+ .portion {
+    margin-top: 100px;
+ }
+
 #mainNavbar {
     font-size: 1.8em;
     font-weight: 700;
@@ -39,3 +58,4 @@ body {
     font-size: 2.8rem;
     }
 }
+
