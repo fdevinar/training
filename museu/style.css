@@ -17,6 +17,7 @@ i {
 p {
     color: white;
     line-height: 2;
+    margin-bottom: 0px;
  }
 
  .portion {
@@ -51,6 +52,11 @@ p {
 
 #tituloMuseu span {
     color: white;
+}
+
+.navbar.scrolled {
+    background-color: cornflowerblue;
+    transition: 500ms;
 }
 
 @media (max-width: 1200px) {
