@@ -55,7 +55,7 @@ p {
 }
 
 .navbar.scrolled {
-    background-color: cornflowerblue;
+    background-color: rgba(100, 148, 237, 0.75);
     transition: 500ms;
 }
 
