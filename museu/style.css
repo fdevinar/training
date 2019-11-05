@@ -54,9 +54,10 @@ p {
     color: white;
 }
 
-.navbar.scrolled {
-    background-color: rgba(100, 148, 237, 0.75);
+.scrolled {
+    background-color: rgba(14, 69, 170, 0.85);
     transition: 500ms;
+    border: 2px solid black;
 }
 
 @media (max-width: 1200px) {
