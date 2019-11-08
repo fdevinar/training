@@ -54,11 +54,15 @@ p {
     color: white;
 }
 
+img {
+    border: rgba(255, 255, 255, 0.6) solid 1.5px;
+}
+
 .scrolled {
     /* background-color: rgba(14, 69, 170, 0.85); */
     background-color: rgba(30,142,224,0.85);
     transition: 500ms;
-    border: 2px solid black;
+    border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 1200px) {
