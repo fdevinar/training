@@ -1,23 +1,30 @@
-// print all numbers between -10 and 19
-// for (i=-10; i<20; i++){
-//     console.log(i);
+//isEven - true if even, false otherwise
+
+// function isEven (num){
+//     return num % 2 === 0;
 // }
 
-// print all even numbers between 10 and 40
-// for (i=10; i<41; i+=2){
-//     console.log(i);
-// }
+// console.log(isEven(2));
+// console.log(isEven(3));
 
-// print all odd numbers between 300 and 333
-// for (i=300; i<334; i++){
-//     if (i % 2 !== 0){
-//         console.log(i);
+//////////////////////////////
+
+//factorial - returns the factorial of a number
+
+// function factorial (num){
+//     if (num ===0){
+//         return 1;
 //     }
+//     if (num !== 1){
+//         return num * factorial(num-1);
+//     }
+//     return 1;
 // }
 
-// print all numbers divisibly by 5 and 3 between 5 and 50
-// for (i=5; i<51; i++){
-//     if (i % 3 === 0 && i % 5 ===0){
-//         console.log(i);
-//     }
+//////////////////////////////
+
+//kebab to snake - gets kebab string, returns snake string
+
+// function kebabToSnake (str){
+//     return str.replace(/-/g, "_");
 // }
