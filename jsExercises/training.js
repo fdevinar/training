@@ -1,30 +1,23 @@
-//isEven - true if even, false otherwise
 
-// function isEven (num){
-//     return num % 2 === 0;
-// }
+var todos = [];
+window.setTimeout(function() {
+    while (action !== "quit"){
+        var action = prompt("What would you like to do?");
+        if (action === "new"){
+            todos.push(prompt("Please insert new To-Do:"));         
+        }
+        else if (action === "list"){
+            console.log(todos);
+        }
+    }
+}, 500);
 
-// console.log(isEven(2));
-// console.log(isEven(3));
 
-//////////////////////////////
+//TO-DO LIST 
+//new - add a toDo
+//list - list all toDos
+//quit - quit app
 
-//factorial - returns the factorial of a number
 
-// function factorial (num){
-//     if (num ===0){
-//         return 1;
-//     }
-//     if (num !== 1){
-//         return num * factorial(num-1);
-//     }
-//     return 1;
-// }
 
-//////////////////////////////
 
-//kebab to snake - gets kebab string, returns snake string
-
-// function kebabToSnake (str){
-//     return str.replace(/-/g, "_");
-// }
