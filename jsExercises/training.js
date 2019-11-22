@@ -9,8 +9,17 @@ window.setTimeout(function() {
         else if (action === "list"){
             console.log(todos);
         }
+        // else if (action === "print"){
+        //     createPara();
+        // }
     }
 }, 500);
+
+// function createPara () {
+//     let para = document.getElementById("p");
+//     let print = document.createTextNode("txt");
+//     para.appendChild(print);
+// }
 
 
 //TO-DO LIST 
