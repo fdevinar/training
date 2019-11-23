@@ -55,7 +55,7 @@ p {
 }
 
 img {
-    border: rgba(255, 255, 255, 0.6) solid 2.5px;
+    border: rgba(255, 255, 255, 0.6) dashed 2.5px;
 }
 
 .scrolled {
