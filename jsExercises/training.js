@@ -18,6 +18,11 @@ var movies = [
         title: "Monty Python",
         rating: 4.2,
         hasWatched: true
+    },
+    {
+        title: "City of God",
+        rating: 5.0,
+        hasWatched: true
     }
 ]
 
