@@ -39,18 +39,27 @@
 //             }
 
 
-// MANIPULANDO LIST ITEMS
-var li = document.querySelectorAll('li');
-console.log(li);
-li.forEach(function(el){
-    el.style.background = 'navy';
-    el.style.color = 'white';
-})
+// // MANIPULANDO LIST ITEMS
+// var li = document.querySelectorAll('li');
+// console.log(li);
+// li.forEach(function(el){
+//     el.style.color = 'black';
+// })
 
 // MANIPULANDO HINO (p com id)
 var hino = document.querySelector('#hino');
-console.log(hino);
 
+hino.style.backgroundColor = 'green';
 hino.style.borderColor = 'black';
-hino.style.borderStyle = 'dashed';
+hino.style.borderStyle = 'solid';
+
+hino.innerHTML = hino.innerHTML + ' Para o que der e vier!';
+
+// TOGGLE DARK 
+
+var body = document.querySelector('body');
+
+document.querySelector('button').addEventListener("click",function toggleDarkMode(){
+        body.classList.toggle('dark');
+    });
 
