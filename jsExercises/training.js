@@ -47,13 +47,13 @@
 // })
 
 // MANIPULANDO HINO (p com id)
-var hino = document.querySelector('#hino');
+// var hino = document.querySelector('#hino');
 
-hino.style.backgroundColor = 'green';
-hino.style.borderColor = 'black';
-hino.style.borderStyle = 'solid';
+// hino.style.backgroundColor = 'green';
+// hino.style.borderColor = 'black';
+// hino.style.borderStyle = 'solid';
 
-hino.innerHTML = hino.innerHTML + ' Para o que der e vier!';
+// hino.innerHTML = hino.innerHTML + ' Para o que der e vier!';
 
 // TOGGLE DARK 
 
