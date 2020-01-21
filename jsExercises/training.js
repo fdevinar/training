@@ -63,3 +63,14 @@ document.querySelector('button').addEventListener("click",function toggleDarkMod
         body.classList.toggle('dark');
     });
 
+// EXPERIMENT WITH LIs
+
+var lis = document.querySelectorAll('li');
+
+for (i=0; i<lis.length; i++){
+    lis[i].addEventListener('click',function(){
+        console.log(lis[i]);
+        console.log(this);
+        this.style.background = 'yellow';
+    });
+}
