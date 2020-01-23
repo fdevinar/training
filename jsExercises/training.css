@@ -14,5 +14,6 @@ body {
 }
 
 .yellow {
-    
+    background: yellow;
+    border: solid cyan 2px;
 }
