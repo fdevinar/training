@@ -71,6 +71,6 @@ for (i=0; i<lis.length; i++){
     lis[i].addEventListener('click',function(){
         console.log(lis[i]);
         console.log(this);
-        this.style.background = 'yellow';
+        this.classList.toggle('yellow');
     });
 }
