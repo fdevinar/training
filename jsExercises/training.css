@@ -5,10 +5,6 @@ body {
     color: ;
 }
 
-.jogadores {
-    background-color: cornflowerblue;
-}
-
 .dark {
     background-color: black;
     color: white;
@@ -19,6 +15,8 @@ body {
     background: yellow;
     border: solid cyan 2px;
 }
+
+/* SCORE EXERCISE */
 div, input, button, span {
     background-color: lemonchiffon;
     border: 2px solid black;

@@ -115,15 +115,14 @@ function updateP1 (){
 updateP1();
 
 // Score P1 Button
-
 var ElemBtnP1 = document.querySelector('#btn-p1');
 
 ElemBtnP1.addEventListener('click',function(){
     scoreP1 += 1;
+    disableScore();
     updateP1();
     declareWinner(scoreP1,scoreP2);
 });
-
 
 //*************** PLAYER 2 **********************/
 
@@ -140,17 +139,15 @@ function updateP2 (){
 updateP2();
 
 // Score P2 Button
-
 var ElemBtnP2 = document.querySelector('#btn-p2');
 
 ElemBtnP2.addEventListener('click',function(){
     console.log('Score Limit: ' + scoreLimit);
     scoreP2 += 1;
+    disableScore();
     updateP2();
     declareWinner(scoreP1,scoreP2);
 });
-
-
 
 //******************** LIMIT SCORE *******************/
 
@@ -174,19 +171,23 @@ BtnScore.addEventListener('click', function(){
     console.log('Score Limit: ' + scoreLimit);
 })
 
+function disableScore(){
+    document.getElementById('score').setAttribute('disabled',true);
+}
+
 //******************* DECLARE WINNER *****************/
 
 function declareWinner(scoreP1,scoreP2){
-    var winner = false;
+    var isWinner = false;
     if (scoreP1 == scoreLimit){
         ElemScoreP1.classList.add ('winner');
-        winner = true;
+        isWinner = true;
     }
     else if (scoreP2 == scoreLimit){
         ElemScoreP2.classList.add ('winner');
-        winner = true;
+        isWinner = true;
     }
-    if (winner){
+    if (isWinner){
         ElemBtnP1.setAttribute('disabled',true);
         ElemBtnP2.setAttribute('disabled',true);
     }
@@ -205,5 +206,6 @@ ElemBtnReset.addEventListener('click',function(){
     ElemScoreP2.classList.remove ('winner');
     ElemBtnP1.removeAttribute('disabled');
     ElemBtnP2.removeAttribute('disabled');
+    document.getElementById('score').removeAttribute('disabled');
 });
 
