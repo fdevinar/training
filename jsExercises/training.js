@@ -197,17 +197,13 @@ function declareWinner(scoreP1,scoreP2){
 var ElemBtnReset = document.getElementById('btn-reset');
 
 ElemBtnReset.addEventListener('click',function(){
-    console.log(ElemBtnReset);
-    console.log(scoreP1,scoreP2);
     scoreP1 = 0;
     updateP1();
     ElemScoreP1.classList.remove ('winner');
     scoreP2 = 0;
     updateP2();
     ElemScoreP2.classList.remove ('winner');
-    console.log(ElemBtnP1.getAttribute('disabled'));
-    ElemBtnP1.setAttribute('disabled',false);
-    ElemBtnP2.setAttribute('disabled',false);
-    console.log(ElemBtnP1.getAttribute('disabled'));
+    ElemBtnP1.removeAttribute('disabled');
+    ElemBtnP2.removeAttribute('disabled');
 });
 
