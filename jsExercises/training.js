@@ -74,115 +74,140 @@
 //     });
 // }
 
-var Player1 = {
-    name: "P1",
-    score: 0,
-    limit: 0
-};
+// var Player1 = {
+//     name: "P1",
+//     score: 0,
+//     limit: 0
+// };
 
-var Player2 = {
-    name: "P2",
-    score: 0,
-    limit: 0
-};
+// var Player2 = {
+//     name: "P2",
+//     score: 0,
+//     limit: 0
+// };
 
-var p1 = document.querySelector('#p1');
-var p2 = document.querySelector('#p2');
+// var p1 = document.getElementById('p1');
+// var p2 = document.getElementById('p2');
 
-p1.innerHTML= '<ul><li>' + Player1.name + '</li>' 
-            + '<li>' + Player1.score + '</li>'
-            + '<li>' + Player1.limit + '</li>';
+// // p1.innerHTML = 
 
+// function printPlayer(player){
+//     console.log(player);
+//     p1.innerHTML = 'Name:' + Player1.name + ' Score:' + Player1.score + ' Limit:' + Player1.limit;
 
-
-
-
-// //*************** PLAYER 1 **********************/
-
-// // Initialize P1 Score
-// var scoreP1 = 0;
-// // Grab HTML Score Element for P1
-// var ElemScoreP1 = document.querySelector('#score-p1');
-
-// // Update P1 Score on HTML and JS Variable
-// function updateP1 (){
-//     ElemScoreP1.setAttribute('value',scoreP1);
-//     ElemScoreP1.textContent = ElemScoreP1.getAttribute('value');
 // }
-// updateP1();
 
-// // Score P1 Button
-
-// var ElemBtnP1 = document.querySelector('#btn-p1');
-
-// ElemBtnP1.addEventListener('click',function(){
-//     scoreP1 += 1;
-//     updateP1();
-//     declareWinner(scoreP1,scoreP2);
-// });
+// printPlayer(p1);
 
 
-// //*************** PLAYER 2 **********************/
+//*************** PLAYER 1 **********************/
 
-// // Initialize P2 Score
-// var scoreP2 = 0;
-// // Grab HTML Score Element for P2
-// var ElemScoreP2 = document.querySelector('#score-p2');
+// Initialize P1 Score
+var scoreP1 = 0;
+// Grab HTML Score Element for P1
+var ElemScoreP1 = document.querySelector('#score-p1');
 
-// // Update P2 Score on HTML and JS Variable
-// function updateP2 (){
-//     ElemScoreP2.setAttribute('value',scoreP2);
-//     ElemScoreP2.textContent = ElemScoreP2.getAttribute('value');
-// }
-// updateP2();
+// Update P1 Score on HTML and JS Variable
+function updateP1 (){
+    ElemScoreP1.setAttribute('value',scoreP1);
+    ElemScoreP1.textContent = ElemScoreP1.getAttribute('value');
+}
+updateP1();
 
-// // Score P2 Button
+// Score P1 Button
 
-// var ElemBtnP2 = document.querySelector('#btn-p2');
+var ElemBtnP1 = document.querySelector('#btn-p1');
 
-// ElemBtnP2.addEventListener('click',function(){
-//     scoreP2 += 1;
-//     updateP2();
-//     declareWinner(scoreP1,scoreP2);
-// });
+ElemBtnP1.addEventListener('click',function(){
+    scoreP1 += 1;
+    updateP1();
+    declareWinner(scoreP1,scoreP2);
+});
+
+
+//*************** PLAYER 2 **********************/
+
+// Initialize P2 Score
+var scoreP2 = 0;
+// Grab HTML Score Element for P2
+var ElemScoreP2 = document.querySelector('#score-p2');
+
+// Update P2 Score on HTML and JS Variable
+function updateP2 (){
+    ElemScoreP2.setAttribute('value',scoreP2);
+    ElemScoreP2.textContent = ElemScoreP2.getAttribute('value');
+}
+updateP2();
+
+// Score P2 Button
+
+var ElemBtnP2 = document.querySelector('#btn-p2');
+
+ElemBtnP2.addEventListener('click',function(){
+    console.log('Score Limit: ' + scoreLimit);
+    scoreP2 += 1;
+    updateP2();
+    declareWinner(scoreP1,scoreP2);
+});
 
 
 
-// //******************** LIMIT SCORE *******************/
+//******************** LIMIT SCORE *******************/
 
-// var scoreLimit = 5;
+var scoreLimit = 5;
+console.log(scoreLimit);
 
-// var ElemScoreLimit = document.querySelector('#score-limit');
-// var BtnScore = document.querySelector('#score');
+var ElemScoreLimit = document.querySelector('#score-limit');
+var BtnScore = document.querySelector('#score');
 
-// BtnScore.setAttribute('value',scoreLimit);
-// ElemScoreLimit.textContent=BtnScore.getAttribute('value');
+BtnScore.setAttribute('value',scoreLimit);
+ElemScoreLimit.textContent=BtnScore.getAttribute('value');
 
-// BtnScore.addEventListener('click', function(){
-//     BtnScore.setAttribute('value',this.value);
-//     ElemScoreLimit.textContent=BtnScore.getAttribute('value');
-    
-    
-//     // CONFERIR - NAO ESTA ATUALIZANDO O scoreLimit
-//     scoreLimit = this.value;
+BtnScore.addEventListener('click', function(){
+    BtnScore.setAttribute('value',this.value);
+    ElemScoreLimit.innerHTML=BtnScore.getAttribute('value');
 
-// })
+    // CONFERIR - NAO ESTA ATUALIZANDO O scoreLimit
+    // scoreLimit = this.value;
 
-// //******************* DECLARE WINNER *****************/
+    scoreLimit = this.value;
+    console.log('Score Limit: ' + scoreLimit);
+})
 
-// function declareWinner(scoreP1,scoreP2){
-//     var winner = false;
-//     if (scoreP1 === scoreLimit){
-//         ElemScoreP1.style.color = 'green';
-//         winner = true;
-//     }
-//     else if (scoreP2 === scoreLimit){
-//         ElemScoreP2.style.color = 'green';
-//         winner = true;
-//     }
-//     if (winner){
-//         ElemBtnP1.setAttribute('disabled',true);
-//         ElemBtnP2.setAttribute('disabled',true);
-//     }
-// }
+//******************* DECLARE WINNER *****************/
+
+function declareWinner(scoreP1,scoreP2){
+    var winner = false;
+    if (scoreP1 == scoreLimit){
+        ElemScoreP1.classList.add ('winner');
+        winner = true;
+    }
+    else if (scoreP2 == scoreLimit){
+        ElemScoreP2.classList.add ('winner');
+        winner = true;
+    }
+    if (winner){
+        ElemBtnP1.setAttribute('disabled',true);
+        ElemBtnP2.setAttribute('disabled',true);
+    }
+}
+
+//******************** RESET ************************/
+
+var ElemBtnReset = document.getElementById('btn-reset');
+
+ElemBtnReset.addEventListener('click',function(){
+    console.log(ElemBtnReset);
+    console.log(scoreP1,scoreP2);
+    scoreP1 = 0;
+    updateP1();
+    ElemScoreP1.classList.remove ('winner');
+    scoreP2 = 0;
+    updateP2();
+    ElemScoreP2.classList.remove ('winner');
+    console.log(ElemBtnP1.getAttribute('disabled'));
+    ElemBtnP1.setAttribute('disabled',false);
+    ElemBtnP2.setAttribute('disabled',false);
+    console.log(ElemBtnP1.getAttribute('disabled'));
+});
 

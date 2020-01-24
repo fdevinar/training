@@ -1,7 +1,8 @@
 
 body {
-    background-color: #33BEFF;
+    background-color: darkkhaki;
     font-size: 1.6rem;
+    color: ;
 }
 
 .jogadores {
@@ -17,4 +18,30 @@ body {
 .yellow {
     background: yellow;
     border: solid cyan 2px;
+}
+div, input, button, span {
+    background-color: lemonchiffon;
+    border: 2px solid black;
+}
+
+div {
+    width: 30%;
+}
+
+.winner {
+    background: yellow;
+    color: green;
+}
+
+span {
+    padding: 10px;
+}
+
+input {
+    font-size: 80%;
+    width: 40px;
+}
+
+button {
+    font-size: 70%;
 }
