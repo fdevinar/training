@@ -1,6 +1,6 @@
 
 body {
-    background-color: darkkhaki;
+    background-color: tan;
     font-size: 1.6rem;
     color: ;
 }
@@ -42,4 +42,13 @@ input {
 
 button {
     font-size: 70%;
+}
+
+.lisChange {
+    color: yellow;
+    background: grey;
+}
+
+ul {
+    width: 12%;
 }

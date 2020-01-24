@@ -63,42 +63,8 @@
 //         body.classList.toggle('dark');
 //     });
 
-// // EXPERIMENT WITH LIs
 
-// var lis = document.querySelectorAll('li');
-
-// for (i=0; i<lis.length; i++){
-//     lis[i].addEventListener('click',function(){
-//         console.log(this);
-//         this.classList.toggle('yellow');
-//     });
-// }
-
-// var Player1 = {
-//     name: "P1",
-//     score: 0,
-//     limit: 0
-// };
-
-// var Player2 = {
-//     name: "P2",
-//     score: 0,
-//     limit: 0
-// };
-
-// var p1 = document.getElementById('p1');
-// var p2 = document.getElementById('p2');
-
-// // p1.innerHTML = 
-
-// function printPlayer(player){
-//     console.log(player);
-//     p1.innerHTML = 'Name:' + Player1.name + ' Score:' + Player1.score + ' Limit:' + Player1.limit;
-
-// }
-
-// printPlayer(p1);
-
+//*************** SCORE KEEPER GAME**************//
 
 //*************** PLAYER 1 **********************/
 
@@ -160,14 +126,10 @@ var BtnScore = document.querySelector('#score');
 BtnScore.setAttribute('value',scoreLimit);
 ElemScoreLimit.textContent=BtnScore.getAttribute('value');
 
-BtnScore.addEventListener('click', function(){
+BtnScore.addEventListener('change', function(){
     BtnScore.setAttribute('value',this.value);
     ElemScoreLimit.innerHTML=BtnScore.getAttribute('value');
-
-    // CONFERIR - NAO ESTA ATUALIZANDO O scoreLimit
-    // scoreLimit = this.value;
-
-    scoreLimit = this.value;
+    scoreLimit = Number(this.value);
     console.log('Score Limit: ' + scoreLimit);
 })
 
@@ -179,11 +141,11 @@ function disableScore(){
 
 function declareWinner(scoreP1,scoreP2){
     var isWinner = false;
-    if (scoreP1 == scoreLimit){
+    if (scoreP1 === scoreLimit){
         ElemScoreP1.classList.add ('winner');
         isWinner = true;
     }
-    else if (scoreP2 == scoreLimit){
+    else if (scoreP2 === scoreLimit){
         ElemScoreP2.classList.add ('winner');
         isWinner = true;
     }
@@ -209,3 +171,14 @@ ElemBtnReset.addEventListener('click',function(){
     document.getElementById('score').removeAttribute('disabled');
 });
 
+
+var lis = document.querySelectorAll('li');
+
+for (i=0; i<lis.length; i++){
+    lis[i].addEventListener('mouseover',function(){
+        this.classList.add('lisChange');
+    });
+    lis[i].addEventListener('mouseout',function(){
+        this.classList.remove('lisChange');
+    });
+}
