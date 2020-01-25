@@ -1,0 +1,31 @@
+.bodydark {
+    background-color: grey;
+}
+
+.main-nav {
+    background-color: darkseagreen;
+    border: 2px solid black;
+}
+
+.aux-bar {
+    background-color: darkkhaki;
+    border: 2px solid black;
+    font-size: 1.2rem;
+}
+
+.main-block {
+    background-color: cornsilk;
+}
+
+.color-blocks {
+    align-self: center;
+
+}
+
+.color {
+    border: 2px solid red;
+    height: 120px;
+    width: 120px;
+    background-color: orange;
+
+}
