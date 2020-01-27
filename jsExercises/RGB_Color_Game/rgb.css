@@ -25,9 +25,11 @@
 .color {
     border: 2px solid black;
     height: 120px;
-    width: 120px;
-    background-color: orange;
     color: black;
     font-size: 1.4rem;
-    padding: 45px;
+}
+
+.highlight{
+    filter: brightness(1.2);
+    border: 0;
 }
