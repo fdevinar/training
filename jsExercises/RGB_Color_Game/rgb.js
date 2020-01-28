@@ -37,4 +37,14 @@ var randomRgb = Math.floor(Math.random() * colors.length);
 h2rgb.textContent = colors[randomRgb].textContent;
 
 
+// CHECK IF GUESS IS RIGHT
+
+for (i=0; i<colors.length; i++){
+    colors[i].addEventListener('click',function(){
+        if ((randomRgb + 1) === Number(this.getAttribute('value'))){
+            console.log('YOU GUESSED RIGHT!');
+            document.getElementById('result').innerHTML = '<strong>CORRECT!</strong>';
+        }
+    })
+}
 
