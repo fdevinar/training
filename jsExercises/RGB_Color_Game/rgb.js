@@ -28,3 +28,13 @@ for (i=0; i<colors.length; i++){
     })
 };
 
+// SET RGB COLOR TO BE GUESSED
+// Grab H2 Element for guessed RGB
+var h2rgb = document.getElementById('guessThisRgb');
+// Grab RGB to be guessed, 0 to 5 - index for color blocks 
+var randomRgb = Math.floor(Math.random() * colors.length);
+// Prints on screen the RGB to be guessed
+h2rgb.textContent = colors[randomRgb].textContent;
+
+
+
