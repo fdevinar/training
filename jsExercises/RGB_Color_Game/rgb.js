@@ -40,15 +40,19 @@ h2rgb.textContent = colors[randomRgb].textContent;
 
 // CHECK IF GUESS IS RIGHT
 
+var result = document.getElementById('result');
+
 for (i=0; i<colors.length; i++){
     colors[i].addEventListener('click',function(){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             console.log('YOU GUESSED RIGHT!');
-            document.getElementById('result').innerHTML = '<strong>CORRECT!</strong>';
+            result.innerHTML = '<strong>CORRECT!</strong>';
+            // result.setAttribute('hidden','false');
             this.classList.remove('hide');
         }
         else{
-            document.getElementById('result').innerHTML = '<strong>WRONG!</strong>';
+            result.innerHTML = '<strong>WRONG!</strong>';
+            // result.setAttribute('hidden','false');
         }
     })
 }
