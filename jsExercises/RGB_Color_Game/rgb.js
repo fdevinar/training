@@ -12,7 +12,8 @@ function generateRandomColor(block){
 for (i=0; i<colors.length; i++){
     var rgb = generateRandomColor(colors[i]);
     colors[i].style.background = rgb;
-    colors[i].textContent = rgb;   
+    colors[i].textContent = rgb;
+    colors[i].classList.add('hide');  
 };
 
 // APPLY HIGHLIGHT TO BLOCKS WHEN MOUSE OVER
@@ -44,6 +45,10 @@ for (i=0; i<colors.length; i++){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             console.log('YOU GUESSED RIGHT!');
             document.getElementById('result').innerHTML = '<strong>CORRECT!</strong>';
+            this.classList.remove('hide');
+        }
+        else{
+            document.getElementById('result').innerHTML = '<strong>WRONG!</strong>';
         }
     })
 }
