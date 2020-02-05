@@ -45,4 +45,10 @@
 
 #rgb-model{
     height: 180px;
+    border: solid black 2px;
+}
+
+.chosen-diff {
+    border: solid 2px black;
+    background: yellow;
 }
