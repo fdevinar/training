@@ -13,20 +13,16 @@ function generateRandomColor(block){
 var diff = 'hard';
 var blockNum = 6;
 generateHardBlocks();
-// grabRGB();
 randomRgb = grabRGB();
 
-// Grab H2 Element for guessed RGB
-var h2rgb = document.getElementById('guessThisRgb');
-h2rgb.textContent = colors[randomRgb].textContent;
-console.log(randomRgb);
-
-var level = document.getElementsByClassName('level');
-
 // HIGHLIGHT HARD AS DEFAULT DIFFICULTY
+var level = document.getElementsByClassName('level');
 level[1].classList.add('chosen-diff');
 
-/////// FIX THIS - randomRGB NOT CHANGING AFTER CHOSEN DIFF
+// GRAB H2 ELEMENT FOR GUESSED RGB
+var h2rgb = document.getElementById('guessThisRgb');
+// DISPLAY GUESSED RGB CODE ON H2
+h2rgb.textContent = colors[randomRgb].textContent;
 
 // CHANGE DIFF CLICKING ON LEVEL
 for (i=0; i<2; i++){
@@ -40,7 +36,6 @@ for (i=0; i<2; i++){
             generateHardBlocks();
             showOnHard();
             randomRgb = grabRGB();
-            console.log(randomRgb);
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
         }
@@ -50,7 +45,6 @@ for (i=0; i<2; i++){
             blockNum = 3;
             generateEasyBlocks();
             randomRgb = grabRGB();
-            console.log(randomRgb);
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
         }  
@@ -58,40 +52,29 @@ for (i=0; i<2; i++){
                 }      
 
 // REMOVE BLOCKS BASED ON DIFF
-
 function hideOnEasy(){
     for (i=3; i<6; i++){
-        console.log('HideOnEasy');
         colors[i].setAttribute('hidden','true');
     }
 }
 
-
 function showOnHard(){
     for (i=3; i<6; i++){
-        console.log('ShowOnHard');
         colors[i].removeAttribute('hidden');
     }
 }
 
-///////////////////////////////////////////////////////////////////////////
-
 // SET RGB COLOR TO BE GUESSED
-
 // Grab RGB to be guessed, 0 to 5 - index for color blocks
 function grabRGB(){
     if (diff === 'hard'){
-        console.log('LOOP HARD');
         return Math.floor(Math.random() * 6);
     }
     if (diff === 'easy'){
         // 
-        console.log('LOOP EASY');
         return Math.floor(Math.random() * 3);
     }
 }
-
-///////////////////////////////////////////////////////////////////////////
 
 // APPLY RANDOM COLOR TO BLOCK
 // EASY MODE
@@ -102,7 +85,6 @@ for (i=0; i<3; i++){
     colors[i].textContent = rgb;
     colors[i].classList.add('hide');  
 }};
-
 // HARD MODE
 function generateHardBlocks(){
     for (i=0; i<6; i++){
@@ -126,20 +108,16 @@ for (i=0; i<colors.length; i++){
 };
 
 // CHECK IF GUESS IS RIGHT
-
 var result = document.getElementById('result');
 
 for (i=0; i<colors.length; i++){
     colors[i].addEventListener('click',function(){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
-            console.log('YOU GUESSED RIGHT!');
             result.innerHTML = '<strong>CORRECT!</strong>';
-            // result.setAttribute('hidden','false');
             this.classList.remove('hide');
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
-            // result.setAttribute('hidden','false');
         }
     })
 }
