@@ -1,3 +1,4 @@
+// GRAB COLOR BLOCKS HTML ELEMENT
 var colors = document.querySelectorAll('.color');
 
 // GENERATE RANDOM COLOR
@@ -7,8 +8,6 @@ function generateRandomColor(block){
     var blue = Math.floor(Math.random()*255);
     return ('rgb(' + red + ',' + green + ',' + blue + ')');
 }
-
-///////////////////////////////////////////////////////////////////////////
 
 // CHOOSE DIFFICULTY AND INITIATE PARAMETERS
 var diff = 'hard';
