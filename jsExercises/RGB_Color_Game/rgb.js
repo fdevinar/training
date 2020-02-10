@@ -33,10 +33,11 @@ for (i=0; i<2; i++){
         // CHANGE HIGHLIGHT BASED ON LEVEL SELECTED
         if (diff === 'hard'){
             document.getElementById('easy').classList.remove('chosen-diff');
+            randomRgb = grabRGB();
             blockNum = 6;
             generateHardBlocks();
             showOnHard();
-            randomRgb = grabRGB();
+            
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
             mainNav[0].style.backgroundColor = 'slategray';
@@ -44,10 +45,11 @@ for (i=0; i<2; i++){
         }
         if (diff === 'easy'){
             document.getElementById('hard').classList.remove('chosen-diff');
+            randomRgb = grabRGB();
             hideOnEasy();
             blockNum = 3;
             generateEasyBlocks();
-            randomRgb = grabRGB();
+            
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
             mainNav[0].style.backgroundColor = 'slategray';
@@ -73,11 +75,11 @@ function showOnHard(){
 // Grab RGB to be guessed, 0 to 5 - index for color blocks
 function grabRGB(){
     if (diff === 'hard'){
-        return Math.floor((Math.random() * 6 )+ 1);
+        return Math.floor(Math.random() * 6 );
     }
     if (diff === 'easy'){
         // 
-        return Math.floor((Math.random() * 3 )+ 1);
+        return Math.floor(Math.random() * 3 );
     }
 }
 
@@ -126,11 +128,10 @@ for (i=0; i<colors.length; i++){
             this.classList.remove('hide');
             mainNav[0].style.backgroundColor = h2rgb.textContent;
             victory = true;
-            // correctBlocks();
+            correctBlocks();
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
-            console.log(this);
             victory = false;
             this.style.backgroundColor = 'rgb(30, 30, 30)';
         }
@@ -140,22 +141,22 @@ for (i=0; i<colors.length; i++){
 //FIX - CHANGE ALL BLOCKS TO CORRECT COLOR
 //CHANGE ALL BLOCKS TO CORRECT COLOR
 
-// function correctBlocks(){
-//     if (victory){
-//         if (diff === 'easy'){
-//             console.log('easy');
-//             for (i=0; i<3; i++){
-//                 colors[i].style.backgroundColor = 'black';
-//         }
-//         if (diff === 'hard') {
-//             console.log('hard');
-//             for (i=0; i<6; i++){
-//                 colors[i].style.backgroundColor = 'black';
-//             }
-//         }
-//         }
-//     }
-// };
+function correctBlocks(){
+    if (victory){
+        if (diff === 'easy'){
+            console.log('easy');
+            for (i=0; i<3; i++){
+                colors[i].style.backgroundColor = h2rgb.textContent;
+            }
+        }
+        else if (diff === 'hard') {
+            console.log('hard');
+            for (i=0; i<6; i++){
+                colors[i].style.backgroundColor = h2rgb.textContent;
+            }
+        }
+        }
+    };
 
 // REFRESH COLORS
 document.getElementById('new').addEventListener('click',function(){
