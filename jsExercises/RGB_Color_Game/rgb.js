@@ -122,3 +122,12 @@ for (i=0; i<colors.length; i++){
     })
 }
 
+// REFRESH COLORS
+document.getElementById('new').addEventListener('click',function(){
+    if (diff = 'hard'){
+        generateHardBlocks();
+    }
+    else {
+        generateEasyBlocks();
+    }
+});
