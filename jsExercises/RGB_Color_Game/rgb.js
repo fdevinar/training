@@ -78,7 +78,7 @@ function grabRGB(){
         return Math.floor(Math.random() * 6 );
     }
     if (diff === 'easy'){
-        // 
+        
         return Math.floor(Math.random() * 3 );
     }
 }
@@ -144,13 +144,11 @@ for (i=0; i<colors.length; i++){
 function correctBlocks(){
     if (victory){
         if (diff === 'easy'){
-            console.log('easy');
             for (i=0; i<3; i++){
                 colors[i].style.backgroundColor = h2rgb.textContent;
             }
         }
         else if (diff === 'hard') {
-            console.log('hard');
             for (i=0; i<6; i++){
                 colors[i].style.backgroundColor = h2rgb.textContent;
             }
@@ -160,7 +158,7 @@ function correctBlocks(){
 
 // REFRESH COLORS
 document.getElementById('new').addEventListener('click',function(){
-    if (diff = 'hard'){
+    if (diff === 'hard'){
         randomRgb = grabRGB();
         generateHardBlocks();
         h2rgb.textContent = colors[randomRgb].textContent;
@@ -175,5 +173,3 @@ document.getElementById('new').addEventListener('click',function(){
         result.innerHTML = 'PICK A COLOR:';
     }
 });
-    
-    
