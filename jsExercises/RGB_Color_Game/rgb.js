@@ -126,6 +126,8 @@ for (i=0; i<colors.length; i++){
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
+            console.log(this);
+            this.style.backgroundColor = 'rgb(30, 30, 30)';
         }
     })
 }
@@ -145,3 +147,5 @@ document.getElementById('new').addEventListener('click',function(){
         result.innerHTML = 'PICK A COLOR:';
     }
 });
+
+// IMPLEMENT FADE TO BLACK ON WRONG BLOCKS
