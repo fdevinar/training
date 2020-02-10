@@ -14,6 +14,7 @@ var diff = 'hard';
 var blockNum = 6;
 generateHardBlocks();
 randomRgb = grabRGB();
+var victory = false;
 
 // HIGHLIGHT HARD AS DEFAULT DIFFICULTY
 var level = document.getElementsByClassName('level');
@@ -72,11 +73,11 @@ function showOnHard(){
 // Grab RGB to be guessed, 0 to 5 - index for color blocks
 function grabRGB(){
     if (diff === 'hard'){
-        return Math.floor(Math.random() * 6);
+        return Math.floor((Math.random() * 6 )+ 1);
     }
     if (diff === 'easy'){
         // 
-        return Math.floor(Math.random() * 3);
+        return Math.floor((Math.random() * 3 )+ 1);
     }
 }
 
@@ -111,41 +112,67 @@ for (i=0; i<colors.length; i++){
     })
 };
 
-// CHECK IF GUESS IS RIGHT
+// GRAB RESULT ELEMENT
 var result = document.getElementById('result');
 
 // GRAB MAIN NAV COLOR
 var mainNav = document.getElementsByClassName('main-nav');
 
+// ADD EVENT TO EACH BLOCK - CHECKING IF CORRECT
 for (i=0; i<colors.length; i++){
     colors[i].addEventListener('click',function(){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             result.innerHTML = '<strong>CORRECT!</strong>';
             this.classList.remove('hide');
             mainNav[0].style.backgroundColor = h2rgb.textContent;
+            victory = true;
+            // correctBlocks();
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
             console.log(this);
+            victory = false;
             this.style.backgroundColor = 'rgb(30, 30, 30)';
         }
     })
 }
 
+//FIX - CHANGE ALL BLOCKS TO CORRECT COLOR
+//CHANGE ALL BLOCKS TO CORRECT COLOR
+
+// function correctBlocks(){
+//     if (victory){
+//         if (diff === 'easy'){
+//             console.log('easy');
+//             for (i=0; i<3; i++){
+//                 colors[i].style.backgroundColor = 'black';
+//         }
+//         if (diff === 'hard') {
+//             console.log('hard');
+//             for (i=0; i<6; i++){
+//                 colors[i].style.backgroundColor = 'black';
+//             }
+//         }
+//         }
+//     }
+// };
+
 // REFRESH COLORS
 document.getElementById('new').addEventListener('click',function(){
     if (diff = 'hard'){
+        randomRgb = grabRGB();
         generateHardBlocks();
         h2rgb.textContent = colors[randomRgb].textContent;
         mainNav[0].style.backgroundColor = 'slategray';
         result.innerHTML = 'PICK A COLOR:';
     }
     else {
+        randomRgb = grabRGB();
         generateEasyBlocks();
         h2rgb.textContent = colors[randomRgb].textContent;
         mainNav[0].style.backgroundColor = 'slategray';
         result.innerHTML = 'PICK A COLOR:';
     }
 });
-
-// IMPLEMENT FADE TO BLACK ON WRONG BLOCKS
+    
+    
