@@ -1,5 +1,5 @@
 :root {
-    --main-bg-color: rgb(30,30,30);
+    --main-bg-color: rgb(30, 30, 30);
   }
 
 .bodydark {
@@ -23,6 +23,7 @@
 
 .color-blocks {
     align-self: center;
+    /* width: 30%; */
 
 }
 

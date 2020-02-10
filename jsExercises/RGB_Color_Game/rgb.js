@@ -6,7 +6,7 @@ function generateRandomColor(block){
     var red = Math.floor(Math.random()*255);
     var green = Math.floor(Math.random()*255);
     var blue = Math.floor(Math.random()*255);
-    return ('rgb(' + red + ',' + green + ',' + blue + ')');
+    return ('rgb(' + red + ', ' + green + ', ' + blue + ')');
 }
 
 // CHOOSE DIFFICULTY AND INITIATE PARAMETERS
@@ -38,7 +38,8 @@ for (i=0; i<2; i++){
             randomRgb = grabRGB();
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
-            mainNav[0].style.background = 'slategray';
+            mainNav[0].style.backgroundColor = 'slategray';
+            result.innerHTML = 'PICK A COLOR:';
         }
         if (diff === 'easy'){
             document.getElementById('hard').classList.remove('chosen-diff');
@@ -48,7 +49,8 @@ for (i=0; i<2; i++){
             randomRgb = grabRGB();
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
-            mainNav[0].style.background = 'slategray';
+            mainNav[0].style.backgroundColor = 'slategray';
+            result.innerHTML = 'PICK A COLOR:';
         }  
         })
                 }      
@@ -83,7 +85,7 @@ function grabRGB(){
 function generateEasyBlocks(){
 for (i=0; i<3; i++){
     var rgb = generateRandomColor(colors[i]);
-    colors[i].style.background = rgb;
+    colors[i].style.backgroundColor = rgb;
     colors[i].textContent = rgb;
     colors[i].classList.add('hide');  
 }};
@@ -91,9 +93,9 @@ for (i=0; i<3; i++){
 function generateHardBlocks(){
     for (i=0; i<6; i++){
         var rgb = generateRandomColor(colors[i]);
-        colors[i].style.background = rgb;
+        colors[i].style.backgroundColor = rgb;
         colors[i].textContent = rgb;
-        colors[i].classList.add('hide');  
+        colors[i].classList.add('hide');
 }};
 
 // APPLY HIGHLIGHT TO BLOCKS WHEN MOUSE OVER
@@ -120,7 +122,7 @@ for (i=0; i<colors.length; i++){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             result.innerHTML = '<strong>CORRECT!</strong>';
             this.classList.remove('hide');
-            mainNav[0].style.background = h2rgb.textContent;
+            mainNav[0].style.backgroundColor = h2rgb.textContent;
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
@@ -133,11 +135,13 @@ document.getElementById('new').addEventListener('click',function(){
     if (diff = 'hard'){
         generateHardBlocks();
         h2rgb.textContent = colors[randomRgb].textContent;
-        mainNav[0].style.background = 'slategray';
+        mainNav[0].style.backgroundColor = 'slategray';
+        result.innerHTML = 'PICK A COLOR:';
     }
     else {
         generateEasyBlocks();
         h2rgb.textContent = colors[randomRgb].textContent;
-        mainNav[0].style.background = 'slategray';
+        mainNav[0].style.backgroundColor = 'slategray';
+        result.innerHTML = 'PICK A COLOR:';
     }
 });
