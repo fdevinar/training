@@ -38,6 +38,7 @@ for (i=0; i<2; i++){
             randomRgb = grabRGB();
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
+            mainNav[0].style.background = 'slategray';
         }
         if (diff === 'easy'){
             document.getElementById('hard').classList.remove('chosen-diff');
@@ -47,6 +48,7 @@ for (i=0; i<2; i++){
             randomRgb = grabRGB();
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
+            mainNav[0].style.background = 'slategray';
         }  
         })
                 }      
@@ -110,11 +112,15 @@ for (i=0; i<colors.length; i++){
 // CHECK IF GUESS IS RIGHT
 var result = document.getElementById('result');
 
+// GRAB MAIN NAV COLOR
+var mainNav = document.getElementsByClassName('main-nav');
+
 for (i=0; i<colors.length; i++){
     colors[i].addEventListener('click',function(){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             result.innerHTML = '<strong>CORRECT!</strong>';
             this.classList.remove('hide');
+            mainNav[0].style.background = h2rgb.textContent;
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
@@ -126,8 +132,12 @@ for (i=0; i<colors.length; i++){
 document.getElementById('new').addEventListener('click',function(){
     if (diff = 'hard'){
         generateHardBlocks();
+        h2rgb.textContent = colors[randomRgb].textContent;
+        mainNav[0].style.background = 'slategray';
     }
     else {
         generateEasyBlocks();
+        h2rgb.textContent = colors[randomRgb].textContent;
+        mainNav[0].style.background = 'slategray';
     }
 });
