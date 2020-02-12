@@ -1,6 +1,6 @@
 :root {
     --main-bg-color: rgb(30, 30, 30);
-  }
+}
 
 .bodydark {
     background-color: var(--main-bg-color);
