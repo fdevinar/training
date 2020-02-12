@@ -128,6 +128,7 @@ for (i=0; i<colors.length; i++){
             this.classList.remove('hide');
             mainNav[0].style.backgroundColor = h2rgb.textContent;
             victory = true;
+            document.getElementById('new').innerHTML = 'PLAY AGAIN?';
             correctBlocks();
         }
         else{
@@ -164,6 +165,7 @@ document.getElementById('new').addEventListener('click',function(){
         h2rgb.textContent = colors[randomRgb].textContent;
         mainNav[0].style.backgroundColor = 'slategray';
         result.innerHTML = 'PICK A COLOR:';
+        document.getElementById('new').innerHTML = 'NEW COLORS';
     }
     else {
         randomRgb = grabRGB();
@@ -171,5 +173,6 @@ document.getElementById('new').addEventListener('click',function(){
         h2rgb.textContent = colors[randomRgb].textContent;
         mainNav[0].style.backgroundColor = 'slategray';
         result.innerHTML = 'PICK A COLOR:';
+        document.getElementById('new').innerHTML = 'NEW COLORS';
     }
 });
