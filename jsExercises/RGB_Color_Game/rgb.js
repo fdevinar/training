@@ -37,7 +37,6 @@ for (i=0; i<2; i++){
             blockNum = 6;
             generateHardBlocks();
             showOnHard();
-            
             // Prints on screen the RGB to be guessed
             h2rgb.textContent = colors[randomRgb].textContent;
             mainNav[0].style.backgroundColor = 'slategray';
@@ -62,12 +61,14 @@ for (i=0; i<2; i++){
 function hideOnEasy(){
     for (i=3; i<6; i++){
         colors[i].setAttribute('hidden','true');
+        // colors[i].style.display = 'none';
     }
 }
 
 function showOnHard(){
     for (i=3; i<6; i++){
         colors[i].removeAttribute('hidden');
+        // colors[i].style.display = 'block    ';
     }
 }
 
