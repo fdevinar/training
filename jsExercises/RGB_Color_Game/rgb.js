@@ -3,9 +3,9 @@ var colors = document.querySelectorAll('.color');
 
 // GENERATE RANDOM COLOR
 function generateRandomColor(block){
-    var red = Math.floor(Math.random()*255);
-    var green = Math.floor(Math.random()*255);
-    var blue = Math.floor(Math.random()*255);
+    var red = Math.floor(Math.random()*256);
+    var green = Math.floor(Math.random()*256);
+    var blue = Math.floor(Math.random()*256);
     return ('rgb(' + red + ', ' + green + ', ' + blue + ')');
 }
 
