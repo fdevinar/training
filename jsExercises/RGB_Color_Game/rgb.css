@@ -1,9 +1,16 @@
+
+/*
+        TO-DO: CREATE HOVER IN SPAN (BUTTONS)
+*/
+
 :root {
     --main-bg-color: rgb(30, 30, 30);
 }
 
+
 .bodydark {
     background-color: var(--main-bg-color);
+    font-family: "avenir";
 }
 
 .main-nav {
@@ -14,7 +21,7 @@
     background-color: white;
     font-size: 1.2rem;
     font-weight: 600;
-    /* height: 50px; */
+    letter-spacing: 1px;
 }
 
 .main-block {
@@ -22,16 +29,17 @@
 }
 
 .color-blocks {
-    align-self: center;
-    /* width: 30%; */
-
+    align-self: center; 
 }
 
 .color {
-    /* border: 2px solid black; */
-    height: 120px;
+    height: 140px;
     color: black;
     font-size: 1.4rem;
+    border-radius: 15%;
+    transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
 }
 
 .highlight{
@@ -48,14 +56,18 @@
 }
 
 #rgb-model{
-    height: 180px;
+    height: 120px;
     border: solid black 2px;
 }
 
 .chosen-diff {
     background: slategray;
+    /* transition: all 2.0s; */
 }
 
+#guessThisRgb {
+    text-transform: uppercase;
+}
 
 
 /* CREATE THE SQUARES BY UDEMY
