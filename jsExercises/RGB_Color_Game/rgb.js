@@ -14,7 +14,6 @@ var diff = 'hard';
 var blockNum = 6;
 generateHardBlocks();
 randomRgb = grabRGB();
-var victory = false;
 
 // HIGHLIGHT HARD AS DEFAULT DIFFICULTY
 var level = document.getElementsByClassName('level');
@@ -115,6 +114,7 @@ for (i=0; i<colors.length; i++){
     })
 };
 
+
 // GRAB RESULT ELEMENT
 var result = document.getElementById('result');
 
@@ -126,25 +126,21 @@ for (i=0; i<colors.length; i++){
     colors[i].addEventListener('click',function(){
         if ((randomRgb + 1) === Number(this.getAttribute('value'))){
             result.innerHTML = '<strong>CORRECT!</strong>';
-            this.classList.remove('hide');
+            // TO SHOW RGB ON BLOCK, COMMENT .HIDE CLASS
+            // this.classList.remove('hide');
             mainNav[0].style.backgroundColor = h2rgb.textContent;
-            victory = true;
             document.getElementById('new').innerHTML = 'PLAY AGAIN?';
             correctBlocks();
         }
         else{
             result.innerHTML = '<strong>WRONG!</strong>';
-            victory = false;
             this.style.backgroundColor = 'rgb(30, 30, 30)';
         }
     })
 }
 
-//FIX - CHANGE ALL BLOCKS TO CORRECT COLOR
-//CHANGE ALL BLOCKS TO CORRECT COLOR
 
 function correctBlocks(){
-    if (victory){
         if (diff === 'easy'){
             for (i=0; i<3; i++){
                 colors[i].style.backgroundColor = h2rgb.textContent;
@@ -154,7 +150,6 @@ function correctBlocks(){
             for (i=0; i<6; i++){
                 colors[i].style.backgroundColor = h2rgb.textContent;
             }
-        }
         }
     };
 

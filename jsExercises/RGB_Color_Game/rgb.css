@@ -69,6 +69,14 @@
     text-transform: uppercase;
 }
 
+#new:hover, #easy:hover, #hard:hover {
+    background: slategray;
+    padding: 0.18rem;
+}
+
+#hard, #easy, #new {
+    padding: 0.18rem;
+}
 
 /* CREATE THE SQUARES BY UDEMY
 .square{
