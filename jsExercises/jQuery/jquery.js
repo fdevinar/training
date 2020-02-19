@@ -15,4 +15,5 @@
 // $('#third').css('border','3px solid orange');
 // $('div:first').css('color','cyan');
 
-// $('li').html('<h2>GRITA</h2>')
+$('h2').text($('select').val());
+
