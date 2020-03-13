@@ -17,8 +17,9 @@
 
 // $('.button').click(addClass('darkMode'));
 
-let btn = $('button');
+// ! BUTTON TOGGLES DARK/LIGHT MODE
 
+let btn = $('button');
 btn.click(function(){
     if (btn.text() === 'LIGHT MODE'){
         btn.text('DARK MODE');
@@ -27,5 +28,10 @@ btn.click(function(){
         btn.text('LIGHT MODE');
     }
     $('body').toggleClass('darkMode');
-})
+});
+
+// ! PARAGRAPH CLICK CHANGING COLOR
+
+// $('p').click(function(){
+//     $(this).css('background','cyan');});
 
