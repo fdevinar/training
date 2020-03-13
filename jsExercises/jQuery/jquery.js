@@ -32,6 +32,25 @@ btn.click(function(){
 
 // ! PARAGRAPH CLICK CHANGING COLOR
 
-// $('p').click(function(){
-//     $(this).css('background','cyan');});
+let p = $('p');
+p.click(function(){
+    $(this).css('background','cyan');
+});
 
+
+// ! KEYPRESS ON INPUT SAMPLE
+
+let input = $('input[type="text"]');
+input.keypress(function(e){
+    console.log(input.val());
+    // keyCode 13 is pressing Enter
+    if (e.keyCode === 13){
+        alert(input.val());
+    }
+});
+
+// ! ON -> EVENT HANDLER
+
+$('h1').on('click',function(){
+    $(this).css('color','green');
+});
