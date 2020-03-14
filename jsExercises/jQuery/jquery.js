@@ -37,7 +37,6 @@ p.click(function(){
     $(this).css('background','cyan');
 });
 
-
 // ! KEYPRESS ON INPUT SAMPLE
 
 let input = $('input[type="text"]');
@@ -54,3 +53,25 @@ input.keypress(function(e){
 $('h1').on('click',function(){
     $(this).css('color','green');
 });
+
+// ! FADE DIV EVENT
+
+let fade = $('.fade');
+
+fade.on('click', function(){
+    // USING CALLBACK FUNCTION TO ALERT FADED ONLY AFTER FADE COMPLETE
+    $(this).fadeOut(1000,function(){
+        alert('FADED!');
+        // REMOVING FROM DOM
+        $(this).remove();
+    });
+});
+
+// ! SLIDE DOWN EVENT
+
+let slide = $('#slide');
+
+slide.on('click',function(){
+    $(this).slideUp();
+})
+

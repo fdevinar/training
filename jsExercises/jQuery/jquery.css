@@ -7,3 +7,10 @@ body {
     color: ivory;
 }
 
+#slide {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    text-align: center;
+    padding-top: 50px;    
+}
