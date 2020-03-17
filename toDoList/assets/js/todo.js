@@ -1,8 +1,9 @@
-// alert('CONNECTED!');
 
+// GRAB HTML ELEMENTS
 let list = $('ul');
 let input = $('input');
 
+// WRITE LI ON INPUT ENTER
 input.keypress(function(e){
     console.log(input.val());
     if (e.keyCode === 13){
@@ -13,14 +14,3 @@ input.keypress(function(e){
 
 
 
-
-
-
-// let input = $('input[type="text"]');
-// input.keypress(function(e){
-//     console.log(input.val());
-//     // keyCode 13 is pressing Enter
-//     if (e.keyCode === 13){
-//         alert(input.val());
-//     }
-// });

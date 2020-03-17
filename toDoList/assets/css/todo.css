@@ -1,5 +1,6 @@
 html {
     background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
+    font-size: 20px;
 }
 
 #container {
@@ -10,6 +11,23 @@ html {
     border: 5px solid black;
 }
 
+/* INCREASING CONTAINER WIDTH FOR SMALLER VIEWPORT */
+@media screen and (max-width: 600px) {
+    #container {
+      width: 50%;
+    }
+  }
+
 input {
     width: 98%;
+    font-size: 18px;
+}
+
+li {
+    border-bottom: 0.5px dashed gray;
+    list-style: none;
+}
+
+ul {
+    padding-left: 3px;
 }
