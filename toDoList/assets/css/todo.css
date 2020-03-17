@@ -1,3 +1,15 @@
 html {
     background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
 }
+
+#container {
+    width: 30%;
+    background: ivory;
+    padding-bottom: 2%;
+    margin: 10% 30%;
+    border: 5px solid black;
+}
+
+input {
+    width: 98%;
+}
