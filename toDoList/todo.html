@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
     <script type="text/javascript" src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/235b208c9a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/todo.css">
 </head>
 <body>
     
     <main id="container">
 
-        <input type="text" placeholder="Write here your To Do...">
-
+        <header>
+            <span>TO-DO LIST</span>
+            <i class="fas fa-plus"></i>
+        </header>
+        
+        <input type="text" placeholder="Add New To-Do">
         <ul>
+            <!-- <i class="far fa-trash-alt"></i> -->
             <li>Structure HTML</li>
             <li>Style CSS</li>
             <li>Interact Javascript</li>

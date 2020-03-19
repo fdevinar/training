@@ -1,6 +1,7 @@
 html {
     background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
-    font-size: 20px;
+    font-size: 18px;
+    font-family: Verdana;
 }
 
 #container {
@@ -8,7 +9,7 @@ html {
     background: ivory;
     padding-bottom: 2%;
     margin: 10% 30%;
-    border: 5px solid black;
+    /* border: 2px solid black; */
 }
 
 /* INCREASING CONTAINER WIDTH FOR SMALLER VIEWPORT */
@@ -30,4 +31,16 @@ li {
 
 ul {
     padding-left: 3px;
+}
+
+header {
+    background-color: royalblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.line-through {
+    text-decoration: line-through;
 }
