@@ -22,3 +22,4 @@ plus.on('click',function(){
 listItem.on('click',function(){
     $(this).toggleClass('line-through');
 });
+
