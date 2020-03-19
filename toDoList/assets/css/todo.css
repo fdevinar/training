@@ -1,17 +1,19 @@
+/* * BASIC HTML */
 html {
     background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
     font-size: 18px;
     font-family: Verdana;
 }
 
+/* * CONTAINER */
 #container {
     width: 30%;
     background: ivory;
     padding-bottom: 2%;
     margin: 10% 30%;
+    /* margin: 0(top,bottom) auto(left,right); <- trick*/
     border: 2px solid black;
 }
-
 /* INCREASING CONTAINER WIDTH FOR SMALLER VIEWPORT */
 @media screen and (max-width: 600px) {
     #container {
@@ -19,20 +21,7 @@ html {
     }
   }
 
-input {
-    width: 98%;
-    font-size: 18px;
-}
-
-li {
-    border-bottom: 0.5px dashed gray;
-    list-style: none;
-}
-
-ul {
-    padding-left: 3px;
-}
-
+/* * HEADER */
 header {
     background-color: royalblue;
     color: white;
@@ -42,7 +31,26 @@ header {
     font-weight: 600;
 }
 
+/* * TEXT INPUT */
+input {
+    width: 98%;
+    font-size: 18px;
+}
 
+/* * LISTS */
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+li {
+    border-bottom: 0.5px dashed gray;
+    list-style: none;
+}
+span {
+    padding: 0 5px 0 3px;
+}
+
+/* * EFFECTS */
 .marked {
     text-decoration: line-through;
     color: grey;

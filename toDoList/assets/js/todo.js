@@ -2,13 +2,14 @@
 // GRAB HTML ELEMENTS
 let list = $('ul');
 let input = $('input');
-let plus = $('i');
+let plus = $('#plus');
+// let trash = $('span');
 // let listItem = $('li');
 
 // WRITE LIST ITEM ON INPUT: "ENTER"
 input.keypress(function(e){
     if (e.keyCode === 13){
-        list.append('<li>' + input.val() + '</li>');
+        list.append('<li><span><i class="fas fa-trash-alt"></i></span>' + input.val() + '</li>');
         input.val('');
     }
 });
@@ -23,7 +24,20 @@ list.on('click','li',function(){
     $(this).toggleClass('marked');
 });
 
+// REMOVE TO-DO
+list.on('click','li span',function(event){
+    $(this).parent().fadeOut(500,function(){
+        $(this).remove();
+    });
+    // STOP TOGGLING CLASS MARKED
+    event.stopPropagation();
+});
+
 // SHOW TRASH BIN ON LIST ITEM HOVER
-list.on('mouseenter','li',function(){
-    $(this).children().removeAttr('hidden');
-})
+// list.on('mouseenter','li',function(){
+//     $(this).children().removeAttr('hidden');
+// })
+
+// list.on('mouseout','li',function(){
+//     $(this).children().attr('hidden','true');
+// })
