@@ -3,7 +3,7 @@
 let list = $('ul');
 let input = $('input');
 let plus = $('i');
-let listItem = $('li');
+// let listItem = $('li');
 
 // WRITE LIST ITEM ON INPUT: "ENTER"
 input.keypress(function(e){
@@ -19,6 +19,6 @@ plus.on('click',function(){
 });
 
 // MARK AND UNMARK COMPLETED ITEMS
-listItem.on('click',function(){
+list.on('click','li',function(){
     $(this).toggleClass('marked');
 });
