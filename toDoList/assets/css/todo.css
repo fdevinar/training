@@ -46,6 +46,10 @@ li {
     border-bottom: 0.5px dashed gray;
     list-style: none;
 }
+/* ! CRIAR CORES ALTERNADAS NA LISTA */
+/* li:nth-child(2){
+    background: silver;
+} */
 span {
     padding: 0 5px 0 3px;
 }
