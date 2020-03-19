@@ -20,6 +20,5 @@ plus.on('click',function(){
 
 // MARK AND UNMARK COMPLETED ITEMS
 listItem.on('click',function(){
-    $(this).toggleClass('line-through');
+    $(this).toggleClass('marked');
 });
-
