@@ -42,7 +42,9 @@ header {
     font-weight: 600;
 }
 
+
 .marked {
     text-decoration: line-through;
     color: grey;
 }
+

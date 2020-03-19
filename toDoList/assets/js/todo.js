@@ -22,3 +22,8 @@ plus.on('click',function(){
 list.on('click','li',function(){
     $(this).toggleClass('marked');
 });
+
+// SHOW TRASH BIN ON LIST ITEM HOVER
+list.on('mouseenter','li',function(){
+    $(this).children().removeAttr('hidden');
+})
