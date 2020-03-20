@@ -9,7 +9,7 @@ let plus = $('#plus');
 input.keypress(function(event){
     // if (event.keyCode === 13){ -- Use Which instead of keyCode, Which is normalized by jQuery
     if (event.which === 13){
-        list.append('<li><span><i class="fas fa-trash-alt"></i></span>' + input.val() + '</li>');
+        list.append('<li><span class="slide"><i class="fas fa-trash-alt"></i></span>' + input.val() + '</li>');
         input.val('');
     }
 });
