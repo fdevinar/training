@@ -1,4 +1,3 @@
-
 // GRAB HTML ELEMENTS
 let list = $('ul');
 let input = $('input');
@@ -7,8 +6,9 @@ let plus = $('#plus');
 // let listItem = $('li');
 
 // WRITE LIST ITEM ON INPUT: "ENTER"
-input.keypress(function(e){
-    if (e.keyCode === 13){
+input.keypress(function(event){
+    // if (event.keyCode === 13){ -- Use Which instead of keyCode, Which is normalized by jQuery
+    if (event.which === 13){
         list.append('<li><span><i class="fas fa-trash-alt"></i></span>' + input.val() + '</li>');
         input.val('');
     }
