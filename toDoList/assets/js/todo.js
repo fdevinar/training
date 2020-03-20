@@ -25,7 +25,7 @@ list.on('click','li',function(){
 });
 
 // REMOVE TO-DO
-list.on('click','li span',function(event){
+list.on('click','span',function(event){
     $(this).parent().fadeOut(500,function(){
         $(this).remove();
     });
