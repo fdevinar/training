@@ -1,13 +1,13 @@
 /* * BASIC HTML */
 html {
     background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
-    font-size: 16px;
+    font-size: 15px;
     font-family: Verdana;
 }
 
 /* * CONTAINER */
 #container {
-    width: 30%;
+    width: 25%;
     background: white;
     padding-bottom: 2%;
     margin: 10% 30%;
@@ -34,25 +34,28 @@ header {
 /* * TEXT INPUT */
 input {
     width: 98%;
+    height: 30px;
     font-size: 18px;
+    background: ghostwhite;
 }
 
 /* * LISTS */
 ul {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
+    text-shadow: 1px 1px lightgrey;
 }
 li {
     list-style: none;
     height: 24px;
-    padding-left: 6px 0;
+    padding: 4px 6px;
     /* ENABLE SLIDE */
     position: relative;
     overflow: hidden;
 }
 /* ALTERNATE LINE COLORS */
 li:nth-of-type(even){
-    background: papayawhip;
+    background: whitesmoke;
 }
 
 /* * EFFECTS */
@@ -66,21 +69,24 @@ li:nth-of-type(even){
 /* TRASH CAN SLIDE */
 .slide {
     position: absolute;
-    left: -26px;
+    left: -24px;
     width: 24px;
+    height: 100%;
     transition: 1s;
     background: red;
     color: ivory;
-    font-size: 16px;
-    padding-left: 6px 0;
-    border: 1px solid grey;
+    text-shadow: none;
+    /* font-size: 18px; */
+    padding-left: 0;
+    /* border: 1px solid grey; */
 }
 li:hover .slide {
     transition: 1s;
-    left: 0px;
+    left: -6px;
     position: relative;
 }
 /* INCREASE ICON WIDTH*/
 .fas {
     width: 24px;
+    height: 100%;
 }
