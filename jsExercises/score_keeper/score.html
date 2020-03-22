@@ -8,31 +8,31 @@
     </head>
     
     <body>
+        <div class="container">
+            <h1>Training JS</h1>
+            <h2>Score Keeper</h2>
+    
+            <span id="score-p1" type="number" value=0></span>
+            to
+            <span id="score-p2" type="number" value=0></span>
 
-        <h1>Training JS</h1>
-        <h2>Score Keeper</h2>
-   
-        <span id="score-p1" type="number" value=0></span>
-        to
-        <span id="score-p2" type="number" value=0></span>
 
+            <p>Playing to 
+                <span id="score-limit" type="number"></span>
+            </p>
+            Choose # Games:
+            <input id="score" type="number" min="0">
+            <br>
+            <button id="btn-p1">+ Player 1</button>
+            <button id="btn-p2">+ Player 2</button>
+            <button id="btn-reset">Reset</button>
 
-        <p>Playing to 
-            <span id="score-limit" type="number"></span>
-        </p>
-        Choose # Games:
-        <input id="score" type="number" min="0">
-        <br>
-        <button id="btn-p1">+ Player 1</button>
-        <button id="btn-p2">+ Player 2</button>
-        <button id="btn-reset">Reset</button>
-
-        <ul>
-            <li>Player 1</li>
-            <li>Player 2</li>
-            <li>Dungeon Master</li>
-        </ul>
-     
+            <ul>
+                <li>Player 1</li>
+                <li>Player 2</li>
+                <li>Dungeon Master</li>
+            </ul>
+        </div>
 
         <script src="score.js" async defer></script>
     </body>

@@ -2,7 +2,12 @@
 body {
     background-color: tan;
     font-size: 1.6rem;
-    color: ;
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px 40px;
+    border-radius: 25px;
 }
 
 .dark {
@@ -50,5 +55,6 @@ button {
 }
 
 li {
-    width: 14%;
+    width: 50%;
 }
+
