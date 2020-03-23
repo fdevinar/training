@@ -1,8 +1,9 @@
 /* * BASIC HTML */
-html {
-    background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%);
+body {
+    /* background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%); */
+    background: linear-gradient(90deg, rgba(71,22,200,1) 0% , rgba(87,83,255,1) 51% , rgba(127,159,233,1) 100%);
     font-size: 15px;
-    font-family: Verdana;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* * CONTAINER */
@@ -10,9 +11,8 @@ html {
     width: 25%;
     background: white;
     padding-bottom: 2%;
-    margin: 10% 30%;
-    /* margin: 0(top,bottom) auto(left,right); <- trick*/
-    border: 2px solid black;
+    margin: 100px auto;
+    box-shadow:  rgba(71,22,200,1) 3px 3px 6px;
 }
 /* INCREASING CONTAINER WIDTH FOR SMALLER VIEWPORT */
 @media screen and (max-width: 600px) {
@@ -28,15 +28,18 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 5px 10px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* * TEXT INPUT */
 input {
-    width: 98%;
+    width: 100%;
+    /* BOX SIZING PREVENTS BOX FROM SPILLING FROM DIV */
+    box-sizing: border-box;
     height: 30px;
     font-size: 18px;
     background: ghostwhite;
+    color: royalblue
 }
 
 /* * LISTS */
@@ -44,10 +47,11 @@ ul {
     padding: 0;
     margin: 0;
     text-shadow: 1px 1px lightgrey;
+    list-style: none;
 }
 li {
-    list-style: none;
     height: 24px;
+    line-height: 24px;
     padding: 4px 6px;
     /* ENABLE SLIDE */
     position: relative;
@@ -89,4 +93,11 @@ li:hover .slide {
 .fas {
     width: 24px;
     height: 100%;
+}
+
+/* CHANGE INPUT FOCUS */
+input:focus {
+    background: white;
+    border: 3px solid royalblue;
+    outline: none;
 }
