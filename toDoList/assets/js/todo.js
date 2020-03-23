@@ -2,8 +2,6 @@
 let list = $('ul');
 let input = $('input');
 let plus = $('#plus');
-// let trash = $('span');
-// let listItem = $('li');
 
 // WRITE LIST ITEM ON INPUT: "ENTER"
 input.keypress(function(event){
@@ -16,7 +14,7 @@ input.keypress(function(event){
 
 // HIDE AND DISPLAY TEXT INPUT
 plus.on('click',function(){
-    input.toggle(400);
+    input.fadeToggle(400); // or toggle
 });
 
 // MARK AND UNMARK COMPLETED ITEMS
@@ -33,11 +31,3 @@ list.on('click','span',function(event){
     event.stopPropagation();
 });
 
-// SHOW TRASH BIN ON LIST ITEM HOVER
-// list.on('mouseenter','li',function(){
-//     $(this).children().removeAttr('hidden');
-// })
-
-// list.on('mouseout','li',function(){
-//     $(this).children().attr('hidden','true');
-// })

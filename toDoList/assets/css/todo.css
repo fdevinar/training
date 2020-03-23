@@ -1,18 +1,21 @@
 /* * BASIC HTML */
-body {
-    /* background: linear-gradient(90deg, rgba(127,159,233,1) 0%, rgba(87,83,255,1) 51%, rgba(71,22,200,1) 100%); */
-    background: linear-gradient(90deg, rgba(71,22,200,1) 0% , rgba(87,83,255,1) 51% , rgba(127,159,233,1) 100%);
+html {
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
 }
-
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background: linear-gradient(90deg, rgba(71,22,200,1) 0% , rgba(87,83,255,1) 51% , rgba(127,159,233,1) 100%); */
+    background: #8A2387;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 /* * CONTAINER */
 #container {
     width: 25%;
     background: white;
-    padding-bottom: 2%;
+    /* padding-bottom: 6px; */
     margin: 100px auto;
-    box-shadow:  rgba(71,22,200,1) 3px 3px 6px;
+    box-shadow:  #F27121 3px 3px 6px;
 }
 /* INCREASING CONTAINER WIDTH FOR SMALLER VIEWPORT */
 @media screen and (max-width: 600px) {
@@ -20,7 +23,6 @@ body {
       width: 50%;
     }
   }
-
 /* * HEADER */
 header {
     background-color: royalblue;
@@ -30,7 +32,6 @@ header {
     padding: 5px 10px;
     font-weight: 500;
 }
-
 /* * TEXT INPUT */
 input {
     width: 100%;
@@ -39,9 +40,9 @@ input {
     height: 30px;
     font-size: 18px;
     background: ghostwhite;
-    color: royalblue
+    color: royalblue;
+    border: 3px solid rgba (0,0,0,0);
 }
-
 /* * LISTS */
 ul {
     padding: 0;
@@ -50,51 +51,33 @@ ul {
     list-style: none;
 }
 li {
-    height: 24px;
-    line-height: 24px;
-    padding: 4px 6px;
-    /* ENABLE SLIDE */
-    position: relative;
-    overflow: hidden;
+    line-height: 30px;
 }
 /* ALTERNATE LINE COLORS */
 li:nth-of-type(even){
     background: whitesmoke;
 }
-
 /* * EFFECTS */
 .marked {
     text-decoration: line-through;
     color: grey;
 }
-
-/* TODO FIX TRASH CAN WIDTH AFTER HOVER */
-/* TODO FIX POSITION RELATIVE TRANSITION TIME */
 /* TRASH CAN SLIDE */
 .slide {
-    position: absolute;
-    left: -24px;
-    width: 24px;
-    height: 100%;
-    transition: 1s;
-    background: red;
-    color: ivory;
-    text-shadow: none;
-    /* font-size: 18px; */
-    padding-left: 0;
-    /* border: 1px solid grey; */
+    background: crimson;
+    color: white;
+    height: 30px;
+    width: 0px;
+    opacity: 0;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+    transition: 200ms linear;
 }
 li:hover .slide {
-    transition: 1s;
-    left: -6px;
-    position: relative;
+    width: 30px;
+    opacity: 1.0;
 }
-/* INCREASE ICON WIDTH*/
-.fas {
-    width: 24px;
-    height: 100%;
-}
-
 /* CHANGE INPUT FOCUS */
 input:focus {
     background: white;
