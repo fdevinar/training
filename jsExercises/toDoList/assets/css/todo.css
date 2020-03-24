@@ -65,7 +65,7 @@ li:nth-of-type(even){
 .slide {
     background: crimson;
     color: white;
-    text-shadow: none;
+    text-shadow: initial; /* or text-shadow: none */
     height: 30px;
     width: 0px;
     opacity: 0;
