@@ -1,5 +1,8 @@
-console.log('Using Node via app.js');
+// FAKER EXERCISE
 
-for (i=0;i<20;i++){
-    console.log('Counting to... ' + (Number(i)+1));
+let faker = require('faker');
+
+
+for (i=0; i<10; i++){
+    console.log(faker.commerce.productName() + ' = $' + faker.commerce.price());
 }
