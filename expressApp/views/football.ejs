@@ -1,12 +1,6 @@
-<h1>Time de Futsal do Gremio</h1>
+<%- include('partials/header') %>
 
-<!-- <ul>
-<% for (i=0; i<team.length; i++){ %>
-        <li> 
-            <%= (i+1) %>. Nome: <strong> <%= team[i].name %>  </strong>  - Posicao: <%= team[i].position %> 
-        </li>
-<% }; %>
-</ul> -->
+<h1>Time de Futsal do Gremio</h1>
 
 <ul>
 <% team.forEach(function(player,index){ %>
@@ -15,3 +9,5 @@
     </li>
 <% }); %>
 </ul>
+
+<%- include('partials/footer') %>

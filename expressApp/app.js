@@ -3,9 +3,12 @@
 let express = require('express');
 let app = express();
 
+app.use(express.static("public"));
+app.set("view engine","ejs");
+
 // Home
 app.get('/',function(req, res){
-    res.render('home.ejs');
+    res.render('home');
 });
 
 // Football player
@@ -17,7 +20,7 @@ app.get('/football',function(req, res){
         {name: 'Renato', position: 'Atacante'},
         {name: 'Jardel', position: 'Centroavante'}
     ];
-    res.render('football.ejs',{team: team});
+    res.render('football',{team: team});
 })
 
 // Start server
