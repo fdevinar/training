@@ -1,0 +1,17 @@
+<h1>Time de Futsal do Gremio</h1>
+
+<!-- <ul>
+<% for (i=0; i<team.length; i++){ %>
+        <li> 
+            <%= (i+1) %>. Nome: <strong> <%= team[i].name %>  </strong>  - Posicao: <%= team[i].position %> 
+        </li>
+<% }; %>
+</ul> -->
+
+<ul>
+<% team.forEach(function(player,index){ %>
+    <li>
+        <%= index+1 %>. Nome: <strong><%= player.name %></strong> - Posicao: <%= player.position %>
+    </li>
+<% }); %>
+</ul>
