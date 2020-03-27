@@ -1,8 +1,8 @@
 // DEMO EXPRESS APP
 
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
 app.use(express.static("public"));
 app.set("view engine","ejs");
