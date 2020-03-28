@@ -1,0 +1,21 @@
+body {
+    background: whitesmoke;
+    color: navy;
+    font-size: larger;
+}
+
+div {
+    width: 600px;
+    margin: 50px auto;
+    border: 2px solid black;
+    background: steelblue;
+}
+
+h1 {
+    width: 360px;
+    border: 1px solid black;
+    text-align: center;
+    background: grey;
+    margin: 20px auto;
+}
+
