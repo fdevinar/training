@@ -8,11 +8,25 @@
         <h1>MOVIE DATABASE</h1>
         <h2>Results</h2>
 
-        <% console.log('******* VALUES ********'); %>
-        <% let values = Object.values(movies); %>
-        <% console.log(values[0]); %> 
+        <form action="/"  method="GET">
+            <input type="submit" value="Back to Search">
+        </form>
 
+        <% movies.forEach(function(m){ %>
+        <ul>
+                <li><strong>Title</strong>: <%= m.Title %></li>
+                <li><strong>Year</strong>: <%= m.Year %></li>
+                <li><strong>ID</strong>: <%= m.imdbID %></li>
+                <li><strong>Type</strong>: <%= m.Type %></li>
+                <li><img src="<%= m.Poster %>"></li>
+        </ul>
+        <% }); %>
+       
+        <form action="/"  method="GET">
+            <input type="submit" value="Back to Search">
+        </form>
 
     </div>
 </body>
 </html>
+

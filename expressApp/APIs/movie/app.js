@@ -9,19 +9,11 @@ app.use(express.static("public"));
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
-// * MOVIE OBJECT
-
-// let movies = {};
-
 // * ROUTES
 
 app.get('/', (req, res) => {
     res.render('home');
 });
-
-// app.get('/results', function(req, res){
-//     res.render('results',{movies: movies});
-// });
 
 app.post('/movieLookup', (req, res) => {
     let newMovie = req.body.movieName; // Requested movie
@@ -35,11 +27,10 @@ app.post('/movieLookup', (req, res) => {
             console.log('*** SUCCESS ***')
             console.log(`statusCode: ${response.statusCode}`);
             let movieObject = JSON.parse(body);
-            // console.log(movieObject);
-            res.render('results',{movies:movieObject});
+            let movies = movieObject.Search;
+            res.render('results',{movies:movies});
         }
     });
-
     // res.redirect('/results');
 })
 

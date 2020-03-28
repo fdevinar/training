@@ -5,7 +5,7 @@ body {
 }
 
 div {
-    width: 600px;
+    width: 35%;
     margin: 50px auto;
     border: 2px solid black;
     background: steelblue;
@@ -19,3 +19,11 @@ h1 {
     margin: 20px auto;
 }
 
+ul:nth-of-type(odd){
+    background: ivory;
+    padding: 10px 30px;
+}
+
+li {
+    list-style: none;
+}
