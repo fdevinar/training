@@ -5,7 +5,7 @@ body {
 }
 
 div {
-    width: 35%;
+    width: 50%;
     margin: 50px auto;
     border: 2px solid black;
     background: steelblue;
@@ -26,4 +26,8 @@ ul:nth-of-type(odd){
 
 li {
     list-style: none;
+}
+
+#movieDetailBlock {
+    width: 100%;
 }

@@ -17,6 +17,10 @@
                 <li><strong>Title</strong>: <%= m.Title %></li>
                 <li><strong>Year</strong>: <%= m.Year %></li>
                 <li><strong>ID</strong>: <%= m.imdbID %></li>
+                <form action="/movieDetail"  method="POST">
+                    <% console.log('MOVIE ID: ' + m.imdbID); %>
+                    <input type="submit" name="Details" value="<%= m.imdbID %>">
+                </form>
                 <li><strong>Type</strong>: <%= m.Type %></li>
                 <li><img src="<%= m.Poster %>"></li>
         </ul>
