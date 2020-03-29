@@ -31,3 +31,18 @@ li {
 #movieDetailBlock {
     width: 100%;
 }
+
+#movieDetailBlock li img {
+    display: flex;
+    margin: 0 auto;
+    border: 3px solid black;
+    margin-bottom: 20px;
+}
+
+.hgl {
+    font-size: 1.5rem;
+}
+
+.plot {
+    font-style: italic;
+}

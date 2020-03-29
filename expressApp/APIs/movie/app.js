@@ -34,9 +34,11 @@ app.post('/movieLookup', (req, res) => {
     // res.redirect('/results');
 });
 
+// TODO - FIX WHEN NO MOVIES GET RETURNED
+
 app.post('/movieDetail', (req, res) => {
     let movieID = req.body.Details;
-    let movieDetailRequest = `http://www.omdbapi.com/?i=tt0097576&apikey=thewdb`;
+    let movieDetailRequest = `http://www.omdbapi.com/?i=${movieID}&apikey=thewdb`;
     
     request(movieDetailRequest, (error, response, body) => {
         if (error){

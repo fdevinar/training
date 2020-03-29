@@ -7,25 +7,57 @@
     <div>
         <h1>MOVIE DETAILS</h1>
        
+        <button onclick="goBack()">Go Back</button>
+        <script>
+            function goBack() {
+              window.history.back();
+            }
+        </script>
+
         <% console.log(movieDetail); %>
 
         <div id="movieDetailBlock">
             <ul>
-                <% for (i=0; i<movieDetail.length; i++){ %>
-                    <% console.log(i); %>
-                    <%= i %>
-                <% }; %>
-
-
-                <% Object.entries(movieDetail).forEach(entry => { %>
-                <li>
-                <%    let key = entry[0]; %>
-                <%    let value = entry[1]; %>
+                <li><img src="<%= movieDetail.Poster %>"></li>
+                <li class="hgl"><strong>Title: </strong><%= movieDetail.Title %></li>
+                <li class="hgl"><strong>Year: </strong><%= movieDetail.Year %></li>
+                <li class="hgl"><strong>Genre: </strong><%= movieDetail.Genre %></li>
+                <li class="hgl"><strong>Director: </strong><%= movieDetail.Director %></li>
+                <li class="hgl"><strong>Actors: </strong><%= movieDetail.Actors %></li>
+                <li><strong>Rated: </strong><%= movieDetail.Rated %></li>
+                <li><strong>Released: </strong><%= movieDetail.Released %></li>
+                <li><strong>Runtime: </strong><%= movieDetail.Runtime %></li>
+                <li><strong>Writer: </strong><%= movieDetail.Writer %></li>
+                <li><strong>Plot: </strong><span class="plot"><%= movieDetail.Plot %></span></li>
+                <li><strong>Language: </strong><%= movieDetail.Language %></li>
+                <li><strong>Country: </strong><%= movieDetail.Country %></li>
+                <li><strong>Awards: </strong><%= movieDetail.Awards %></li>
+                
+                <!-- <br>
+                <li><strong>Ratings:</strong>
+                    <ul>
+                        <li>
+                            <strong><%= //movieDetail.Ratings[0].Source %>: </strong><%= //movieDetail.Ratings[0].Value %>
+                        </li>
+                        <li>
+                            <strong><%= //movieDetail.Ratings[1].Source %>: </strong><%= //movieDetail.Ratings[1].Value %>
+                        </li>
+                        <li>
+                            <strong><%= //movieDetail.Ratings[2].Source %>: </strong><%= //movieDetail.Ratings[2].Value %>
+                        </li>
+    
+                    </ul>
                 </li>
-                <strong><%= key %>:</strong>
-                <%= value %>
-                <%  }); %>
+                <br> -->
 
+                <li><strong>Metascore: </strong><%= movieDetail.Metascore %></li>
+                <li><strong>imdbRating: </strong><%= movieDetail.imdbRating %></li>
+                <li><strong>imdbVotes: </strong><%= movieDetail.imdbVotes %></li>
+                <li><strong>imdbID: </strong><%= movieDetail.imdbID %></li>
+                <li><strong>DVD: </strong><%= movieDetail.DVD %></li>
+                <li><strong>BoxOffice: </strong><%= movieDetail.BoxOffice %></li>
+                <li><strong>Production: </strong><%= movieDetail.Production %></li>
+                <li><strong>Website: </strong><%= movieDetail.Website %></li>
 
             </ul>
         </div>
@@ -35,45 +67,3 @@
     </div>
 </body>
 </html>
-
-<!-- 
-{
-    "Title": "Indiana Jones and the Last Crusade",
-    "Year": "1989",
-    "Rated": "PG-13",
-    "Released": "24 May 1989",
-    "Runtime": "127 min",
-    "Genre": "Action, Adventure",
-    "Director": "Steven Spielberg",
-    "Writer": "Jeffrey Boam (screenplay), George Lucas (story), Menno Meyjes (story), George Lucas (characters), Philip Kaufman (characters)",
-    "Actors": "Harrison Ford, Sean Connery, Denholm Elliott, Alison Doody",
-    "Plot": "In 1938, after his father Professor Henry Jones, Sr. goes missing while pursuing the Holy Grail, Professor Henry \"Indiana\" Jones, Jr. finds himself up against Adolf Hitler's Nazis again to stop them from obtaining its powers.",
-    "Language": "English, German, Greek, Arabic",
-    "Country": "USA",
-    "Awards": "Won 1 Oscar. Another 7 wins & 22 nominations.",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMjNkMzc2N2QtNjVlNS00ZTk5LTg0MTgtODY2MDAwNTMwZjBjXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
-    "Ratings": [
-      {
-        "Source": "Internet Movie Database",
-        "Value": "8.2/10"
-      },
-      {
-        "Source": "Rotten Tomatoes",
-        "Value": "88%"
-      },
-      {
-        "Source": "Metacritic",
-        "Value": "65/100"
-      }
-    ],
-    "Metascore": "65",
-    "imdbRating": "8.2",
-    "imdbVotes": "660,318",
-    "imdbID": "tt0097576",
-    "Type": "movie",
-    "DVD": "21 Oct 2003",
-    "BoxOffice": "N/A",
-    "Production": "Paramount Pictures",
-    "Website": "N/A",
-    "Response": "True"
-  } -->

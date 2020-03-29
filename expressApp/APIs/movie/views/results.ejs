@@ -19,9 +19,8 @@
                 <li><strong>ID</strong>: <%= m.imdbID %></li>
                 <form action="/movieDetail"  method="POST">
                     <% console.log('MOVIE ID: ' + m.imdbID); %>
-                    <input type="submit" name="Details" value="<%= m.imdbID %>">
+                    <button type="submit" name="Details" value="<%= m.imdbID %>" >Click for Details</button>
                 </form>
-                <li><strong>Type</strong>: <%= m.Type %></li>
                 <li><img src="<%= m.Poster %>"></li>
         </ul>
         <% }); %>
