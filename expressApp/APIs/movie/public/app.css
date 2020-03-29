@@ -4,15 +4,15 @@ body {
     font-size: larger;
 }
 
-div {
-    width: 50%;
+.container {
+    width: 40%;
     margin: 50px auto;
     border: 2px solid black;
     background: steelblue;
 }
 
 h1 {
-    width: 360px;
+    width: 100%;
     border: 1px solid black;
     text-align: center;
     background: grey;
@@ -45,4 +45,10 @@ li {
 
 .plot {
     font-style: italic;
+}
+
+.warning {
+    color: red;
+    background: yellow;
+    border: 2px solid red;
 }

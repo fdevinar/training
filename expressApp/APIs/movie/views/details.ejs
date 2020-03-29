@@ -6,16 +6,7 @@
 <body>
     <div>
         <h1>MOVIE DETAILS</h1>
-       
         <button onclick="goBack()">Go Back</button>
-        <script>
-            function goBack() {
-              window.history.back();
-            }
-        </script>
-
-        <% console.log(movieDetail); %>
-
         <div id="movieDetailBlock">
             <ul>
                 <li><img src="<%= movieDetail.Poster %>"></li>
@@ -32,7 +23,6 @@
                 <li><strong>Language: </strong><%= movieDetail.Language %></li>
                 <li><strong>Country: </strong><%= movieDetail.Country %></li>
                 <li><strong>Awards: </strong><%= movieDetail.Awards %></li>
-                
                 <!-- <br>
                 <li><strong>Ratings:</strong>
                     <ul>
@@ -49,7 +39,6 @@
                     </ul>
                 </li>
                 <br> -->
-
                 <li><strong>Metascore: </strong><%= movieDetail.Metascore %></li>
                 <li><strong>imdbRating: </strong><%= movieDetail.imdbRating %></li>
                 <li><strong>imdbVotes: </strong><%= movieDetail.imdbVotes %></li>
@@ -58,12 +47,13 @@
                 <li><strong>BoxOffice: </strong><%= movieDetail.BoxOffice %></li>
                 <li><strong>Production: </strong><%= movieDetail.Production %></li>
                 <li><strong>Website: </strong><%= movieDetail.Website %></li>
-
             </ul>
         </div>
-
-        
-
     </div>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+    </script>
 </body>
 </html>

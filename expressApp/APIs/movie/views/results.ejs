@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/app.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h1>MOVIE DATABASE</h1>
         <h2>Results</h2>
 
@@ -18,7 +18,6 @@
                 <li><strong>Year</strong>: <%= m.Year %></li>
                 <li><strong>ID</strong>: <%= m.imdbID %></li>
                 <form action="/movieDetail"  method="POST">
-                    <% console.log('MOVIE ID: ' + m.imdbID); %>
                     <button type="submit" name="Details" value="<%= m.imdbID %>" >Click for Details</button>
                 </form>
                 <li><img src="<%= m.Poster %>"></li>
