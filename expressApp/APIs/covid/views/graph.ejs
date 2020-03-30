@@ -7,22 +7,28 @@
         <h1>Covid 19 API Graph</h1>
         <p>List Below:</p>
 
+        <canvas id="myChart"></canvas>
+
+
         <div>
             <% let table = Object.entries(covidDeaths.table); %>
-            <ol>
-                <% table.forEach(function(data){ %>
-                    <% let date = data[1].Date %>
-                    <% let totalDeaths = data[1].TotalDeaths %>
-                    <% let changeInTotal = data[1].ChangeInTotal %>
-                    <% let changeTotalInPercent = data[1].ChangeTotalInPercent %>
-                    <li>
-                        <%= `Day ${date}: ${totalDeaths} deaths.` %>
-                    </li>
-                <% }); %>
+            <% let dataDate = []; %>
+            <% let dataDeaths = [] %>
 
-            </ol>
+            <% for (i=0;i<table.length;i++){ %>
+                <% dataDate.push(table[i][1].Date); %>
+                <% dataDeaths.push(table[i][1].TotalDeaths); %>
+            <% }; %>
+
+            <% console.log(dataDate); %>
+            <% console.log(dataDeaths); %>
+
         </div>
 
-    </div>
+
+        
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </body>
 </html>
