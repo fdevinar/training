@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Covid 19 Graph</title>
+</head>
+<body>
+    <div>
+        <h1>Covid 19 API Graph</h1>
+        <p>List Below:</p>
+
+        <div>
+            <% let table = Object.entries(covidDeaths.table); %>
+            <ol>
+                <% table.forEach(function(data){ %>
+                    <% let date = data[1].Date %>
+                    <% let totalDeaths = data[1].TotalDeaths %>
+                    <% let changeInTotal = data[1].ChangeInTotal %>
+                    <% let changeTotalInPercent = data[1].ChangeTotalInPercent %>
+                    <li>
+                        <%= `Day ${date}: ${totalDeaths} deaths.` %>
+                    </li>
+                <% }); %>
+
+            </ol>
+        </div>
+
+    </div>
+</body>
+</html>

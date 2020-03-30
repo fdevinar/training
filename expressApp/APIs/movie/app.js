@@ -1,3 +1,4 @@
+// MOVIE DATABASE APP
 // * REQUIREMENTS
 const express = require('express');
 const app = express();
@@ -37,7 +38,6 @@ app.post('/movieLookup', (req, res) => {
     // res.redirect('/results');
 });
 
-// TODO - FIX WHEN NO MOVIES GET RETURNED
 app.post('/movieDetail', (req, res) => {
     let movieID = req.body.Details;
     let movieDetailRequest = `http://www.omdbapi.com/?i=${movieID}&apikey=thewdb`;
