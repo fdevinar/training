@@ -1,4 +1,21 @@
 body {
-    background: whitesmoke;
+    background: ivory;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0;
 }
 
+h1 {
+    background: grey;
+    border: inherit;
+    margin: inherit;
+    padding: 10px 0;
+}
+
+h2 {
+    background: lightslategray;
+    border: inherit;
+    margin: inherit;
+    padding: 10px 0;
+}

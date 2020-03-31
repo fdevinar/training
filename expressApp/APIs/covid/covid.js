@@ -33,8 +33,8 @@ function handleData(data){
     // CREATES CHART
     var ctx = document.getElementById('covidChart').getContext('2d');
     var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+    // types: line, bar, radar, doughnut, pie, polarArea, bubble, scatter
+    type: 'bar',
     // The data for our dataset
     data: {
         // labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -42,7 +42,7 @@ function handleData(data){
         datasets: [{
             label: 'Covid 19 Death Count',
             backgroundColor: 'grey',
-            borderColor: 'red',
+            borderColor: 'black',
             // data: [0, 10, 5, 2, 20, 30, 45]
             data: deaths
         }]
@@ -50,7 +50,6 @@ function handleData(data){
     // Configuration options go here
     options: {}
     });
-
 
 };
 
