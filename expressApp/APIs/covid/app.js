@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
             let covidDeaths = JSON.parse(body);
             covidDeaths = covidDeaths.deaths;
             res.render('graph',{covidDeaths:covidDeaths});
-            
         }
     });
 
