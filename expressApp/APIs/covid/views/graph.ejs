@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <head>
     <title>Covid 19 Graph</title>
+    <!-- CHART.JS CDN MUST BE ON HEAD -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.js"></script>
+    <link rel="stylesheet" href="covid.css">
 </head>
 <body>
     <div>
         <h1>Covid 19 API Graph</h1>
-        <p>List Below:</p>
 
         <canvas id="myChart"></canvas>
-
 
         <div>
             <% let table = Object.entries(covidDeaths.table); %>
@@ -20,15 +21,17 @@
                 <% dataDeaths.push(table[i][1].TotalDeaths); %>
             <% }; %>
 
-            <% console.log(dataDate); %>
-            <% console.log(dataDeaths); %>
+        <div id="dataDate"><% dataDate %></div>
+        <div id="dataDeaths"><% dataDeaths %></div>
+
+        <% console.log(Object.values(dataDate)); %>
+        <% console.log(Object.values(dataDeaths)); %>
 
         </div>
 
-
+    </div>
         
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
