@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 app.post('/movieLookup', (req, res) => {
     let newMovie = req.body.movieName; // Requested movie
     let movieApiRequest = `http://www.omdbapi.com/?s=${newMovie}&type=movie&apikey=thewdb`;
-
     request(movieApiRequest, (error, response, body) => {
         if (error){
             console.log('!!! ERROR !!!')
@@ -27,21 +26,18 @@ app.post('/movieLookup', (req, res) => {
             console.log('*** SUCCESS ***')
             console.log(`statusCode: ${response.statusCode}`);
             let movieObject = JSON.parse(body);
-            console.log(movieObject);
             if (movieObject.Response === 'False'){
                 res.render('notfound');
             }
             let movies = movieObject.Search;
             res.render('results',{movies:movies});
-        }
+        };
     });
-    // res.redirect('/results');
 });
 
 app.post('/movieDetail', (req, res) => {
     let movieID = req.body.Details;
     let movieDetailRequest = `http://www.omdbapi.com/?i=${movieID}&apikey=thewdb`;
-    
     request(movieDetailRequest, (error, response, body) => {
         if (error){
             console.log('!!! ERROR !!!')
@@ -54,7 +50,6 @@ app.post('/movieDetail', (req, res) => {
             res.render('details',{movieDetail:movieDetailObject});
         }
     });
-
 } );
 
 // * SERVER INIT
