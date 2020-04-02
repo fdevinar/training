@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Circles Exercise</title>
+    <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
+
+        // INIT CENTER
+        var center = new Point(300, 300);
+
+        // CREATES BLUE CIRCLE
+        var myCircle = new Path.Circle(center, 100);
+        myCircle.fillColor = 'blue';
+        myCircle.fullySelected = true;
+
+        // CREATES GREEN CIRCLE
+        var otherCircle = new Path.Circle(center + [250, 0], 100);
+        otherCircle.fillColor = 'red';
+
+        function onFrame(event) {
+            myCircle.fillColor.hue += 0.8;
+            otherCircle.fillColor.hue -= 0.8;
+        }
+
+        //myCircle.removeSegment(2);
+        //otherCircle.removeSegment(0);
+
+        //myCircle.removeSegment(0);
+        //myCircle.add(new Point(200, 200));
+
+        // GROWS AND SHRINKS, CHANGING HUE
+        /* function onFrame(event) {
+            myCircle.fillColor.hue += 0.5;
+            // WORKAROUND SO SCALE TAKES LONG TIME TO BECOME UNEVEN
+            if (Math.round(event.time) %2 == 0) {
+                myCircle.scale(0.9);
+            }
+            else {
+                myCircle.scale(1.111111111111111111111111111111);
+            };
+        }; */
+
+
 
 
     </script>
