@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brazilian Flag</title>
+    <script type="text/javascript" src="paper-full.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+
+        <!-- * RECTANGLE: GREEN -->
+        var rectangle = new Rectangle(new Point(32, 10), new Point(200, 120));
+        var path = new Path.Rectangle(rectangle);
+        path.fillColor = 'green';
+        path.selected = false;
+
+        <!-- * LOZENGE: YELLOW -->
+        var lozenge = new Path();
+        lozenge.add(new Point(50, 65));
+        lozenge.add(new Point(115, 25));
+        lozenge.add(new Point(180, 65));
+        lozenge.add(new Point(115, 110));
+        lozenge.add(new Point(50, 65));
+        lozenge.fillColor = 'yellow';
+
+        <!-- * CIRCLE: BLUE -->
+        var myCircle = new Path.Circle(new Point(115, 68), 25);
+        myCircle.fillColor = 'blue';
+
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+</html>
