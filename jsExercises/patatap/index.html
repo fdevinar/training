@@ -8,58 +8,43 @@
     <script type="text/javascript" src="paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
 
+        <!-- ? GRID CIRCLE -->
         // INIT CENTER
-
         //var center = new Point(0, 0);
         //var circle = new Path.Circle(center, 15);
         //circle.fillColor = 'rgb(255, 0, 0)';
 
-        for (x=0; x<1000; x+= 100){
-            for (y=0; y<1000; y+= 100){
-                var circle = new Path.Circle(new Point(x,y) , 15);
-                circle.fillColor = 'rgb(180, ' + x + ', ' + y + ')';
+        /*function fillCircles(){
+            for (x=0; x<1500; x+= 100){
+                for (y=0; y<1000; y+= 100){
+                    new Path.Circle(new Point(x,y) , 15).fillColor = 'rgb(180, ' + x + ', ' + y + ')';
+                };
             };
-        };
+        }*/
+        <!-- ? END OF GRID CIRCLE -->
 
-        
-        // CREATES BLUE CIRCLE
-        //var myCircle = new Path.Circle(center, 500);
-        //myCircle.fillColor = 'blue';
-        //myCircle.fullySelected = true;
-        //myCircle.visible = false;
+        <!-- * GENERATE RANDOM RGB CIRCLES ON SCREEN -->
+        var circlesArr = [];
+        function randomCircle(){
+            var circle = new Path.Circle(new Point(view.size.width, view.size.height) * Point.random(), 500);
+            var red = Math.random() * 255;
+            var green = Math.random() * 255;
+            var blue = Math.random() * 255;
+            circle.fillColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            circlesArr.push(circle);
+        }
+        function onKeyDown(event) {
+            randomCircle();
+        }
 
-        // CREATES GREEN CIRCLE
-        //var otherCircle = new Path.Circle(center + [250, 0], 100);
-        //otherCircle.fillColor = 'red';
-
-        /* function onFrame(event) {
-            myCircle.visible = true;
-            myCircle.fillColor.hue += 5;
-            myCircle.scale(0.9);
-        } */
-
-        //myCircle.removeSegment(2);
-        //otherCircle.removeSegment(0);
-
-        //myCircle.removeSegment(0);
-        //myCircle.add(new Point(200, 200));
-
-        // GROWS AND SHRINKS, CHANGING HUE
-        /* function onFrame(event) {
-            myCircle.fillColor.hue += 0.5;
-            // WORKAROUND SO SCALE TAKES LONG TIME TO BECOME UNEVEN
-            if (Math.round(event.time) %2 == 0) {
-                myCircle.scale(0.9);
-            }
-            else {
-                myCircle.scale(1.111111111111111111111111111111);
+        <!-- * HUE AND SCALE VARIATION -->
+        function onFrame(event) {
+            for (i=0; i<circlesArr.length; i++){
+                circlesArr[i].fillColor.hue += 3;
+                circlesArr[i].scale(0.9);
             };
-        }; */
-
-
-
-
-
+        console.log(circlesArr.length);
+        }
 
     </script>
 </head>
