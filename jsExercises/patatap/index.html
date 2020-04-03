@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <title>Circles Exercise</title>
     <link rel="stylesheet" href="styles.css">
+    
     <script type="text/javascript" src="paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
 
         // INIT CENTER
-        var center = new Point(300, 300);
 
+        //var center = new Point(0, 0);
+        //var circle = new Path.Circle(center, 15);
+        //circle.fillColor = 'rgb(255, 0, 0)';
+
+        for (x=0; x<1000; x+= 100){
+            for (y=0; y<1000; y+= 100){
+                var circle = new Path.Circle(new Point(x,y) , 15);
+                circle.fillColor = 'rgb(180, ' + x + ', ' + y + ')';
+            };
+        };
+
+        
         // CREATES BLUE CIRCLE
-        var myCircle = new Path.Circle(center, 100);
-        myCircle.fillColor = 'blue';
-        myCircle.fullySelected = true;
+        //var myCircle = new Path.Circle(center, 500);
+        //myCircle.fillColor = 'blue';
+        //myCircle.fullySelected = true;
+        //myCircle.visible = false;
 
         // CREATES GREEN CIRCLE
-        var otherCircle = new Path.Circle(center + [250, 0], 100);
-        otherCircle.fillColor = 'red';
+        //var otherCircle = new Path.Circle(center + [250, 0], 100);
+        //otherCircle.fillColor = 'red';
 
-        function onFrame(event) {
-            myCircle.fillColor.hue += 0.8;
-            otherCircle.fillColor.hue -= 0.8;
-        }
+        /* function onFrame(event) {
+            myCircle.visible = true;
+            myCircle.fillColor.hue += 5;
+            myCircle.scale(0.9);
+        } */
 
         //myCircle.removeSegment(2);
         //otherCircle.removeSegment(0);
@@ -41,6 +55,8 @@
                 myCircle.scale(1.111111111111111111111111111111);
             };
         }; */
+
+
 
 
 
