@@ -5,6 +5,17 @@
     <title>Circles Exercise</title>
     <link rel="stylesheet" href="styles.css">
     
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.js"> -->
+    <script type="text/javascript" src="sounds/howler.js-master/dist/howler.js">
+
+     var sound = new Howl({
+          src: ['sound1.mp3'],
+          volume: 0.8
+        });
+        
+        sound.play();
+    </script>
+
     <script type="text/javascript" src="paper-full.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
 
@@ -27,9 +38,9 @@
         var circlesArr = [];
         function randomCircle(){
             var circle = new Path.Circle(new Point(view.size.width, view.size.height) * Point.random(), 500);
-            var red = Math.random() * 255;
-            var green = Math.random() * 255;
-            var blue = Math.random() * 255;
+            var red = Math.random() * 256;
+            var green = Math.random() * 256;
+            var blue = Math.random() * 256;
             circle.fillColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
             circlesArr.push(circle);
         }
@@ -40,10 +51,10 @@
         <!-- * HUE AND SCALE VARIATION -->
         function onFrame(event) {
             for (i=0; i<circlesArr.length; i++){
-                circlesArr[i].fillColor.hue += 3;
+                circlesArr[i].fillColor.hue += 4;
                 circlesArr[i].scale(0.9);
             };
-        console.log(circlesArr.length);
+        //console.log(circlesArr.length);
         }
 
     </script>
