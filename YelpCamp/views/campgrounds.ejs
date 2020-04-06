@@ -1,13 +1,33 @@
 <%- include("partials/header") %>
 
-<h1>Campgrounds</h1>
-
-
-<% campgrounds.forEach((camp) => { %>
-    <div>
-        <h3><%= camp.name %></h3>
-        <img src="<%= camp.image %>">
+<!-- MAIN HEADER -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Campgrounds</h1>
+      <p class="lead">Welcome to Campgrounds list page. This section contains all managed Campgrounds!</p>
     </div>
-    <% }); %>
+</div>
+<!-- END OF MAIN HEADER -->
+
+<!-- BUTTONS -->
+<a href="/" class="btn btn-secondary">Back to Home</a>
+<a href="campgrounds/new" class="btn btn-primary">Create New Campground</a>
+<!-- END OF BUTTONS -->
+
+<!-- CAMPGROUNDS GRID -->
+<div class="container">
+    <div class="row">
+        <% campgrounds.forEach((camp) => { %>
+            <div>
+                <h3><%= camp.name %></h3>
+                <img src="<%= camp.image %>">
+            </div>
+        <% }); %>
+    </div>
+</div>
+<!-- END OF CAMPGROUNDS GRID -->
+
+
+
 
 <%- include("partials/footer") %>
