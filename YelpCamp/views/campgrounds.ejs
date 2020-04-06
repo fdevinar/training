@@ -15,15 +15,15 @@
 <!-- END OF BUTTONS -->
 
 <!-- CAMPGROUNDS GRID -->
-<div class="container">
-    <div class="row">
+<div>
+    <!-- <div> -->
         <% campgrounds.forEach((camp) => { %>
-            <div>
+            <div class="campground rounded">
                 <h3><%= camp.name %></h3>
                 <img src="<%= camp.image %>">
             </div>
         <% }); %>
-    </div>
+    <!-- </div> -->
 </div>
 <!-- END OF CAMPGROUNDS GRID -->
 

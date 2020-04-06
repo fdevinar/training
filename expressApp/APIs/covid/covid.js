@@ -1,6 +1,8 @@
 
 const url = 'https://covid19-server.chrismichael.now.sh/api/v1/Deaths';
 
+let h2 = document.getElementById('deathCount');
+
 fetch(url) // Call the fetch function passing the url of the API as a parameter
 .then((data) => data.json()) // converts data to JSON
 .then(function(data) {
@@ -9,6 +11,7 @@ fetch(url) // Call the fetch function passing the url of the API as a parameter
 })
 .catch(function(err) {
     // This is where you run code if the server returns any errors
+    h2.textContent = 'Failed to Fetch API Data!';
     console.log(`Error: ${err}`);
 });
 
@@ -26,7 +29,6 @@ function handleData(data){
     day.reverse();
     // GETS DEATH COUNT AND DISPLAYS ON H2
     let deathCount = deaths[0];
-    let h2 = document.getElementById('deathCount');
     h2.textContent = h2.textContent + ' ' + deathCount;
     // REVERTS DEATHS TO MATCH DAYS ON CHRONOLOGICAL ORDER
     deaths.reverse();
