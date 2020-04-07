@@ -1,33 +1,44 @@
 <%- include("partials/header") %>
 
-<!-- MAIN HEADER -->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-      <h1 class="display-4">Campgrounds</h1>
-      <p class="lead">Welcome to Campgrounds list page. This section contains all managed Campgrounds!</p>
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- MAIN HEADER -->
+    <header class="jumbotron text-center">
+        <h1 class="display-4">Campgrounds</h1>
+        <p class="lead">Welcome to Campgrounds list page. This section contains all managed Campgrounds!</p>
+            <!-- BUTTONS -->
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+            <a href="campgrounds/new" class="btn btn-primary">Create New Campground</a>
+            <!-- END OF BUTTONS -->
+    </header>
+    <!-- END OF MAIN HEADER -->
+
+
+
+    <!-- CAMPGROUNDS GRID -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>List of Campgrounds</h3>
+        </div>
     </div>
-</div>
-<!-- END OF MAIN HEADER -->
+    
+    <div class="row grid">
+            <% campgrounds.forEach((camp) => { %>
+                <div class="card col-md-3 col-sm-6">
+                    <!-- <div class="card-body"> -->
+                        <h3 class="card-title"><%= camp.name %></h3>
+                        <img src="<%= camp.image %>">
+                    <!-- </div> -->
 
-<!-- BUTTONS -->
-<a href="/" class="btn btn-secondary">Back to Home</a>
-<a href="campgrounds/new" class="btn btn-primary btn-lg">Create New Campground</a>
-<!-- END OF BUTTONS -->
+                </div>
 
-<!-- CAMPGROUNDS GRID -->
-<div>
-    <!-- <div> -->
-        <% campgrounds.forEach((camp) => { %>
-            <div class="campground rounded">
-                <h3><%= camp.name %></h3>
-                <img src="<%= camp.image %>">
-            </div>
-        <% }); %>
-    <!-- </div> -->
-</div>
-<!-- END OF CAMPGROUNDS GRID -->
+            <% }); %>
+    </div>
+    <!-- END OF CAMPGROUNDS GRID -->
 
-
+</div><!-- END OF MAIN CONTAINER -->
 
 
 <%- include("partials/footer") %>
