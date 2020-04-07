@@ -2,37 +2,34 @@
 
 <!-- MAIN CONTAINER -->
 <div class="container">
-
     <!-- MAIN HEADER -->
     <header class="jumbotron text-center">
         <h1 class="display-4">Campgrounds</h1>
         <p class="lead">Welcome to Campgrounds list page. This section contains all managed Campgrounds!</p>
-            <!-- BUTTONS -->
-            <a href="/" class="btn btn-secondary">Back to Home</a>
-            <a href="campgrounds/new" class="btn btn-primary">Create New Campground</a>
-            <!-- END OF BUTTONS -->
+        <a href="campgrounds/new" class="btn btn-primary">Create New Campground</a>
+
     </header>
     <!-- END OF MAIN HEADER -->
 
     <!-- CAMPGROUNDS GRID -->
-
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row row-cols-1">
+        <div class="row-cols-12 text-center">
             <h3>List of Campgrounds</h3>
         </div>
     </div>
     
-    <div class="row grid">
+    <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
             <% campgrounds.forEach((camp) => { %>
-                <div class="card col-md-3 col-sm-6">
-                    <!-- <div class="card-body"> -->
-                        <h3 class="card-title"><%= camp.name %></h3>
-                        <img src="<%= camp.image %>">
-                    <!-- </div> -->
+                <div class="col mb-4"> <!-- MB-4 = MARGIN BOTTOM 4 -->
+                    <div class="card">
+                        <img src="<%= camp.image %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= camp.name %></h5>
+                        </div>
+                    </div>
                 </div>
             <% }); %>
-    </div>
-    <!-- END OF CAMPGROUNDS GRID -->
+    </div><!-- END OF CAMPGROUNDS GRID -->
 
 </div><!-- END OF MAIN CONTAINER -->
 
