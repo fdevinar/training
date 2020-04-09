@@ -2,11 +2,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 app.use(express.static('public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
-
 
 // * ROUTES * //
 app.get('/', (req, res) => {
@@ -37,6 +37,56 @@ app.get('/campgrounds/new', (req, res) => {
 })
 
 // * DATA * //
+
+mongoose.connect('mongodb://localhost/campgrounds');
+
+const campSchema = new mongoose.Schema({
+    name: String,
+    image: String
+});
+
+// CREATE MODEL
+let Campground = mongoose.model("Campground", campSchema);
+
+// CREATE NEW CAMPGROUND
+// let testCampground = new Campground({
+//     name: "Test2Name",
+//     image: "Test2Image"
+// });
+
+// testCampground.save((err, camp) => {
+//     if (err){
+//         console.log('ERROR:');
+//         console.log(err);    
+//     }else {
+//         console.log('DATA SAVED TO DB:');
+//         console.log(camp);
+//     }
+// });
+
+Campground.create({
+    name: "createTest",
+    image: "imageTest"
+}, (err, camp) => {
+    if (err){
+        console.log(err);
+    } else {
+        console.log('Created success!')
+        console.log(camp);
+    }
+});
+
+Campground.find({}, (err, camps) => {
+    if (err){
+        console.log(err);
+    } else {
+        console.log('ALL CAMPGROUNDS:');
+        console.log(camps);
+    }
+});
+
+
+
 
 let campgrounds = [
     {
