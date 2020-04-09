@@ -19,7 +19,7 @@
     </div>
     
     <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
-            <% campgrounds.forEach((camp) => { %>
+            <% Object.values(campgrounds).forEach((camp) => { %>
                 <div class="col mb-4"> <!-- MB-4 = MARGIN BOTTOM 4 -->
                     <div class="card">
                         <img src="<%= camp.image %>" class="card-img-top" alt="...">
