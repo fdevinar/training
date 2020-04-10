@@ -25,6 +25,9 @@
                         <img src="<%= camp.image %>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><%= camp.name %></h5>
+                            <form action="/campgrounds/<%= camp.id %>" method="GET">
+                                <button name="submit" class="btn btn-primary btn-sm">Details</a>
+                            </form>
                         </div>
                     </div>
                 </div>

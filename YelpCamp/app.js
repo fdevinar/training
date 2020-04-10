@@ -15,7 +15,8 @@ mongoose.connect('mongodb://localhost/campgrounds');
 // CREATE SCHEMA
 const campSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 // CREATE MODEL
 const Campground = mongoose.model("Campground", campSchema);
@@ -25,7 +26,7 @@ const Campground = mongoose.model("Campground", campSchema);
 app.get('/', (req, res) => {
     res.render('landing');
 });
-// DISPLAY CAMPGROUNDS
+// - INDEX - Display Campgrouds
 app.get('/campgrounds', (req, res) => {
     Campground.find({}, (err, campgrounds) => {
         if (err){
@@ -36,7 +37,7 @@ app.get('/campgrounds', (req, res) => {
         }
     });
 });
-// CREATE CAMPGROUND
+// - CREATE - Add new Campground to DB
 app.post('/campgrounds', (req, res) => {
     Campground.create({
         name: req.body.name,
@@ -51,10 +52,19 @@ app.post('/campgrounds', (req, res) => {
     });
     res.redirect('campgrounds');
 });
-// DISPLAY FORM TO CREATE CAMPGROUND
+// - NEW - Display form to Create Campground
 app.get('/campgrounds/new', (req, res) => {
     res.render('new');
-})
+});
+// - SHOW - Displays info about a single Campground
+app.get('/campgrounds/:id', (req, res) => {
+
+    console.log(req.url.id);
+    //Campground.findById({id}, (err, campground) => {
+    //    console.log(campground);
+    //});
+    res.send('SHOW ROUTE');
+});
 
 // *** SERVER START *** //
 // Start server
