@@ -70,6 +70,10 @@ app.get('/campgrounds/:id', (req, res) => {
     });
 });
 
+// - EDIT GET
+// - UPDATE PUT
+// - DESTROY DELETE
+
 // *** SERVER START *** //
 // Start server
 app.listen(3000, () => {

@@ -1,19 +1,18 @@
 <%- include("partials/header") %>
 
 <h1>Campground Details</h1>
+<a href="../campgrounds">Back</a>
 
-<ul>
-    <li><img src="<%= campground[0].image %>"></li>
-    <li>Name: <%= campground[0].name %></li>
-    <li>Description: <%= campground[0].description %></li>
-    <li>ID: <%= campground[0].id %></li>
-</ul>
-
-
-
-
-
-
-
+<div class="container">
+    <div class="card w-75">
+                <img src="<%= campground[0].image %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= campground[0].name %></h5>
+                    <p class="card-text"><%= campground[0].description %></p>
+                    <p class="btn btn-secondary btn-sm">ID: <%= campground[0].id %></p>
+                    </form>
+                </div>
+    </div>
+</div>
 
 <%- include("partials/footer") %>
