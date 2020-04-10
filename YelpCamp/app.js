@@ -11,15 +11,16 @@ app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from
 
 // *** DATABASE *** //
 // CONNECT TO DATABASE
-mongoose.connect('mongodb://localhost/campgrounds');
+mongoose.connect('mongodb://localhost/campgrounds',{ useNewUrlParser: true, useUnifiedTopology: true });
 // CREATE SCHEMA
-const campSchema = new mongoose.Schema({
+const campgroundSchema = new mongoose.Schema({
+    //_id: String,
     name: String,
     image: String,
     description: String
 });
 // CREATE MODEL
-const Campground = mongoose.model("Campground", campSchema);
+const Campground = mongoose.model("Campground", campgroundSchema);
 
 // *** ROUTES *** //
 // HOME
@@ -33,7 +34,7 @@ app.get('/campgrounds', (req, res) => {
             console.log('Error finding campgrounds:');
             console.log(err);
         } else {
-            res.render('campgrounds',{campgrounds:campgrounds});
+            res.render('index',{campgrounds:campgrounds});
         }
     });
 });
@@ -41,6 +42,7 @@ app.get('/campgrounds', (req, res) => {
 app.post('/campgrounds', (req, res) => {
     Campground.create({
         name: req.body.name,
+        description: req.body.description,
         image: req.body.image
     }, (err, camp) => {
         if (err){
@@ -58,12 +60,14 @@ app.get('/campgrounds/new', (req, res) => {
 });
 // - SHOW - Displays info about a single Campground
 app.get('/campgrounds/:id', (req, res) => {
-
-    console.log(req.url.id);
-    //Campground.findById({id}, (err, campground) => {
-    //    console.log(campground);
-    //});
-    res.send('SHOW ROUTE');
+    let id = req.params.id;
+    Campground.find({_id: id}, (err, campground) => {
+        if (err){
+            console.log(`ERROR:  ${err}`);
+        } else{
+            res.render('show',{campground: campground});
+        }        
+    });
 });
 
 // *** SERVER START *** //
