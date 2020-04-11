@@ -60,8 +60,7 @@ app.get('/campgrounds/new', (req, res) => {
 });
 // - SHOW - Displays info about a single Campground
 app.get('/campgrounds/:id', (req, res) => {
-    let id = req.params.id;
-    Campground.find({_id: id}, (err, campground) => {
+    Campground.findById(req.params.id, (err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
         } else{
