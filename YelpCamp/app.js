@@ -79,7 +79,8 @@ app.get('/campgrounds/:id/edit', (req, res) => {
         }        
     });
 });
-// - UPDATE PUT (POST?)
+// TODO: REFACTOR TO USE PUT METHOD
+// - UPDATE PUT (POST?) - Edit Campground in DB
 app.post('/campgrounds/:id', (req, res) => {
     let id = req.params.id;
     Campground.findByIdAndUpdate(id, req.body, (err, status) =>{
@@ -91,8 +92,11 @@ app.post('/campgrounds/:id', (req, res) => {
     });
     res.redirect('/campgrounds');
 });
+// - DESTROY DELETE - Delete Campground in DB
+app.delete('/campgrounds/:id', (req, res) => {
+    res.send('DELETE ROUTE');
+})
 
-// - DESTROY DELETE
 
 //@ Name    | Path                   | HTTP Method
 //@ -------------------------------------------------
