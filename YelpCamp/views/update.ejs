@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<h1>Update Campground</h1>
+<a href="../campgrounds">Back</a>
+
+<div class="container mt-3">
+    <div class="formStyle">
+        <h2 class="text-center">Update Campground</h2>
+        <form class="updateForm" action="/campgrounds/<%= campground.id %>" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name" value="<%= campground.name %>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input class="form-control" type="text" name="description" id="description" value="<%= campground.description %>">
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input class="form-control" type="url" name="image" id="image" value="<%= campground.image %>">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Update Campground</button>
+        </form>
+    </div>
+    <br>
+</div>
+
+
+<%- include("partials/footer") %>

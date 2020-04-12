@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from
 
 // *** DATABASE *** //
 // CONNECT TO DATABASE
-mongoose.connect('mongodb://localhost/campgrounds',{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/campgrounds',
+{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 // CREATE SCHEMA
 const campgroundSchema = new mongoose.Schema({
     //_id: String,
@@ -68,10 +69,45 @@ app.get('/campgrounds/:id', (req, res) => {
         }        
     });
 });
+// - EDIT - Display form to Edit Campground
+app.get('/campgrounds/:id/edit', (req, res) => {
+    Campground.findById(req.params.id, (err, campground) => {
+        if (err){
+            console.log(`ERROR:  ${err}`);
+        } else{
+            res.render('update',{campground: campground});
+        }        
+    });
+});
+// - UPDATE PUT (POST?)
+app.post('/campgrounds/:id', (req, res) => {
+    let id = req.params.id;
+    Campground.findByIdAndUpdate(id, req.body, (err, status) =>{
+        if (err){
+            console.log(err);
+        } else{
+            console.log(status);
+        };
+    });
+    res.redirect('/campgrounds');
+});
 
-// - EDIT GET
-// - UPDATE PUT
 // - DESTROY DELETE
+
+//@ Name    | Path                   | HTTP Method
+//@ -------------------------------------------------
+// DISPLAY ROUTES
+//- INDEX    | /campgrounds           |  GET
+//- SHOW     | /campgrounds/:id       |  GET
+// FORM ROUTES
+//* NEW      | /campgrounds/new       |  GET (Form)
+//* EDIT     | /campgrounds/:id/edit  |  GET (Form)
+// ACTION ROUTES
+//* CREATE   | /campgrounds           |  POST
+//* UPDATE   | /campgrounds/:id       |  PUT (POST?)
+//! DESTROY  | /campgrounds/:id       |  DELETE
+
+
 
 // *** SERVER START *** //
 // Start server
