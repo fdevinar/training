@@ -19,19 +19,14 @@
     </div>
     
     <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
-            <% campgrounds.forEach((camp) => { %>
+            <% campgrounds.forEach((campground) => { %>
                 <div class="col mb-4"> <!-- MB-4 = MARGIN BOTTOM 4 -->
                     <div class="card">
-                        <img src="<%= camp.image %>" class="card-img-top" alt="...">
+                        <img src="<%= campground.image %>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><%= camp.name %></h5>
-                            <p class="card-text"><%= camp.description %></p>
-                            <a href="/campgrounds/<%= camp._id %>" class="btn btn-secondary btn-sm">Details</a>
-                            <!-- TODO: REFACTOR TO USE 'PUT' METHOD TO UPDATE DB -->
-                            <a href="/campgrounds/<%= camp._id %>/edit" class="btn btn-primary btn-sm">Update</a>
-                            <!-- TODO: CREATE ELEMENT TO SUBMIT 'DELETE' METHOD TO APP.JS -->
-                            <button class="btn btn-sm btn-danger">Delete</button>
-                            </form>
+                            <h5 class="card-title"><%= campground.name %></h5>
+                            <p class="card-text"><%= campground.description %></p>
+                            <a href="/campgrounds/<%= campground._id %>" class="btn btn-secondary btn-sm">Details</a>
                         </div>
                     </div>
                 </div>

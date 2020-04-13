@@ -4,10 +4,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 // SET DEFAULT FOLDERS/FILES
 app.use(express.static('public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
+app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
 
 // *** DATABASE *** //
 // CONNECT TO DATABASE
@@ -18,7 +20,8 @@ const campgroundSchema = new mongoose.Schema({
     //_id: String,
     name: String,
     image: String,
-    description: String
+    description: String,
+    created: {type: Date, default: Date.now()}
 });
 // CREATE MODEL
 const Campground = mongoose.model("Campground", campgroundSchema);
@@ -64,6 +67,7 @@ app.get('/campgrounds/:id', (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
+            res.redirect('/campgrounds');
         } else{
             res.render('show',{campground: campground});
         }        
@@ -74,30 +78,37 @@ app.get('/campgrounds/:id/edit', (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
+            res.redirect('/campgrounds');
         } else{
             res.render('update',{campground: campground});
         }        
     });
 });
-// TODO: REFACTOR TO USE PUT METHOD
 // - UPDATE PUT (POST?) - Edit Campground in DB
-app.post('/campgrounds/:id', (req, res) => {
-    let id = req.params.id;
-    Campground.findByIdAndUpdate(id, req.body, (err, status) =>{
+app.put('/campgrounds/:id', (req, res) => {
+    Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
         if (err){
             console.log(err);
+            res.redirect('/campgrounds');
         } else{
-            console.log(status);
+            console.log('Update successful');
+            res.redirect(`/campgrounds/${req.params.id}`);
         };
     });
-    res.redirect('/campgrounds');
 });
 // - DESTROY DELETE - Delete Campground in DB
 app.delete('/campgrounds/:id', (req, res) => {
-    res.send('DELETE ROUTE');
+    Campground.findByIdAndDelete(req.params.id, (err, status) => {
+        if (err){
+            console.log(err);
+        } else{
+            console.log('Deletion successful');
+        }
+    });
+    res.redirect('/campgrounds');
 })
 
-
+// RESTFUL ROUTES
 //@ Name    | Path                   | HTTP Method
 //@ -------------------------------------------------
 // DISPLAY ROUTES
@@ -108,7 +119,7 @@ app.delete('/campgrounds/:id', (req, res) => {
 //* EDIT     | /campgrounds/:id/edit  |  GET (Form)
 // ACTION ROUTES
 //* CREATE   | /campgrounds           |  POST
-//* UPDATE   | /campgrounds/:id       |  PUT (POST?)
+//* UPDATE   | /campgrounds/:id       |  PUT
 //! DESTROY  | /campgrounds/:id       |  DELETE
 
 
@@ -116,6 +127,7 @@ app.delete('/campgrounds/:id', (req, res) => {
 // *** SERVER START *** //
 // Start server
 app.listen(3000, () => {
+    console.clear();
     console.log('***************************************************');
     console.log('***** YelpCamp server listening on port 3000. *****');
     console.log('***************************************************');

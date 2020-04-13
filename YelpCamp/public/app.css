@@ -3,3 +3,10 @@
     margin: 35px auto;
 }
 
+.card-body form {
+    display: inline;
+}
+
+.card-footer p {
+    font-style: italic;
+}
