@@ -24,31 +24,28 @@ let User = mongoose.model('User', userSchema);
 // * USER/POST CREATION
 
 // User.create({
-//     name: 'Mark',
-//     email: 'Mark@doe.com'
+//     name: 'Harry',
+//     email: 'Dirty@Harry.com'
 // });
 
-// let newPost = new Post({
-//     title: 'REF-3',
-//     content: 'REF-3'
+// Post.create({
+//     title: 'Do I feel lucky?',
+//     content: 'Well, do ya punk?'
+// }, (err, post) => {
+//     User.findOne({name: 'Harry'}, (err, foundUser) => {
+//         if (err){
+//             console.log(err);
+//         }else {
+//             foundUser.posts.push(post);
+//             foundUser.save();
+//         }
+//     });
 // });
 
-// User.findOne({name: 'Mark'}, (err, foundUser) => {
-//     foundUser.posts.push(newPost);
-//     foundUser.save();
-//     console.log(foundUser);
-// });
-
-// FIND USER AND ALL POSTS ASSOCIATED
-
-// TODO TEST WHY ITS NOT POPULATING
-
-User.findOne({name: 'Mark'},(err, user) => {
+User.findOne({name: 'Harry'}).populate('posts').exec( (err, user) => {
     if (err){
         console.log(err);
     } else{
         console.log(user);
-    }   
+    }
 });
-
-
