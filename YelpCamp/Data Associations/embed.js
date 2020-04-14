@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/user_post');
+mongoose.connect('mongodb://localhost/embed');
 
 // * MODEL DEFINITION
 // POST MODEL - title, content => NEEDS TO GO FIRST, TO USER KNOWS WHAT POST SCHEMA IS
