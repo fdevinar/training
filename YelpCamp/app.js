@@ -15,16 +15,8 @@ app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT
 // CONNECT TO DATABASE
 mongoose.connect('mongodb://localhost/campgrounds',
 { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-// CREATE SCHEMA
-const campgroundSchema = new mongoose.Schema({
-    //_id: String,
-    name: String,
-    image: String,
-    description: String,
-    created: {type: Date, default: Date.now()}
-});
-// CREATE MODEL
-const Campground = mongoose.model("Campground", campgroundSchema);
+// REQUIRE MODELS
+const Campground = require('./models/campground');
 
 // *** ROUTES *** //
 // HOME
