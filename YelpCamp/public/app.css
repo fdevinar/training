@@ -7,6 +7,11 @@
     display: inline;
 }
 
+.card-body a{
+    margin-left: 33%;
+}
+
 .card-footer p {
     font-style: italic;
 }
+

@@ -10,13 +10,16 @@ app.use(express.static('public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
+// MODELS
+const Campground = require('./models/campground');
+const Comment = require('./models/comment');
+const seedDB = require('./seeds');
+seedDB();
 
 // *** DATABASE *** //
 // CONNECT TO DATABASE
 mongoose.connect('mongodb://localhost/campgrounds',
 { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-// REQUIRE MODELS
-const Campground = require('./models/campground');
 
 // *** ROUTES *** //
 // HOME
