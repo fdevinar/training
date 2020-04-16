@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
 // MODELS
 const Campground = require('./models/campground');
-const Comment = require('./models/comment');
+//const Comment = require('./models/comment');
 const seedDB = require('./seeds');
 seedDB();
 
@@ -59,7 +59,7 @@ app.get('/campgrounds/new', (req, res) => {
 });
 // - SHOW - Displays info about a single Campground
 app.get('/campgrounds/:id', (req, res) => {
-    Campground.findById(req.params.id, (err, campground) => {
+    Campground.findById(req.params.id).populate('comments').exec((err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');

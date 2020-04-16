@@ -3,12 +3,24 @@
 <h1>Campground Details</h1>
 <a href="../campgrounds">Back</a>
 
+<% console.log(campground) %>
+
 <div class="container">
     <div class="card w-75">
                 <img src="<%= campground.image %>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><%= campground.name %></h5>
                     <p class="card-text"><%= campground.description %></p>
+                    <!-- COMMENTS -->
+
+                    <p class="card-text">Comments:</p>
+                    <% campground.comments.forEach((comment) =>{ %>
+                        <p class="card-text"> 
+                        "<%= comment.text %>"" by: 
+                        <%= comment.author %> 
+                    <% }); %></p>
+                    <!-- END OF COMMENTS -->
+
                     <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
                     <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>

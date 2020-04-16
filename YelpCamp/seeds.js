@@ -26,27 +26,24 @@ let seeds = [
     
 ];
 
-let comment = {
-    text: 'I love this campground!',
-    author: 'Fabrigol'
-};
-
 async function seedDB() {
     await Campground.deleteMany({});
-    await Comment.create(comment);
-    
-    // for (seed of seeds){
-    //     Campground.create(seed, (err,campground) => {
-    //         if (err){
-    //             console.log(err);
-    //         } else{
-    //             let comment = Comment.findOne({});
-    //             Campground.comments.push(comment);
-    //             campground.save();
-    //         }
-    //     })
-    // };
+    await Comment.deleteMany({});
 
+    for (const seed of seeds){
+        let campground = await Campground.create(seed);
+        let comment1 = await Comment.create({
+            text: 'This campsite is great!',
+            author: 'Fabrigol'
+        });
+        let comment2 = await Comment.create({
+            text: 'This campsite is not that great!',
+            author: 'Fabri X'
+        });
+        campground.comments.push(comment1);
+        campground.comments.push(comment2);
+        campground.save();
+    };
 }
 
 
