@@ -3,8 +3,9 @@
     margin: 35px auto;
 }
 
-.card-body form {
-    display: inline;
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .card-body a{

@@ -21,11 +21,13 @@ seedDB();
 mongoose.connect('mongodb://localhost/campgrounds',
 { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
-// *** ROUTES *** //
-// HOME
+// *** HOME *** //
+// LANDING PAGE
 app.get('/', (req, res) => {
     res.render('landing');
 });
+
+// *** CAMPGROUNDS *** //
 // - INDEX - Display Campgrouds
 app.get('/campgrounds', (req, res) => {
     Campground.find({}, (err, campgrounds) => {
@@ -102,6 +104,36 @@ app.delete('/campgrounds/:id', (req, res) => {
     });
     res.redirect('/campgrounds');
 })
+
+// *** COMMENTS SECTION ***
+// - NEW - Display Form to Create Comment
+app.get('/campgrounds/:id/comments/new', (req, res) => {
+    // ! WHAT ID IS BEING PASSED TO COMMENTS/NEW?
+    campgroundId = req.params.id;
+    res.render('newComment',{campgroundId:campgroundId});
+});
+// - CREATE - Add New Comment to DB
+app.post('/campgrounds/:id/comments', (req, res) => {
+    let author = req.body.author;
+    let text = req.body.text;
+    let campgroundId = req.params.id;
+    console.log({
+        author: author,
+        text: text,
+        id: campgroundId
+    });
+    // ! CANT FIND ID
+    Campground.findById(req.params.id, (err, campground) => {
+        if(err){
+            console.log(err);
+        } else{
+            console.log(campground);
+        }
+    });
+    res.send('POST ROUTE - CREATE COMMENT');
+});
+
+
 
 // RESTFUL ROUTES
 //@ Name    | Path                   | HTTP Method
