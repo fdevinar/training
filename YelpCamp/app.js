@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
 // MODELS
 const Campground = require('./models/campground');
-//const Comment = require('./models/comment');
+const Comment = require('./models/comment');
 const seedDB = require('./seeds');
 seedDB();
 
@@ -35,7 +35,7 @@ app.get('/campgrounds', (req, res) => {
             console.log('Error finding campgrounds:');
             console.log(err);
         } else {
-            res.render('index',{campgrounds:campgrounds});
+            res.render('campgrounds/index',{campgrounds:campgrounds});
         }
     });
 });
@@ -57,7 +57,7 @@ app.post('/campgrounds', (req, res) => {
 });
 // - NEW - Display form to Create Campground
 app.get('/campgrounds/new', (req, res) => {
-    res.render('new');
+    res.render('campgrounds/new');
 });
 // - SHOW - Displays info about a single Campground
 app.get('/campgrounds/:id', (req, res) => {
@@ -66,7 +66,7 @@ app.get('/campgrounds/:id', (req, res) => {
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');
         } else{
-            res.render('show',{campground: campground});
+            res.render('campgrounds/show',{campground: campground});
         }        
     });
 });
@@ -77,7 +77,7 @@ app.get('/campgrounds/:id/edit', (req, res) => {
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');
         } else{
-            res.render('update',{campground: campground});
+            res.render('campgrounds/update',{campground: campground});
         }        
     });
 });
@@ -105,35 +105,41 @@ app.delete('/campgrounds/:id', (req, res) => {
     res.redirect('/campgrounds');
 })
 
-// *** COMMENTS SECTION ***
+// *** COMMENTS *** //
 // - NEW - Display Form to Create Comment
 app.get('/campgrounds/:id/comments/new', (req, res) => {
-    // ! WHAT ID IS BEING PASSED TO COMMENTS/NEW?
     campgroundId = req.params.id;
-    res.render('newComment',{campgroundId:campgroundId});
-});
-// - CREATE - Add New Comment to DB
-app.post('/campgrounds/:id/comments', (req, res) => {
-    let author = req.body.author;
-    let text = req.body.text;
-    let campgroundId = req.params.id;
-    console.log({
-        author: author,
-        text: text,
-        id: campgroundId
-    });
-    // ! CANT FIND ID
+
     Campground.findById(req.params.id, (err, campground) => {
         if(err){
             console.log(err);
-        } else{
-            console.log(campground);
+            res.render('campgrounds');
+        } else {
+            res.render('comments/new',{campground: campground});
         }
+    }
+    );
+}); 
+// - CREATE - Add New Comment to DB
+app.post('/campgrounds/:id/comments', (req, res) => {
+    Campground.findById(req.params.id, (err, campground) => {
+        if(err){
+            console.log(err);
+            res.redirect(`/campgrounds/${req.params.id}`);
+        } else{
+            Comment.create(req.body.comment, (err,comment) => {
+                if(err){
+                    console.log(err);
+                    res.redirect(`/campgrounds/${req.params.id}`);
+                }else {
+                            campground.comments.push(comment);
+                            campground.save();
+                            res.redirect(`/campgrounds/${req.params.id}`);
+                        }
+                    });
+                }
     });
-    res.send('POST ROUTE - CREATE COMMENT');
 });
-
-
 
 // RESTFUL ROUTES
 //@ Name    | Path                   | HTTP Method
@@ -149,13 +155,11 @@ app.post('/campgrounds/:id/comments', (req, res) => {
 //* UPDATE   | /campgrounds/:id       |  PUT
 //! DESTROY  | /campgrounds/:id       |  DELETE
 
-
-
 // *** SERVER START *** //
 // Start server
 app.listen(3000, () => {
     console.clear();
     console.log('***************************************************');
-    console.log('***** YelpCamp server listening on port 3000. *****');
+    console.log('***** YelpCamp server listening on port 3000 *****');
     console.log('***************************************************');
 });
