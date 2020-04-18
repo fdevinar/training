@@ -2,38 +2,56 @@
 
 <h1>Campground Details</h1>
 <a href="../campgrounds">Back</a>
-
-<% console.log(campground) %>
-
+<!-- CONTAINER -->
 <div class="container">
-    <div class="card w-75">
-                <img src="<%= campground.image %>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= campground.name %></h5>
-                    <p class="card-text"><%= campground.description %></p>
-                    
-                    <!-- COMMENTS -->
-                    <p class="card-text">Comments:</p>
-                    <% campground.comments.forEach((comment) =>{ %>
-                        <p class="card-text"> 
-                        "<%= comment.text %>"" by: 
-                        <%= comment.author %> 
-                    <% }); %></p>
-                    
-                    <!-- BUTTONS -->
-                    <div class="buttons">
-                        <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-success btn-sm">Add Comment</a>
-                        <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
-                        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                            <button class="btn btn-sm btn-danger">Delete</button>
-                        </form>
+    <div class="row">
+        <!-- SIDEBAR -->
+        <div class="list-group sidebar">
+            <p class="lead">YelpCamp</p>
+            <li class="list-group-item active">Info 1</li>
+            <li class="list-group-item">Info 2</li>
+            <li class="list-group-item">Info 3</li>
+        </div>
+        <!-- CARD -->
+        <div class="card">
+                                                    <!-- class="img-responsive" ? -->
+                    <img src="<%= campground.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= campground.name %></h3>
+                        <p class="card-text"><%= campground.description %></p>
+    
+                        <!-- COMMENTS -->
+                        <p class="card-header d-flex justify-content-between">
+                            Comments
+                            <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-success btn-sm">Add Comment</a>
+                        </p>
+                        <% campground.comments.forEach((comment) =>{ %>
+                            <p class="blockquote d-flex justify-content-between"> 
+                                <%= comment.text %>
+                                <span class="text-muted">10 days ago</span>
+                            </p>
+                            <p class="blockquote-footer font-italic">
+                                <%= comment.author %> 
+                            </p>
+                        <% }); %>
+                        
+                        <!-- BUTTONS -->
+                        <div class="buttons d-flex justify-content-around">
+                            <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
+                            <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
 
-                </div>
-                <div class="card-footer">
-                    <p>Created On: <%= campground.created.toDateString() %></p>
-                </div>
-    </div>
-</div>
+                        <!-- FOOTER -->
+                    <div class="card-footer font-italic">
+                        <p>Created On: <%= campground.created.toDateString() %></p>
+                    </div>
+        </div><!-- END OF CARD -->
+
+    </div><!-- END OF SIDEBAR -->
+
+</div><!-- END OF CONTAINER -->
 
 <%- include("../partials/footer") %>

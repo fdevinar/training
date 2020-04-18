@@ -3,16 +3,17 @@
     margin: 35px auto;
 }
 
-.buttons {
+/* .buttons {
     display: flex;
     justify-content: space-evenly;
+} */
+
+
+
+.sidebar {
+    width: 15%;
 }
 
-.card-body a{
-    margin-left: 33%;
+.card {
+    width: 85%;
 }
-
-.card-footer p {
-    font-style: italic;
-}
-

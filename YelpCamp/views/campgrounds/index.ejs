@@ -7,17 +7,14 @@
         <h1 class="display-4">Campgrounds</h1>
         <p class="lead">Welcome to Campgrounds list page. This section contains all managed Campgrounds!</p>
         <a href="campgrounds/new" class="btn btn-primary">Create New Campground</a>
-
     </header>
     <!-- END OF MAIN HEADER -->
-
     <!-- CAMPGROUNDS GRID -->
     <div class="row row-cols-1">
         <div class="row-cols-12 text-center pb-4">
             <h3>List of Campgrounds</h3>
         </div>
     </div>
-    
     <div class="row row-cols-1 row-cols-md-4 row-cols-sm-2">
             <% campgrounds.forEach((campground) => { %>
                 <div class="col mb-4"> <!-- MB-4 = MARGIN BOTTOM 4 -->
@@ -25,7 +22,7 @@
                         <img src="<%= campground.image %>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><%= campground.name %></h5>
-                            <p class="card-text"><%= campground.description %></p>
+                            <p class="card-text"><%= campground.description.substr(0,40) + '...' %></p>
                             <a href="/campgrounds/<%= campground._id %>" class="btn btn-secondary btn-sm">Details</a>
                         </div>
                     </div>

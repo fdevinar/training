@@ -6,22 +6,22 @@ let seeds = [
     {
         name: 'Starry Night',
         image: 'https://images.unsplash.com/photo-1479741044197-d28c298f8c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        description: 'Beautiful night full of stars!'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo minus eum non distinctio! Perferendis veritatis, at esse ipsum, unde deserunt deleniti, blanditiis fuga molestias optio recusandae dolorum. Odit, nesciunt repellat, fuga adipisci, exercitationem ullam veritatis tenetur reiciendis recusandae ex beatae quam cum molestias a quae nam ipsam totam impedit! Animi, libero magni! Maiores, est, fugit voluptate minus dolorem sint saepe impedit molestiae totam debitis asperiores iure facilis a perferendis distinctio ratione incidunt repellat vel officiis unde nesciunt ut laborum? Debitis architecto rerum a officiis, temporibus perferendis. Ea, temporibus adipisci facilis suscipit voluptatum dolorum impedit voluptate placeat nulla laboriosam laudantium commodi.'
     },
     {
         name: 'Cloudy Top',
         image: 'https://images.unsplash.com/photo-1483381719261-6620dfa2d28a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        description: 'Tough hill to climb, but the clouds are worth it!'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo minus eum non distinctio! Perferendis veritatis, at esse ipsum, unde deserunt deleniti, blanditiis fuga molestias optio recusandae dolorum. Odit, nesciunt repellat, fuga adipisci, exercitationem ullam veritatis tenetur reiciendis recusandae ex beatae quam cum molestias a quae nam ipsam totam impedit! Animi, libero magni! Maiores, est, fugit voluptate minus dolorem sint saepe impedit molestiae totam debitis asperiores iure facilis a perferendis distinctio ratione incidunt repellat vel officiis unde nesciunt ut laborum? Debitis architecto rerum a officiis, temporibus perferendis. Ea, temporibus adipisci facilis suscipit voluptatum dolorum impedit voluptate placeat nulla laboriosam laudantium commodi.'
     },
     {
         name: 'Glowy Dark',
         image: 'https://images.unsplash.com/photo-1432817495152-77aa949fb1e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        description: 'Don\'t be scared, and never stare into the abyss!'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo minus eum non distinctio! Perferendis veritatis, at esse ipsum, unde deserunt deleniti, blanditiis fuga molestias optio recusandae dolorum. Odit, nesciunt repellat, fuga adipisci, exercitationem ullam veritatis tenetur reiciendis recusandae ex beatae quam cum molestias a quae nam ipsam totam impedit! Animi, libero magni! Maiores, est, fugit voluptate minus dolorem sint saepe impedit molestiae totam debitis asperiores iure facilis a perferendis distinctio ratione incidunt repellat vel officiis unde nesciunt ut laborum? Debitis architecto rerum a officiis, temporibus perferendis. Ea, temporibus adipisci facilis suscipit voluptatum dolorum impedit voluptate placeat nulla laboriosam laudantium commodi.'
     },
     {
         name: 'Bright Climb',
         image: 'https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        description: 'Your lungs will complain but your mind will enjoy!'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo minus eum non distinctio! Perferendis veritatis, at esse ipsum, unde deserunt deleniti, blanditiis fuga molestias optio recusandae dolorum. Odit, nesciunt repellat, fuga adipisci, exercitationem ullam veritatis tenetur reiciendis recusandae ex beatae quam cum molestias a quae nam ipsam totam impedit! Animi, libero magni! Maiores, est, fugit voluptate minus dolorem sint saepe impedit molestiae totam debitis asperiores iure facilis a perferendis distinctio ratione incidunt repellat vel officiis unde nesciunt ut laborum? Debitis architecto rerum a officiis, temporibus perferendis. Ea, temporibus adipisci facilis suscipit voluptatum dolorum impedit voluptate placeat nulla laboriosam laudantium commodi.'
     },
     
 ];
