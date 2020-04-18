@@ -1,12 +1,13 @@
 // *** ENVIRONMENT *** //
 // INITIALIZE MIDDLEWARE
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
+const express           = require('express');
+const app               = express();
+const bodyParser        = require('body-parser');
+const mongoose          = require('mongoose');
+const methodOverride    = require('method-override');
+const moment            = require('moment');
 // SET DEFAULT FOLDERS/FILES
-app.use(express.static('public')); // Assets directory
+app.use(express.static(__dirname + '/public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
@@ -61,11 +62,12 @@ app.get('/campgrounds/new', (req, res) => {
 });
 // - SHOW - Displays info about a single Campground
 app.get('/campgrounds/:id', (req, res) => {
-    Campground.findById(req.params.id).populate('comments').exec((err, campground) => {
+    Campground.findById(req.params.id).lean().populate('comments').exec((err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');
         } else{
+            campground.created = moment(campground.created).fromNow();
             res.render('campgrounds/show',{campground: campground});
         }        
     });

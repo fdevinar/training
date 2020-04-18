@@ -18,17 +18,17 @@
                     <img src="<%= campground.image %>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-title"><%= campground.name %></h3>
-                        <p class="card-text"><%= campground.description %></p>
+                        <p class="card-text mb-4"><%= campground.description %></p>
     
                         <!-- COMMENTS -->
-                        <p class="card-header d-flex justify-content-between">
+                        <p class="card-header d-flex justify-content-between mb-3">
                             Comments
                             <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-success btn-sm">Add Comment</a>
                         </p>
                         <% campground.comments.forEach((comment) =>{ %>
                             <p class="blockquote d-flex justify-content-between"> 
                                 <%= comment.text %>
-                                <span class="text-muted">10 days ago</span>
+                                <span class="text-muted small"><%= campground.created %></span>
                             </p>
                             <p class="blockquote-footer font-italic">
                                 <%= comment.author %> 
@@ -36,7 +36,7 @@
                         <% }); %>
                         
                         <!-- BUTTONS -->
-                        <div class="buttons d-flex justify-content-around">
+                        <div class="buttons d-flex justify-content-around mt-4">
                             <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
                             <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-danger">Delete</button>
@@ -46,7 +46,7 @@
 
                         <!-- FOOTER -->
                     <div class="card-footer font-italic">
-                        <p>Created On: <%= campground.created.toDateString() %></p>
+                        <p>Created On: <%= campground.created %></p>
                     </div>
         </div><!-- END OF CARD -->
 
