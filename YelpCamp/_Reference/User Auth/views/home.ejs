@@ -1,13 +1,32 @@
+<style>
+ul {
+    list-style: none;
+    padding-left: 2px;
+}
+#userList {
+    width: fit-content;
+    border: 2px solid black;
+    font-size: 18px;
+}
+#userList li:nth-of-type(2n){
+    background: wheat;
+}
+</style>
+
 <h1>User Authentication</h1>
 
 <ul>
+<li><a href="/login">Login</a></li>
+<li><a href="/register">Register</a></li>
+<li><a href="">Logout</a></li>
+</ul>
+
+<h2>User List</h2>
+
+<ul id='userList'>
+<% users.forEach((user) => { %>
     <li>
-        <a href="">Login</a>
+    <%= user.username %>
     </li>
-    <li>
-        <a href="/register">Register</a>
-    </li>
-    <li>
-        <a href="">Logout</a>
-    </li>
+<% }); %>
 </ul>

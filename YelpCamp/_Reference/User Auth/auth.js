@@ -29,13 +29,23 @@ app.use(expressSession({
 }));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+passport.use(new localStrategy(User.authenticate()));
 //ROUTES
 app.get('/', (req, res) => {
-    res.render('home');
+    User.find({},(err, users) => {
+        if(err){
+            console.log(err);
+            res.render('home');
+        }else{
+            console.log(users);
+            res.render('home',{users:users});
+        }
+    });
 });
 app.get('/secret', (req, res) => {
     res.render('secret');
 });
+// - REGISTER
 app.get('/register', (req, res) => {
     res.render('register');
 });
@@ -56,6 +66,24 @@ app.post('/register', (req, res) => {
         }
     });
 });
+// - LOGIN
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+app.post('/login',
+    //MIDDLEWARE
+    passport.authenticate('local', {
+    successRedirect: '/secret',
+    failureRedirect: '/login'
+}), 
+    //CALLBACK
+    (req, res) => {
+    // EMPTY
+});
+
+
+
+
 // SERVER START
 app.listen(3000, () => {
     console.clear();
