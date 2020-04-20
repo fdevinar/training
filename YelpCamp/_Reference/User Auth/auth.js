@@ -20,16 +20,20 @@ const userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model('User', userSchema);
 // AUTHENTICATION
-app.use(passport.initialize());
-app.use(passport.session());
+//!  Code below must be declared before passport initialize/session
 app.use(expressSession({
     secret: 'ate a pe nos iremos, para o que der e vier',
     resave: false,
     saveUninitialized: false
 }));
+// ! -----------------------------------------------------
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new localStrategy(User.authenticate()));
+//passport.use(new localStrategy(User.isAuthenticated()));
 //ROUTES
 app.get('/', (req, res) => {
     User.find({},(err, users) => {
@@ -37,12 +41,12 @@ app.get('/', (req, res) => {
             console.log(err);
             res.render('home');
         }else{
-            console.log(users);
             res.render('home',{users:users});
         }
     });
 });
-app.get('/secret', (req, res) => {
+app.get('/secret', isLoggedIn, (req, res) => {
+    console.log('User Authenticated on Secret');
     res.render('secret');
 });
 // - REGISTER
@@ -80,10 +84,20 @@ app.post('/login',
     (req, res) => {
     // EMPTY
 });
-
-
-
-
+// - LOGOUT
+app.get('/logout', (req, res) => {
+    console.log('User logged out');
+    req.logout();
+    res.redirect('/');
+});
+// AUTHENTICATE IF LOGGED IN
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    console.log('Failed to Authenticate');
+    res.redirect('/login');
+}
 // SERVER START
 app.listen(3000, () => {
     console.clear();
