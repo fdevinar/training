@@ -87,7 +87,7 @@ app.post('/login',
     passport.authenticate('local', {
     successRedirect: '/secret',
     failureRedirect: '/login'
-}), 
+    }), 
     //CALLBACK
     (req, res) => {
     // EMPTY

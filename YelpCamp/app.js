@@ -6,22 +6,34 @@ const bodyParser        = require('body-parser');
 const mongoose          = require('mongoose');
 const methodOverride    = require('method-override');
 const moment            = require('moment');
+const passport          = require('passport');
+const localStrategy     = require('passport-local');
 // SET DEFAULT FOLDERS/FILES
 app.use(express.static(__dirname + '/public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
-// MODELS
-const Campground = require('./models/campground');
-const Comment = require('./models/comment');
-const seedDB = require('./seeds');
-seedDB();
-
 // *** DATABASE *** //
 // CONNECT TO DATABASE
 mongoose.connect('mongodb://localhost/campgrounds',
-{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-
+{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
+// MODELS
+const Campground = require('./models/campground');
+const Comment = require('./models/comment');
+const User = require('./models/user')
+const seedDB = require('./seeds');
+seedDB();
+// PASSPORT CONFIGURATION
+app.use(require('express-session')({
+    secret: 'following yelp camp tutorial is a good way to learn web development',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 // *** HOME *** //
 // LANDING PAGE
 app.get('/', (req, res) => {
@@ -142,6 +154,46 @@ app.post('/campgrounds/:id/comments', (req, res) => {
                 }
     });
 });
+
+// *** AUTHENTICATION *** //
+// - REGISTER
+app.get('/register', (req, res) => {
+    res.render('auth/register');
+});
+app.post('/register', (req, res) => {
+    let newUser = new User({username: req.body.username});
+    let password = req.body.password;
+    User.register(newUser, password, (err, user) => {
+        if (err){
+            console.log(err);
+            // Return used to short circuit function, to avoid error:
+            // Cannot set headers after they are sent to the client
+            return res.redirect('/register');
+        }
+        passport.authenticate('local')
+        (req, res, function(){
+            console.log(`User created: ${user}`);
+            res.redirect('/campgrounds');
+        });
+    });
+});
+// - LOGIN
+app.get('/login', (req, res) => {
+    res.render('auth/login');
+});
+app.post('/login',
+    //MIDDLEWARE
+    passport.authenticate('local', {
+        successRedirect: '/campgrounds',
+        failureRedirect: '/login'
+    }),
+    //CALLBACK
+    (req, res) => {
+        //EMPTY
+    }
+);
+// - LOGOUT
+
 
 // RESTFUL ROUTES
 //@ Name    | Path                   | HTTP Method
