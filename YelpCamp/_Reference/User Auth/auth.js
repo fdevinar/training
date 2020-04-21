@@ -41,7 +41,14 @@ app.get('/', (req, res) => {
             console.log(err);
             res.render('home');
         }else{
-            res.render('home',{users:users});
+            if (req.user){
+                users.logged = req.user.username;
+                res.render('home',{users:users});
+
+            } else{
+                users.logged = 'Anonymous'
+                res.render('home',{users:users});
+            }
         }
     });
 });
@@ -64,6 +71,7 @@ app.post('/register', (req, res) => {
             console.log(user);
             passport.authenticate('local')
             (req, res, function(){
+                console.log('Username:');
                 console.log('Authentication successful');
                 res.redirect('secret');
             });
