@@ -34,12 +34,16 @@ app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+// SHOWS REQ.USER ON ALL RENDERS
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+});
 // *** HOME *** //
 // LANDING PAGE
 app.get('/', (req, res) => {
     res.render('landing');
 });
-
 // *** CAMPGROUNDS *** //
 // - INDEX - Display Campgrouds
 app.get('/campgrounds', (req, res) => {
@@ -95,7 +99,7 @@ app.get('/campgrounds/:id/edit', (req, res) => {
         }        
     });
 });
-// - UPDATE PUT (POST?) - Edit Campground in DB
+// - UPDATE PUT - Edit Campground in DB
 app.put('/campgrounds/:id', (req, res) => {
     Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
         if (err){
@@ -121,9 +125,7 @@ app.delete('/campgrounds/:id', (req, res) => {
 
 // *** COMMENTS *** //
 // - NEW - Display Form to Create Comment
-app.get('/campgrounds/:id/comments/new', (req, res) => {
-    campgroundId = req.params.id;
-
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if(err){
             console.log(err);
@@ -135,12 +137,13 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
     );
 }); 
 // - CREATE - Add New Comment to DB
-app.post('/campgrounds/:id/comments', (req, res) => {
+app.post('/campgrounds/:id/comments', isLoggedIn ,(req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if(err){
             console.log(err);
             res.redirect(`/campgrounds/${req.params.id}`);
         } else{
+            console.log(req.body.comment);
             Comment.create(req.body.comment, (err,comment) => {
                 if(err){
                     console.log(err);
@@ -193,7 +196,10 @@ app.post('/login',
     }
 );
 // - LOGOUT
-
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
 
 // RESTFUL ROUTES
 //@ Name    | Path                   | HTTP Method
@@ -217,3 +223,12 @@ app.listen(3000, () => {
     console.log('***** YelpCamp server listening on port 3000 *****');
     console.log('***************************************************');
 });
+
+// AUTHENTICATE IF LOGGED IN
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    console.log('Failed to Authenticate');
+    res.redirect('/login');
+}
