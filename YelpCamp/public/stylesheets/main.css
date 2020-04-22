@@ -1,4 +1,10 @@
 
+.landing {
+    border: 3px solid black;
+    background-color: skyblue;
+    align-items: center;
+}
+
 .formStyle {
     width: 50%;
     margin: 35px auto;
