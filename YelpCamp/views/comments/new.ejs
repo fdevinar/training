@@ -4,12 +4,9 @@
     <div class="formStyle">
         <h2 class="text-center">Add New Comment to <%= campground.name %></h2>
         <form class="createComment" action="/campgrounds/<%= campground._id %>/comments" method="POST">
-            <!-- AUTHOR -->
-            <input class="form-control" type="hidden" name="comment[author]" value="<%- locals.user.username %>" id="author">
-            <!-- TEXT -->
             <div class="form-group">
                 <label for="text">Text</label>
-                <textarea class="form-control" id="text" name="comment[text]" rows="4"></textarea>
+                <textarea class="form-control" id="text" name="text" rows="4"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Add Comment</button>
         </form>

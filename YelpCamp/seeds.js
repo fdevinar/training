@@ -34,11 +34,17 @@ async function seedDB() {
         let campground = await Campground.create(seed);
         let comment1 = await Comment.create({
             text: 'This campsite is great!',
-            author: 'Fabrigol'
+            author: {
+                username: 'X',
+                id: '5e9f78c2895fd81480e61d62'
+            }
         });
         let comment2 = await Comment.create({
-            text: 'This campsite is not that great!',
-            author: 'Fabri X'
+            text: 'This campsite is not THAT great!',
+            author: {
+                username: 'X',
+                id: '5e9f78c2895fd81480e61d62'
+            }
         });
         campground.comments.push(comment1);
         campground.comments.push(comment2);

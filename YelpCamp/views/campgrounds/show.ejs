@@ -31,7 +31,8 @@
                                 <span class="text-muted small"><%= campground.created %></span>
                             </p>
                             <p class="blockquote-footer font-italic">
-                                <%= comment.author %> 
+                                <% console.log(comment);  %>
+                                <%= comment.author.username %>
                             </p>
                         <% }); %>
                         

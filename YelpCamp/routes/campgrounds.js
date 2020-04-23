@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Campground = require('../models/campground');
-const moment            = require('moment');
-
+const moment = require('moment');
 
 // *** CAMPGROUNDS *** //
 // - INDEX - Display Campgrouds

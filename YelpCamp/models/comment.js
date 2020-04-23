@@ -3,7 +3,14 @@ const mongoose = require('mongoose');
 // CREATE SCHEMA
 const commentSchema = new mongoose.Schema({
     text: String,
-    author: String,
+    author: 
+        {
+            id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            },
+            username: String
+        },
     created: {type: Date, default: Date.now()}
 });
 // CREATE MODEL BASED ON SCHEMA

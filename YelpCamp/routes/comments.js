@@ -23,15 +23,20 @@ router.post('/', isLoggedIn ,(req, res) => {
             console.log(err);
             res.redirect(`/campgrounds/${req.params.id}`);
         } else{
-            console.log(req.body.comment);
-            Comment.create(req.body.comment, (err,comment) => {
+            Comment.create(req.body, (err,comment) => {
                 if(err){
                     console.log(err);
                     res.redirect(`/campgrounds/${req.params.id}`);
-                }else {
-                            campground.comments.push(comment);
-                            campground.save();
-                            res.redirect(`/campgrounds/${req.params.id}`);
+                }else {        
+                    // Adding Current User as Author ID and Username
+                    comment.author = {
+                        id: req.user._id,
+                        username: req.user.username
+                    };
+                    comment.save();
+                    campground.comments.push(comment);
+                    campground.save();
+                    res.redirect(`/campgrounds/${req.params.id}`);
                         }
                     });
                 }
