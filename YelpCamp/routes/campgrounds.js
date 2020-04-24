@@ -15,12 +15,20 @@ router.get('/', (req, res) => {
         }
     });
 });
+// - NEW - Display form to Create Campground
+router.get('/new', isLoggedIn, (req, res) => {
+    res.render('campgrounds/new');
+});
 // - CREATE - Add new Campground to DB
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
     Campground.create({
         name: req.body.name,
         description: req.body.description,
-        image: req.body.image
+        image: req.body.image,
+        createdBy: {
+            id: req.user._id,
+            username: req.user.username
+        }
     }, (err, camp) => {
         if (err){
             console.log(err);
@@ -30,10 +38,6 @@ router.post('/', (req, res) => {
         }
     });
     res.redirect('campgrounds');
-});
-// - NEW - Display form to Create Campground
-router.get('/new', (req, res) => {
-    res.render('campgrounds/new');
 });
 // - SHOW - Displays info about a single Campground
 router.get('/:id', (req, res) => {
@@ -48,7 +52,7 @@ router.get('/:id', (req, res) => {
     });
 });
 // - EDIT - Display form to Edit Campground
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isLoggedIn, (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
@@ -81,5 +85,14 @@ router.delete('/:id', (req, res) => {
     });
     res.redirect('/campgrounds');
 });
+
+// AUTHENTICATE IF LOGGED IN
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    console.log('Failed to Authenticate');
+    res.redirect('/login');
+}
 
 module.exports = router;

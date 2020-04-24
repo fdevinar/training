@@ -11,6 +11,13 @@ const campgroundSchema = new mongoose.Schema({
         ref: "Comment"
     }
     ],
+    createdBy: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        username: String
+    },
     created: {type: Date, default: Date.now()}
 });
 // CREATE MODEL BASED ON SCHEMA
