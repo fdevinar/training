@@ -5,7 +5,7 @@ const app               = express();
 const bodyParser        = require('body-parser');
 const mongoose          = require('mongoose');
 const methodOverride    = require('method-override');
-const moment            = require('moment');
+//const moment            = require('moment');
 const passport          = require('passport');
 const localStrategy     = require('passport-local');
 // REQUIRE ROUTES
@@ -22,8 +22,8 @@ app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT
 mongoose.connect('mongodb://localhost/campgrounds',
 { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 // MODELS
-const Campground = require('./models/campground');
-const Comment = require('./models/comment');
+//const Campground = require('./models/campground');
+//const Comment = require('./models/comment');
 const User = require('./models/user')
 const seedDB = require('./seeds');
 seedDB();

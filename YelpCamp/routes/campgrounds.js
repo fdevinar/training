@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Campground = require('../models/campground');
 const moment = require('moment');
+const isLoggedIn = require('../public/scripts/main');
+
 
 // *** CAMPGROUNDS *** //
 // - INDEX - Display Campgrouds
@@ -85,14 +87,5 @@ router.delete('/:id', (req, res) => {
     });
     res.redirect('/campgrounds');
 });
-
-// AUTHENTICATE IF LOGGED IN
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    console.log('Failed to Authenticate');
-    res.redirect('/login');
-}
 
 module.exports = router;

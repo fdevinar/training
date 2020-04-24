@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const Campground = require('../models/campground');
 const Comment = require('../models/comment');
+const isLoggedIn = require('../public/scripts/main');
 
 // *** COMMENTS *** //
 // - NEW - Display Form to Create Comment
@@ -42,14 +43,5 @@ router.post('/', isLoggedIn ,(req, res) => {
                 }
     });
 });
-
-// AUTHENTICATE IF LOGGED IN
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    console.log('Failed to Authenticate');
-    res.redirect('/login');
-}
 
 module.exports = router;
