@@ -1,8 +1,35 @@
+body, html {
+    height: 100%;
+}
 
-.landing {
-    border: 3px solid black;
-    background-color: skyblue;
-    align-items: center;
+.landingBG {
+    background-image: url(https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}   
+
+.landingText {
+    color: white;
+    text-align: center;
+    padding: 20%;
+    font-size: 3em;
+}
+
+.landingText .title {
+    font-size: 1.8em;
+}
+
+.landingText a {
+    color: green;
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.7);
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 20px;
 }
 
 .formStyle {

@@ -17,6 +17,7 @@ app.use(express.static(__dirname + '/public')); // Assets directory
 app.set('view engine','ejs'); // Embedded-Javascript as default Views format
 app.use(bodyParser.urlencoded({extended: true})); // Enables req.body parse from POST request
 app.use(methodOverride('_method')); // Enables Method Override (from POST to PUT/DELETE)
+
 // *** DATABASE *** //
 // CONNECT TO DATABASE
 mongoose.connect('mongodb://localhost/campgrounds',

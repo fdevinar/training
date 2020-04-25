@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const Campground = require('../models/campground');
 const Comment = require('../models/comment');
-const isLoggedIn = require('../public/scripts/main');
+const myFunctions = require('../public/scripts/main');
+const isLoggedIn = myFunctions.isLoggedIn;
 
 // *** COMMENTS *** //
 // - NEW - Display Form to Create Comment

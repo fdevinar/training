@@ -20,6 +20,20 @@
                         <h3 class="card-title"><%= campground.name %></h3>
                         <p class="card-text mb-4"><%= campground.description %></p>
     
+                        <!-- UPDATE/DELETE BUTTONS -->
+                        <% if (locals.user){ %>
+                            <% if (JSON.stringify(locals.user._id) === JSON.stringify(campground.createdBy.id)) { %>
+                            <div class="buttons d-flex mb-4">
+                                <!-- UPDATE -->
+                                <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
+                                <!-- DELETE -->
+                                <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger ml-4">Delete</button>
+                                </form>
+                            </div>
+                            <%  };  %>
+                        <% } %>
+
                         <!-- COMMENTS -->
                         <p class="card-header d-flex justify-content-between mb-3">
                             Comments
@@ -35,15 +49,7 @@
                             </p>
                         <% }); %>
                         
-                        <!-- BUTTONS -->
-                        <% if (JSON.stringify(locals.user._id) === JSON.stringify(campground.createdBy.id)) { %>
-                        <div class="buttons d-flex justify-content-around mt-4">
-                            <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
-                            <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-sm btn-danger">Delete</button>
-                            </form>
-                        </div>
-                        <%  };  %>
+
 
                     </div>
 
