@@ -31,18 +31,20 @@
                                 <span class="text-muted small"><%= campground.created %></span>
                             </p>
                             <p class="blockquote-footer font-italic">
-                                <% console.log(comment);  %>
                                 <%= comment.author.username %>
                             </p>
                         <% }); %>
                         
                         <!-- BUTTONS -->
+                        <% if (JSON.stringify(locals.user._id) === JSON.stringify(campground.createdBy.id)) { %>
                         <div class="buttons d-flex justify-content-around mt-4">
                             <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-primary btn-sm">Update</a>
                             <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </div>
+                        <%  };  %>
+
                     </div>
 
                         <!-- FOOTER -->
