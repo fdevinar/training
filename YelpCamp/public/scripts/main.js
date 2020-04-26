@@ -9,8 +9,9 @@ const myFunctions = {
         console.log('Failed to Authenticate');
         res.redirect('/login');
     },
-    isAuthorized:
-    async function isAuthorized(req, res, next){
+    isOwner:
+    async function isOwner(req, res, next){
+        // ! isOwner of Campground below, implement Comment
         let authorized = false;
         if(await (req.isAuthenticated())){     
             await Campground.findById(req.params.id, (err, campground) => {

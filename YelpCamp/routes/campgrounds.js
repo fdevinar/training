@@ -4,7 +4,7 @@ const Campground = require('../models/campground');
 const moment = require('moment');
 const myFunctions = require('../public/scripts/main');
 const isLoggedIn = myFunctions.isLoggedIn;
-const isAuthorized = myFunctions.isAuthorized;
+const isOwner = myFunctions.isOwner;
 
 // *** CAMPGROUNDS *** //
 // - INDEX - Display Campgrouds
@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
     });
 });
 // - EDIT - Display form to Edit Campground
-router.get('/:id/edit', isAuthorized , (req, res) => {
+router.get('/:id/edit', isOwner , (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if (err){
             console.log(`ERROR:  ${err}`);
@@ -66,7 +66,7 @@ router.get('/:id/edit', isAuthorized , (req, res) => {
     });
 });
 // - UPDATE PUT - Edit Campground in DB
-router.put('/:id', isAuthorized, (req, res) => {
+router.put('/:id', isOwner, (req, res) => {
     Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
         if (err){
             console.log(err);
@@ -78,7 +78,7 @@ router.put('/:id', isAuthorized, (req, res) => {
     });
 });
 // - DESTROY DELETE - Delete Campground in DB
-router.delete('/:id', isAuthorized, (req, res) => {
+router.delete('/:id', isOwner, (req, res) => {
     Campground.findByIdAndDelete(req.params.id, (err, status) => {
         if (err){
             console.log(err);
