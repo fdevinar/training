@@ -5,7 +5,8 @@ const Comment = require('../models/comment');
 const myFunctions = require('../public/scripts/main');
 const isLoggedIn = myFunctions.isLoggedIn;
 
-// *** COMMENTS *** //
+// *** COMMENTS *** // 
+// ADDING TO ROUTES BELOW => /campgrounds/:id/comments
 // - NEW - Display Form to Create Comment
 router.get('/new', isLoggedIn, (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
@@ -19,6 +20,7 @@ router.get('/new', isLoggedIn, (req, res) => {
     );
 }); 
 // - CREATE - Add New Comment to DB
+// TODO: ASSOCIATE COMMENT TO CAMPGROUND
 router.post('/', isLoggedIn ,(req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if(err){
@@ -45,16 +47,37 @@ router.post('/', isLoggedIn ,(req, res) => {
     });
 });
 // - EDIT - Display Form to Update Comment
-
+router.get('/:id/edit', (req, res) => {
+    // TODO GET ID FROM DB ASSOCIATION
+    let campgroundID = req.headers.referer.substr(34,58);
+    Comment.findById(req.params.id, (err, comment) => {
+        if(err){
+            console.log(err);
+            res.redirect('/campgrounds');
+        }else{
+            res.render('comments/update',{campgroundID: campgroundID, comment:comment});
+        }
+    });
+});
 // - UPDATE (PUT) - Update Comment in DB
-
+router.put('/:id', (req, res) => {
+    Comment.findByIdAndUpdate(req.params.id, req.body, (err,status) => {
+        if(err){
+            console.log(err);
+            res.redirect('/campgrounds');
+        }else{
+            console.log(status);
+            // TODO: REDIRECT TO CAMPGROUNDS DETAILS
+            res.redirect('/campgrounds');
+        };
+    });
+});
 // - DESTROY (DELETE) - Remove Comment from DB
-
+router.delete('/:id', (req, res) => {
+    res.send('DELETE COMMENT ROUTE');
+});
 
 module.exports = router;
-
-
-
 
 // // - EDIT - Display form to Edit Campground
 // router.get('/:id/edit', isOwner , (req, res) => {

@@ -46,8 +46,12 @@
                                     <!-- UPDATE/DELETE COMMENT BUTTONS -->
                                     <% if (locals.user){ %>                                        
                                         <% if (JSON.stringify(locals.user._id) === JSON.stringify(comment.author.id)){ %>
-                                        <button class="btn btn-sm btn-outline-warning">Update</button>
-                                        <button class="btn btn-sm btn-outline-danger mr-2">Delete</button>
+                                        <!-- UPDATE -->
+                                        <a href="<%= campground._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-outline-warning">Update</a>
+                                        <!-- DELETE -->
+                                        <form action="campgrounds/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-sm btn-outline-danger mr-2">Delete</button>
+                                        </form>
                                         <% }; %>
                                     <% }; %>
                                     <!-- COMMENT CREATED DATE -->
