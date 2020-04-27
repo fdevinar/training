@@ -20,7 +20,7 @@
                         <h3 class="card-title"><%= campground.name %></h3>
                         <p class="card-text mb-4"><%= campground.description %></p>
     
-                        <!-- UPDATE/DELETE BUTTONS -->
+                        <!-- UPDATE/DELETE CAMPGROUND BUTTONS -->
                         <% if (locals.user){ %>
                             <% if (JSON.stringify(locals.user._id) === JSON.stringify(campground.createdBy.id)) { %>
                             <div class="buttons d-flex mb-4">
@@ -42,18 +42,26 @@
                         <% campground.comments.forEach((comment) =>{ %>
                             <p class="blockquote d-flex justify-content-between"> 
                                 <%= comment.text %>
-                                <span class="text-muted small"><%= campground.created %></span>
+                                <span class="text-muted small">
+                                    <!-- UPDATE/DELETE COMMENT BUTTONS -->
+                                    <% if (locals.user){ %>                                        
+                                        <% if (JSON.stringify(locals.user._id) === JSON.stringify(comment.author.id)){ %>
+                                        <button class="btn btn-sm btn-outline-warning">Update</button>
+                                        <button class="btn btn-sm btn-outline-danger mr-2">Delete</button>
+                                        <% }; %>
+                                    <% }; %>
+                                    <!-- COMMENT CREATED DATE -->
+                                    <%= campground.created %>
+                                </span>
                             </p>
                             <p class="blockquote-footer font-italic">
                                 <%= comment.author.username %>
                             </p>
                         <% }); %>
-                        
-
 
                     </div>
 
-                        <!-- FOOTER -->
+                    <!-- FOOTER -->
                     <div class="card-footer font-italic">
                         <p>Created <%= campground.created %> by <%= campground.createdBy.username %></p>
                     </div>

@@ -65,7 +65,7 @@ router.get('/:id/edit', isOwner , (req, res) => {
         }        
     });
 });
-// - UPDATE PUT - Edit Campground in DB
+// - UPDATE (PUT) - Edit Campground in DB
 router.put('/:id', isOwner, (req, res) => {
     Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
         if (err){
@@ -77,7 +77,8 @@ router.put('/:id', isOwner, (req, res) => {
         };
     });
 });
-// - DESTROY DELETE - Delete Campground in DB
+// - DESTROY (DELETE) - Delete Campground in DB
+// TODO DELETE COMMENTS ASSOCIATED TO CAMPGROUND
 router.delete('/:id', isOwner, (req, res) => {
     Campground.findByIdAndDelete(req.params.id, (err, status) => {
         if (err){

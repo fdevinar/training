@@ -44,5 +44,50 @@ router.post('/', isLoggedIn ,(req, res) => {
                 }
     });
 });
+// - EDIT - Display Form to Update Comment
+
+// - UPDATE (PUT) - Update Comment in DB
+
+// - DESTROY (DELETE) - Remove Comment from DB
+
 
 module.exports = router;
+
+
+
+
+// // - EDIT - Display form to Edit Campground
+// router.get('/:id/edit', isOwner , (req, res) => {
+//     Campground.findById(req.params.id, (err, campground) => {
+//         if (err){
+//             console.log(`ERROR:  ${err}`);
+//             res.redirect('/campgrounds');
+//         } else{
+//             res.render('campgrounds/update',{campground: campground});
+//         }        
+//     });
+// });
+// // - UPDATE (PUT) - Edit Campground in DB
+// router.put('/:id', isOwner, (req, res) => {
+//     Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
+//         if (err){
+//             console.log(err);
+//             res.redirect('/campgrounds');
+//         } else{
+//             console.log('Update successful');
+//             res.redirect(`/campgrounds/${req.params.id}`);
+//         };
+//     });
+// });
+// // - DESTROY (DELETE) - Delete Campground in DB
+// // TODO DELETE COMMENTS ASSOCIATED TO CAMPGROUND
+// router.delete('/:id', isOwner, (req, res) => {
+//     Campground.findByIdAndDelete(req.params.id, (err, status) => {
+//         if (err){
+//             console.log(err);
+//         } else{
+//             console.log('Deletion successful');
+//         }
+//     });
+//     res.redirect('/campgrounds');
+// });
