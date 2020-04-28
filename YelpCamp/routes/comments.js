@@ -63,15 +63,12 @@ router.get('/:id/edit', (req, res) => {
 });
 // - UPDATE (PUT) - Update Comment in DB
 router.put('/:id', (req, res) => {
-    // ! ONLY UPDATING TEXT - FIX DATE
     Comment.findByIdAndUpdate(req.params.id, req.body , (err, comment) => {
         if(err){
             console.log(err);
             res.redirect('/campgrounds');
         }else{
-            // TODO: REDIRECT TO CAMPGROUNDS DETAILS
-            console.log(comment);
-            res.redirect('/campgrounds');
+            res.redirect('/campgrounds/' + comment.campground.id);
         };
     });
 });
