@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const Campground = require('../models/campground');
 const Comment = require('../models/comment');
+const moment = require('moment');
 const myFunctions = require('../public/scripts/main');
 const isLoggedIn = myFunctions.isLoggedIn;
 
@@ -20,7 +21,6 @@ router.get('/new', isLoggedIn, (req, res) => {
     );
 }); 
 // - CREATE - Add New Comment to DB
-// TODO: ASSOCIATE COMMENT TO CAMPGROUND
 router.post('/', isLoggedIn ,(req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if(err){
@@ -37,6 +37,10 @@ router.post('/', isLoggedIn ,(req, res) => {
                         id: req.user._id,
                         username: req.user.username
                     };
+                    comment.campground = {
+                        id: campground.id,
+                        name: campground.name
+                    };
                     comment.save();
                     campground.comments.push(comment);
                     campground.save();
@@ -48,26 +52,25 @@ router.post('/', isLoggedIn ,(req, res) => {
 });
 // - EDIT - Display Form to Update Comment
 router.get('/:id/edit', (req, res) => {
-    // TODO GET ID FROM DB ASSOCIATION
-    let campgroundID = req.headers.referer.substr(34,58);
     Comment.findById(req.params.id, (err, comment) => {
         if(err){
             console.log(err);
             res.redirect('/campgrounds');
         }else{
-            res.render('comments/update',{campgroundID: campgroundID, comment:comment});
+            res.render('comments/update',{comment:comment});
         }
     });
 });
 // - UPDATE (PUT) - Update Comment in DB
 router.put('/:id', (req, res) => {
-    Comment.findByIdAndUpdate(req.params.id, req.body, (err,status) => {
+    // ! ONLY UPDATING TEXT - FIX DATE
+    Comment.findByIdAndUpdate(req.params.id, req.body , (err, comment) => {
         if(err){
             console.log(err);
             res.redirect('/campgrounds');
         }else{
-            console.log(status);
             // TODO: REDIRECT TO CAMPGROUNDS DETAILS
+            console.log(comment);
             res.redirect('/campgrounds');
         };
     });

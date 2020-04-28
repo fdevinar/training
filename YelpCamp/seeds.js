@@ -54,12 +54,20 @@ async function seedDB() {
                 username: 'X',
                 id: '5e9f78c2895fd81480e61d62'
             }
+            ,campground: {
+                id: '5ea7bc0fc1846d1019e3449b',
+                name: 'Bright Climb'
+            }
         });
         let comment2 = await Comment.create({
             text: 'This campsite is not THAT great!',
             author: {
                 username: 'X',
                 id: '5e9f78c2895fd81480e61d62'
+            }
+            ,campground: {
+                id: '5ea7bc0fc1846d1019e3449b',
+                name: 'Bright Climb'
             }
         });
         campground.comments.push(comment1);
