@@ -5,6 +5,7 @@ const Comment = require('../models/comment');
 const moment = require('moment');
 const myFunctions = require('../public/scripts/main');
 const isLoggedIn = myFunctions.isLoggedIn;
+const isOwner = myFunctions.isOwner;
 
 // *** COMMENTS *** // 
 // ADDING TO ROUTES BELOW => /campgrounds/:id/comments
@@ -37,6 +38,7 @@ router.post('/', isLoggedIn ,(req, res) => {
                         id: req.user._id,
                         username: req.user.username
                     };
+                    comment.edited = Date.now();
                     comment.campground = {
                         id: campground.id,
                         name: campground.name
@@ -51,7 +53,7 @@ router.post('/', isLoggedIn ,(req, res) => {
     });
 });
 // - EDIT - Display Form to Update Comment
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isOwner, (req, res) => {
     Comment.findById(req.params.id, (err, comment) => {
         if(err){
             console.log(err);
@@ -62,55 +64,30 @@ router.get('/:id/edit', (req, res) => {
     });
 });
 // - UPDATE (PUT) - Update Comment in DB
-router.put('/:id', (req, res) => {
+router.put('/:id', isOwner, (req, res) => {
     Comment.findByIdAndUpdate(req.params.id, req.body , (err, comment) => {
         if(err){
             console.log(err);
             res.redirect('/campgrounds');
         }else{
+            comment.edited = Date.now();
+            comment.save();
             res.redirect('/campgrounds/' + comment.campground.id);
         };
     });
 });
 // - DESTROY (DELETE) - Remove Comment from DB
-router.delete('/:id', (req, res) => {
-    res.send('DELETE COMMENT ROUTE');
+router.delete('/:id', isOwner, (req, res) => {
+    let redirectUrl = '/campgrounds';
+    Comment.findByIdAndDelete(req.params.id, (err, comment) => {
+        if(err){
+            console.log(err);
+            res.redirect('/campgrounds');
+        }else{
+            console.log('Deletion successful');
+            res.redirect('/campgrounds/' + comment.campground.id);
+        };
+    });
 });
 
 module.exports = router;
-
-// // - EDIT - Display form to Edit Campground
-// router.get('/:id/edit', isOwner , (req, res) => {
-//     Campground.findById(req.params.id, (err, campground) => {
-//         if (err){
-//             console.log(`ERROR:  ${err}`);
-//             res.redirect('/campgrounds');
-//         } else{
-//             res.render('campgrounds/update',{campground: campground});
-//         }        
-//     });
-// });
-// // - UPDATE (PUT) - Edit Campground in DB
-// router.put('/:id', isOwner, (req, res) => {
-//     Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
-//         if (err){
-//             console.log(err);
-//             res.redirect('/campgrounds');
-//         } else{
-//             console.log('Update successful');
-//             res.redirect(`/campgrounds/${req.params.id}`);
-//         };
-//     });
-// });
-// // - DESTROY (DELETE) - Delete Campground in DB
-// // TODO DELETE COMMENTS ASSOCIATED TO CAMPGROUND
-// router.delete('/:id', isOwner, (req, res) => {
-//     Campground.findByIdAndDelete(req.params.id, (err, status) => {
-//         if (err){
-//             console.log(err);
-//         } else{
-//             console.log('Deletion successful');
-//         }
-//     });
-//     res.redirect('/campgrounds');
-// });

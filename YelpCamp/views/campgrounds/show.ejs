@@ -54,8 +54,8 @@
                                         </form>
                                         <% }; %>
                                     <% }; %>
-                                    <!-- TODO: FIX COMMENT CREATED DATE - ALWAYS THE SAME, NOT USING MOMENT -->
-                                    <%= comment.created %>
+                                    <!-- TODO: FIX COMMENT CREATED DATE - NOT USING MOMENT -->
+                                    <%= comment.edited %>
                                 </span>
                             </p>
                             <p class="blockquote-footer font-italic">
@@ -67,7 +67,7 @@
 
                     <!-- FOOTER -->
                     <div class="card-footer font-italic">
-                        <p>Created <%= campground.created %> by <%= campground.createdBy.username %></p>
+                        <p>Last Edited: <%= campground.edited %> by <%= campground.createdBy.username %></p>
                     </div>
         </div><!-- END OF CARD -->
 

@@ -12,7 +12,7 @@ const commentSchema = new mongoose.Schema({
         },
         username: String
     },
-    created: {type: Date, default: Date.now()},
+    edited: Date,
     campground:
     {
         id: {

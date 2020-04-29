@@ -18,7 +18,7 @@ const campgroundSchema = new mongoose.Schema({
         },
         username: String
     },
-    created: {type: Date, default: Date.now()}
+    edited: {type: Date, default: Date.now()}
 });
 // CREATE MODEL BASED ON SCHEMA
 const Campground = mongoose.model("Campground", campgroundSchema);

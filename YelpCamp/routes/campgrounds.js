@@ -28,6 +28,7 @@ router.post('/', isLoggedIn, (req, res) => {
         name: req.body.name,
         description: req.body.description,
         image: req.body.image,
+        edited: Date.now(),
         createdBy: {
             id: req.user._id,
             username: req.user.username
@@ -49,7 +50,7 @@ router.get('/:id', (req, res) => {
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');
         } else{
-            campground.created = moment(campground.created).fromNow();
+            campground.edited = moment(campground.edited).fromNow();
             res.render('campgrounds/show',{campground: campground});
         }        
     });
@@ -67,11 +68,13 @@ router.get('/:id/edit', isOwner , (req, res) => {
 });
 // - UPDATE (PUT) - Edit Campground in DB
 router.put('/:id', isOwner, (req, res) => {
-    Campground.findByIdAndUpdate(req.params.id, req.body, (err, status) =>{
+    Campground.findByIdAndUpdate(req.params.id, req.body, (err, campground) =>{
         if (err){
             console.log(err);
             res.redirect('/campgrounds');
         } else{
+            campground.edited = Date.now(),
+            campground.save();
             console.log('Update successful');
             res.redirect(`/campgrounds/${req.params.id}`);
         };
