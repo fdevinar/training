@@ -46,8 +46,7 @@ async function seedDB() {
     await Campground.deleteMany({});
     await Comment.deleteMany({});
 
-
-    // ! FIND A WAY TO GENERATE UNIQUE CAMPGROUND IDs TO ADD TO COMMENT 
+    // TODO FIND A WAY TO GENERATE UNIQUE CAMPGROUND IDs TO ADD TO COMMENT 
     for (const seed of seeds){
         let campground = await Campground.create(seed);
         // let comment1 = await Comment.create({

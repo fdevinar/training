@@ -50,7 +50,14 @@ router.get('/:id', (req, res) => {
             console.log(`ERROR:  ${err}`);
             res.redirect('/campgrounds');
         } else{
+            // CONVERT CAMPGROUND DATE TO FromNow
             campground.edited = moment(campground.edited).fromNow();
+            // CONVERT COMMENT DATE TO FromNow
+            if (Object.keys(campground.comments).length !== 0 ){
+                campground.comments.forEach((comment) => {
+                    comment.edited = moment(comment.edited).fromNow();
+                });
+            };
             res.render('campgrounds/show',{campground: campground});
         }        
     });
