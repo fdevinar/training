@@ -89,7 +89,6 @@ router.put('/:id', isOwner, (req, res) => {
     });
 });
 // - DESTROY (DELETE) - Delete Campground in DB
-// TODO DELETE COMMENTS ASSOCIATED TO CAMPGROUND
 router.delete('/:id', isOwner, (req, res) => {
     Campground.findByIdAndDelete(req.params.id, (err, campground) => {
         if (err){

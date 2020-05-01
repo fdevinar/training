@@ -51,6 +51,7 @@ async function seedDB() {
         // let campID = null;
         // CREATE CAMPGROUNDS BASED ON SEEDS ARRAY
         let campground = await Campground.create(seed);
+        // TODO: CREATE COMMENTS USING DINAMYCALLY GENERATED CAMPGROUNDS
         // // FIND ID AND NAME OF CAMPGROUND
         // Campground.findOne({name: campground.name}, (err, campground) => {
         //     if(err){
