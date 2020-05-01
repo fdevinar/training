@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Campground = require('../models/campground');
+const Comment = require('../models/comment');
 const moment = require('moment');
 const myFunctions = require('../public/scripts/main');
 const isLoggedIn = myFunctions.isLoggedIn;
@@ -90,10 +91,18 @@ router.put('/:id', isOwner, (req, res) => {
 // - DESTROY (DELETE) - Delete Campground in DB
 // TODO DELETE COMMENTS ASSOCIATED TO CAMPGROUND
 router.delete('/:id', isOwner, (req, res) => {
-    Campground.findByIdAndDelete(req.params.id, (err, status) => {
+    Campground.findByIdAndDelete(req.params.id, (err, campground) => {
         if (err){
             console.log(err);
         } else{
+            Comment.deleteMany({'campground.id':(campground.id)}, (err, comment) => {
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log(comment);
+                }
+            });
             console.log('Deletion successful');
         }
     });

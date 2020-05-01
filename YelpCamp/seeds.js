@@ -45,10 +45,22 @@ let seeds = [
 async function seedDB() {
     await Campground.deleteMany({});
     await Comment.deleteMany({});
-
-    // TODO FIND A WAY TO GENERATE UNIQUE CAMPGROUND IDs TO ADD TO COMMENT 
     for (const seed of seeds){
+        // // INITIALIZE NAME AND ID VARIABLES
+        // let campName = null;
+        // let campID = null;
+        // CREATE CAMPGROUNDS BASED ON SEEDS ARRAY
         let campground = await Campground.create(seed);
+        // // FIND ID AND NAME OF CAMPGROUND
+        // Campground.findOne({name: campground.name}, (err, campground) => {
+        //     if(err){
+        //         console.log(err);
+        //     }else{
+        //         campID = campground._id;
+        //         campName = campground.name;
+        //     }
+        // });
+        // // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
         // let comment1 = await Comment.create({
         //     text: 'This campsite is great!',
         //     author: {
@@ -56,8 +68,8 @@ async function seedDB() {
         //         id: '5e9f78c2895fd81480e61d62'
         //     }
         //     ,campground: {
-        //         id: '5ea7bc0fc1846d1019e3449b',
-        //         name: 'Bright Climb'
+        //         id: campID,
+        //         name: campName
         //     }
         // });
         // let comment2 = await Comment.create({
@@ -67,8 +79,8 @@ async function seedDB() {
         //         id: '5e9f78c2895fd81480e61d62'
         //     }
         //     ,campground: {
-        //         id: '5ea7bc0fc1846d1019e3449b',
-        //         name: 'Bright Climb'
+        //         id: campID,
+        //         name: campName
         //     }
         // });
         // campground.comments.push(comment1);
@@ -76,6 +88,5 @@ async function seedDB() {
         // campground.save();
     };
 }
-
 
 module.exports = seedDB;
