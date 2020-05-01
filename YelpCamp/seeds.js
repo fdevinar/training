@@ -46,47 +46,34 @@ async function seedDB() {
     await Campground.deleteMany({});
     await Comment.deleteMany({});
     for (const seed of seeds){
-        // // INITIALIZE NAME AND ID VARIABLES
-        // let campName = null;
-        // let campID = null;
         // CREATE CAMPGROUNDS BASED ON SEEDS ARRAY
         let campground = await Campground.create(seed);
-        // TODO: CREATE COMMENTS USING DINAMYCALLY GENERATED CAMPGROUNDS
-        // // FIND ID AND NAME OF CAMPGROUND
-        // Campground.findOne({name: campground.name}, (err, campground) => {
-        //     if(err){
-        //         console.log(err);
-        //     }else{
-        //         campID = campground._id;
-        //         campName = campground.name;
-        //     }
-        // });
-        // // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
-        // let comment1 = await Comment.create({
-        //     text: 'This campsite is great!',
-        //     author: {
-        //         username: 'X',
-        //         id: '5e9f78c2895fd81480e61d62'
-        //     }
-        //     ,campground: {
-        //         id: campID,
-        //         name: campName
-        //     }
-        // });
-        // let comment2 = await Comment.create({
-        //     text: 'This campsite is not THAT great!',
-        //     author: {
-        //         username: 'X',
-        //         id: '5e9f78c2895fd81480e61d62'
-        //     }
-        //     ,campground: {
-        //         id: campID,
-        //         name: campName
-        //     }
-        // });
-        // campground.comments.push(comment1);
-        // campground.comments.push(comment2);
-        // campground.save();
+        // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
+        let comment1 = await Comment.create({
+            text: 'This campsite is great!',
+            author: {
+                username: 'X',
+                id: '5e9f78c2895fd81480e61d62'
+            }
+            ,campground: {
+                id: campground.id,
+                name: campground.name
+            }
+        });
+        let comment2 = await Comment.create({
+            text: 'This campsite is not THAT great!',
+            author: {
+                username: 'X',
+                id: '5e9f78c2895fd81480e61d62'
+            }
+            ,campground: {
+                id: campground.id,
+                name: campground.name
+            }
+        });
+        campground.comments.push(comment1);
+        campground.comments.push(comment2);
+        campground.save();
     };
 }
 

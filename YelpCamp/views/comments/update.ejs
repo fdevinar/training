@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 
 <div class="container mt-3">
-    <div class="formStyle">
+    <div class="form-style">
         <h2 class="text-center">Edit Comment</h2>
         <form class="editComment" action="/campgrounds/<%= comment.campground.id %>/comments/<%= comment.id %>?_method=PUT" method="POST">
             <div class="form-group">
