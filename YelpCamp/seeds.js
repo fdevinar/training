@@ -50,10 +50,10 @@ async function seedDB() {
         let campground = await Campground.create(seed);
         // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
         let comment1 = await Comment.create({
-            text: 'This campsite is great!',
+            text: 'Somos gremistas, sempre apoiando...',
             author: {
-                username: 'X',
-                id: '5e9f78c2895fd81480e61d62'
+                username: 'Renato Portaluppi',
+                id: '5ea22a3c88290710aa60cc4e'
             }
             ,campground: {
                 id: campground.id,
@@ -61,7 +61,18 @@ async function seedDB() {
             }
         });
         let comment2 = await Comment.create({
-            text: 'This campsite is not THAT great!',
+            text: 'Dale dale tricolor!',
+            author: {
+                username: 'Renato Portaluppi',
+                id: '5ea22a3c88290710aa60cc4e'
+            }
+            ,campground: {
+                id: campground.id,
+                name: campground.name
+            }
+        });
+        let comment3 = await Comment.create({
+            text: 'This is a TEST comment!',
             author: {
                 username: 'X',
                 id: '5e9f78c2895fd81480e61d62'
@@ -73,6 +84,7 @@ async function seedDB() {
         });
         campground.comments.push(comment1);
         campground.comments.push(comment2);
+        campground.comments.push(comment3);
         campground.save();
     };
 }
