@@ -35,8 +35,8 @@ let campgroundSeeds = [
         image: 'https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo minus eum non distinctio! Perferendis veritatis, at esse ipsum, unde deserunt deleniti, blanditiis fuga molestias optio recusandae dolorum. Odit, nesciunt repellat, fuga adipisci, exercitationem ullam veritatis tenetur reiciendis recusandae ex beatae quam cum molestias a quae nam ipsam totam impedit! Animi, libero magni! Maiores, est, fugit voluptate minus dolorem sint saepe impedit molestiae totam debitis asperiores iure facilis a perferendis distinctio ratione incidunt repellat vel officiis unde nesciunt ut laborum? Debitis architecto rerum a officiis, temporibus perferendis. Ea, temporibus adipisci facilis suscipit voluptatum dolorum impedit voluptate placeat nulla laboriosam laudantium commodi.',
         createdBy: {
-            id: '5e9f78c2895fd81480e61d62',
-            username: 'X'
+            id: '5ea22a3c88290710aa60cc4e',
+            username: 'Renato Portaluppi'
         }
     },  
 ];
@@ -48,10 +48,6 @@ async function seedDB() {
         // CREATE CAMPGROUNDS BASED ON SEEDS ARRAY
         let campground = await Campground.create(seed);
         // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
-
-        createComment('Somos gremistas, sempre apoiando','5ea22a3c88290710aa60cc4e','Renato Portaluppi',
-        campground.id,campground.name);
-
         let comment1 = await Comment.create({
             text: 'Somos gremistas, sempre apoiando...',
             author: {
@@ -91,9 +87,5 @@ async function seedDB() {
         campground.save();
     };
 }
-
-function createComment(text, authorID, authorName, campID, campName){
-    console.log(`${text} - ${authorID} - ${authorName} - ${campID} - ${campName}`);
-};
 
 module.exports = seedDB;
