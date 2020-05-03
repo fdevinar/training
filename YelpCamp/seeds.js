@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Campground = require('./models/campground');
 const Comment = require('./models/comment');
 
-let seeds = [
+let campgroundSeeds = [
     {
         name: 'Starry Night',
         image: 'https://images.unsplash.com/photo-1479741044197-d28c298f8c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
@@ -38,22 +38,25 @@ let seeds = [
             id: '5e9f78c2895fd81480e61d62',
             username: 'X'
         }
-    },
-    
+    },  
 ];
 
 async function seedDB() {
     await Campground.deleteMany({});
     await Comment.deleteMany({});
-    for (const seed of seeds){
+    for (const seed of campgroundSeeds){
         // CREATE CAMPGROUNDS BASED ON SEEDS ARRAY
         let campground = await Campground.create(seed);
         // CREATE COMMENTS USING DYNAMIC CAMPGROUND DATA
+
+        createComment('Somos gremistas, sempre apoiando','5ea22a3c88290710aa60cc4e','Renato Portaluppi',
+        campground.id,campground.name);
+
         let comment1 = await Comment.create({
             text: 'Somos gremistas, sempre apoiando...',
             author: {
-                username: 'Renato Portaluppi',
-                id: '5ea22a3c88290710aa60cc4e'
+                id: '5ea22a3c88290710aa60cc4e',
+                username: 'Renato Portaluppi'
             }
             ,campground: {
                 id: campground.id,
@@ -63,8 +66,8 @@ async function seedDB() {
         let comment2 = await Comment.create({
             text: 'Dale dale tricolor!',
             author: {
-                username: 'Renato Portaluppi',
-                id: '5ea22a3c88290710aa60cc4e'
+                id: '5ea22a3c88290710aa60cc4e',
+                username: 'Renato Portaluppi'
             }
             ,campground: {
                 id: campground.id,
@@ -74,8 +77,8 @@ async function seedDB() {
         let comment3 = await Comment.create({
             text: 'This is a TEST comment!',
             author: {
-                username: 'X',
-                id: '5e9f78c2895fd81480e61d62'
+                id: '5e9f78c2895fd81480e61d62',
+                username: 'X'
             }
             ,campground: {
                 id: campground.id,
@@ -88,5 +91,9 @@ async function seedDB() {
         campground.save();
     };
 }
+
+function createComment(text, authorID, authorName, campID, campName){
+    console.log(`${text} - ${authorID} - ${authorName} - ${campID} - ${campName}`);
+};
 
 module.exports = seedDB;
