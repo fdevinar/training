@@ -78,7 +78,6 @@ router.put('/:id', isOwner, (req, res) => {
 });
 // - DESTROY (DELETE) - Remove Comment from DB
 router.delete('/:id', isOwner, (req, res) => {
-    let redirectUrl = '/campgrounds';
     Comment.findByIdAndDelete(req.params.id, (err, comment) => {
         if(err){
             console.log(err);

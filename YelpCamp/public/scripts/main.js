@@ -12,45 +12,37 @@ const myFunctions = {
     },
     isOwner:
     async function isOwner(req, res, next){
-        let authorized = false;
         if(await (req.isAuthenticated())){
             // HANDLE CAMPGROUNDS OWNER
-            if (await(req.baseUrl == '/campgrounds')){
+            if (req.baseUrl == '/campgrounds'){
                 await Campground.findById(req.params.id, (err, campground) => {
                     if(err){
                         console.log(err);
-                        return res.redirect('/campgrounds');
+                        return res.redirect('back');
                     }else{
-                        if (JSON.stringify(campground.createdBy.id) === JSON.stringify(req.user.id)){
+                        if (campground.createdBy.id.equals(req.user.id)){
+                        //if (JSON.stringify(campground.createdBy.id) === JSON.stringify(req.user.id)){
                             console.log('User Authorized! Requester.ID = Campgrounds.CreatedBy.ID');
-                            authorized = true;
                             return next();
                         }
                     }
                 })
             };
             // HANDLE COMMENTS OWNER
-            if (await(req.baseUrl.slice(-9,46) === '/comments')){
+            if (req.baseUrl.slice(-9,46) === '/comments'){
                 await Comment.findById(req.params.id, (err, comment) => {
                     if(err){
                         console.log(err);
-                        return res.redirect('/campgrounds');
+                        return res.redirect('back');
                     }else{
-                        if (JSON.stringify(comment.author.id) === JSON.stringify(req.user.id)){
+                        if (comment.author.id.equals(req.user.id)){
                             console.log('User Authorized! Requester.ID = Comment.Author.ID');
-                            authorized = true;
                             return next();
                         }
                     }
                 })
             };
         };
-        if (authorized){
-            return
-        }else{
-            console.log('User Not Authorized to Update/Delete');
-            return res.redirect('/campgrounds');   
-        }
     }
 }
 
