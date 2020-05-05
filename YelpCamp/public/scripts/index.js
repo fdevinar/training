@@ -1,3 +1,5 @@
+//- MIDDLEWARE
+
 const Campground = require('../../models/campground');
 const Comment = require('../../models/comment');
 

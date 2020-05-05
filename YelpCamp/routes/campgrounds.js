@@ -3,7 +3,7 @@ const router = express.Router();
 const Campground = require('../models/campground');
 const Comment = require('../models/comment');
 const moment = require('moment');
-const myFunctions = require('../public/scripts/main');
+const myFunctions = require('../public/scripts');
 const isLoggedIn = myFunctions.isLoggedIn;
 const isOwner = myFunctions.isOwner;
 

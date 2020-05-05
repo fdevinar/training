@@ -3,7 +3,8 @@ const router = express.Router({mergeParams: true});
 const Campground = require('../models/campground');
 const Comment = require('../models/comment');
 const moment = require('moment');
-const myFunctions = require('../public/scripts/main');
+const myFunctions = require('../public/scripts');
+// Optional - Declare const of functions or call them using e.g.: myFunctions.isOwner
 const isLoggedIn = myFunctions.isLoggedIn;
 const isOwner = myFunctions.isOwner;
 
