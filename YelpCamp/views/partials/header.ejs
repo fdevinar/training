@@ -12,7 +12,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
-
+<!-- NAVBAR -->
 <body>
 <nav class="navbar navbar-expand-sm navbar-light bg-primary"> 
     <a class="navbar-brand" href="/">YelpCamp</a>
@@ -39,3 +39,15 @@
         </ul>
     </div>
 </nav>
+<!-- FLASH MESSAGES -->
+<% if (locals.errorMessage.length > 0){ %>
+    <div class="alert-danger border border-danger rounded text-center" role="alert">
+    <%= locals.errorMessage %>
+    </div>
+<% }; %>
+
+<% if (locals.successMessage.length > 0){ %>
+    <div class="alert-success border border-success rounded text-center" role="alert">
+    <%= locals.successMessage %>
+    </div>
+<% }; %>

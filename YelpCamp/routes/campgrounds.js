@@ -37,11 +37,13 @@ router.post('/', isLoggedIn, (req, res) => {
     }, (err, camp) => {
         if (err){
             console.log(err);
+            res.redirect('back');
         } else {
             console.log('Created Campground with success!')
             console.log(camp);
         }
     });
+    req.flash('success','Campground created successfully!');
     res.redirect('campgrounds');
 });
 // - SHOW - Displays info about a single Campground
@@ -84,6 +86,7 @@ router.put('/:id', isOwner, (req, res) => {
             campground.edited = Date.now(),
             campground.save();
             console.log('Update successful');
+            req.flash('success','Campground edited successfully!');
             res.redirect(`/campgrounds/${req.params.id}`);
         };
     });
@@ -93,6 +96,7 @@ router.delete('/:id', isOwner, (req, res) => {
     Campground.findByIdAndDelete(req.params.id, (err, campground) => {
         if (err){
             console.log(err);
+            res.redirect('back');
         } else{
             Comment.deleteMany({'campground.id':(campground.id)}, (err, comment) => {
                 if(err){
@@ -105,6 +109,7 @@ router.delete('/:id', isOwner, (req, res) => {
             console.log('Deletion successful');
         }
     });
+    req.flash('success','Campground deleted successfully!');
     res.redirect('/campgrounds');
 });
 

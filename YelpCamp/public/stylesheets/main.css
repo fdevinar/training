@@ -3,14 +3,13 @@
     --gradient-color-wk: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
     --gradient-color-lg: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 body, html {
     height: 100%;
     background: var(--gradient-color-fb);
     background: var(--gradient-color-wk);
     background: var(--gradient-color-lg);
 }
-
+/* - LANDING PAGE */
 .landing-bg {
     background-image: url(https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80);
     /* Full height */
@@ -20,18 +19,15 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }   
-
 .landing-text {
     color: white;
     text-align: center;
     padding: 20%;
     font-size: 3em;
 }
-
 .landing-text .title {
     font-size: 1.8em;
 }
-
 .landing-text a {
     color: green;
     text-decoration: none;
@@ -40,29 +36,25 @@ body, html {
     border: 1px solid white;
     border-radius: 20px;
 }
-
+/* - FORM */
 .form-style {
     width: 50%;
     margin: 35px auto;
 }
-
+/* - SHOW */
 .sidebar {
     width: 15%;
 }
-
 .show-card {
     width: 85%;
 }
-
 .delete-btn {
     display: flex;
 }
-
 .card {
     background-color: darkslategrey !important;
     color: white;
 }
-
 .jumbotron {
     background: var(--gradient-color-fb);
     background: var(--gradient-color-wk);

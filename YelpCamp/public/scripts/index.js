@@ -10,6 +10,7 @@ const myFunctions = {
             return next();
         }
         console.log('Failed to Authenticate');
+        req.flash('error','User Not Logged In');
         res.redirect('/login');
     },
     isOwner:

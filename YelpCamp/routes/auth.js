@@ -22,11 +22,13 @@ router.post('/register', (req, res) => {
             console.log(err);
             // Return used to short circuit function, to avoid error:
             // Cannot set headers after they are sent to the client
+            req.flash('error',err.message)
             return res.redirect('/register');
         }
         passport.authenticate('local')
         (req, res, function(){
             console.log(`User created: ${user}`);
+            req.flash('success','User Registered!')
             res.redirect('/campgrounds');
         });
     });
@@ -39,7 +41,9 @@ router.post('/login',
     //MIDDLEWARE
     passport.authenticate('local', {
         successRedirect: '/campgrounds',
-        failureRedirect: '/login'
+        successFlash: 'User Logged In',
+        failureRedirect: '/login',
+        failureFlash: 'Failed to Login'
     }),
     //CALLBACK
     (req, res) => {
@@ -49,6 +53,7 @@ router.post('/login',
 // - LOGOUT
 router.get('/logout', (req, res) => {
     req.logout();
+    req.flash('success','User Logged Out');
     res.redirect('/');
 });
 
