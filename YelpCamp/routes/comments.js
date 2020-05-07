@@ -47,6 +47,7 @@ router.post('/', isLoggedIn ,(req, res) => {
                     comment.save();
                     campground.comments.push(comment);
                     campground.save();
+                    req.flash('success','Comment created');
                     res.redirect(`/campgrounds/${req.params.id}`);
                         }
                     });
@@ -73,6 +74,7 @@ router.put('/:id', isOwner, (req, res) => {
         }else{
             comment.edited = Date.now();
             comment.save();
+            req.flash('success','Comment edited')
             res.redirect('/campgrounds/' + comment.campground.id);
         };
     });
@@ -85,6 +87,7 @@ router.delete('/:id', isOwner, (req, res) => {
             res.redirect('/campgrounds');
         }else{
             console.log('Deletion successful');
+            req.flash('success','Comment deleted')
             res.redirect('/campgrounds/' + comment.campground.id);
         };
     });

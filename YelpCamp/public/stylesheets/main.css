@@ -62,3 +62,7 @@ body, html {
     border: 1px solid ivory;
     box-shadow: 1px 1px springgreen;
 }
+/* - ALERTS */
+.alert-danger, .alert-success{
+    width: fit-content;
+}

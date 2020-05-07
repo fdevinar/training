@@ -37,10 +37,12 @@ app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-// SHOWS REQ.USER ON ALL RENDERS
+// VARIABLES BELOW AVAILABLE ON ALL RENDERS
 app.use(function(req, res, next) {
+    // FLASH
     res.locals.errorMessage = req.flash('error');
     res.locals.successMessage = req.flash('success');
+    // LOGGED USER
     res.locals.user = req.user;
     next();
 });
