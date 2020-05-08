@@ -27,6 +27,7 @@ router.get('/new', isLoggedIn, (req, res) => {
 router.post('/', isLoggedIn, (req, res) => {
     Campground.create({
         name: req.body.name,
+        price: req.body.price,
         description: req.body.description,
         image: req.body.image,
         edited: Date.now(),
