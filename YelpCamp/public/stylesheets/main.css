@@ -79,10 +79,10 @@ body, html {
     z-index: 0;
     margin: 0; 
 }
-.cb-slideshow:after { 
+/* .cb-slideshow:after { 
     content: '';
     background: transparent url(../images/pattern.png) repeat top left; 
-}
+} */
 .cb-slideshow li {
     list-style: none;
 }
@@ -117,6 +117,7 @@ body, html {
     padding-bottom: 22%;
     line-height: 100px;
     color: var(--gradient-color-fb);
+    text-shadow: darkgreen 5px 5px;
 }
 
 
@@ -207,7 +208,8 @@ body, html {
 @keyframes titleAnimation { 
 	0% {
 	    opacity: 0;
-	    transform: translateX(200px);
+	    /* transform: translateX(200px); */
+	    transform: translateX(100px);
 	}
 	8% {
 	    opacity: 1;
@@ -219,7 +221,8 @@ body, html {
 	}
 	19% {
 	    opacity: 0;
-	    transform: translateX(-400px);
+	    /* transform: translateX(-400px); */
+	    transform: translateX(-200px);
 	}
 	25% { opacity: 0 }
 	100% { opacity: 0 }
