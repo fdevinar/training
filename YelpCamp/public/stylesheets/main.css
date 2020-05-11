@@ -15,12 +15,12 @@ body, html {
     margin: 35px auto;
 }
 /* - SHOW */
-.sidebar {
+/* .sidebar {
     width: 15%;
-}
-.show-card {
+} */
+/* .show-card {
     width: 85%;
-}
+} */
 .delete-btn {
     display: flex;
 }
