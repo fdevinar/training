@@ -3,43 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>This Keyword</title>
+    <style>
+        html {
+            background-color: mintcream;
+        }
+        .block{
+            display: inline-block;
+            border: 2px solid red;
+            background: ivory;
+        }
+
+    </style>
 </head>
 <body>
     <h1>this Keyword Exercises</h1>
-    <div>
-        <p><strong>this</strong> on Global object:</p>
-        <p>console.log(this) // window (on browser)</p>
+    <h2>Use: <a href="https://highlightjs.org/">https://highlightjs.org/</a></h2>
+   
+    <p><strong>this</strong> on Global object refers to root object -> window</p>
 
-    <textarea rows=25 cols=60>
 
-        let dog = {
-            name: 'Rex Doggo',
-            bark: function bark(){
-                console.log('Auau, hi I am dog named ' + this.name);
-            },
-            whoIsThis: function whoIsThis(){
-                console.log(this);
-            },
-            friends: {
-                cat: {
-                    name: 'Cutie Pie',
-                    whoIsThis: function whoIsThis(){
-                        console.log(this);
+    <div class="block">
+        <p>
+            <strong>implicit this</strong> inside an object context refers to the object
+        </p>
+        <textarea rows=25 cols=60>
+            let dog = {
+                name: 'Rex Doggo',
+                bark: function bark(){
+                    console.log('Auau, hi I am dog named ' + this.name);
+                },
+                whoIsThis: function whoIsThis(){
+                    console.log(this);
+                },
+                friends: {
+                    cat: {
+                        name: 'Cutie Pie',
+                        whoIsThis: function whoIsThis(){
+                            console.log(this);
+                        }
                     }
                 }
             }
-        }
-        
-        dog.bark(); // Auau, hi I am dog named Rex Doggo
-        dog.whoIsThis(); // dog object
-        dog.friends.cat.whoIsThis(); // cat object
+            
+            dog.bark(); // Auau, hi I am dog named Rex Doggo
+            dog.whoIsThis(); // dog object
+            dog.friends.cat.whoIsThis(); // cat object
+        </textarea>
+    </div>
 
-
-    </textarea>
-
-
+    <div class="block">
+        <p>
+            <strong>explicit this</strong>
+        </p>
+        <textarea rows=25 cols=60>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam nesciunt error rem nemo libero nostrum animi tempore aspernatur velit porro?
+        </textarea>
 
     </div>
+
+
     <script src="this.js"></script>
 </body>
 </html>

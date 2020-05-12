@@ -5,13 +5,13 @@ let dog = {
         console.log('Auau, hi I am dog named ' + this.name);
     },
     whoIsThis: function whoIsThis(){
-        console.log(this);
+        console.log(this); // dog
     },
     friends: {
         cat: {
             name: 'Cutie Pie',
             whoIsThis: function whoIsThis(){
-                console.log(this);
+                console.log(this); // cat
             }
         }
     }
