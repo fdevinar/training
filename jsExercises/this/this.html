@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This Keyword</title>
+</head>
+<body>
+    <h1>this Keyword Exercises</h1>
+    <div>
+        <p><strong>this</strong> on Global object:</p>
+        <p>console.log(this) // window (on browser)</p>
+
+    <textarea rows=25 cols=60>
+
+        let dog = {
+            name: 'Rex Doggo',
+            bark: function bark(){
+                console.log('Auau, hi I am dog named ' + this.name);
+            },
+            whoIsThis: function whoIsThis(){
+                console.log(this);
+            },
+            friends: {
+                cat: {
+                    name: 'Cutie Pie',
+                    whoIsThis: function whoIsThis(){
+                        console.log(this);
+                    }
+                }
+            }
+        }
+        
+        dog.bark(); // Auau, hi I am dog named Rex Doggo
+        dog.whoIsThis(); // dog object
+        dog.friends.cat.whoIsThis(); // cat object
+
+
+    </textarea>
+
+
+
+    </div>
+    <script src="this.js"></script>
+</body>
+</html>
