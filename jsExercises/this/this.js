@@ -17,7 +17,7 @@
 // }
 // }
 
-// - CALL, APPLY
+// - CALL, APPLY, BIND
 
 // let fabri = {
 //     name: 'Fabrigol',
@@ -79,3 +79,59 @@
 // timer.exec();
 // // Timer function has been executed right now! on context :[object Object]
 
+// - CLASSES
+
+// class Workout {
+//     constructor(name, exercises, trainer){
+//         this.name = name;
+//         this.exercises = exercises;
+//         this.trainer = trainer;
+//     }
+//     // static function can only be called on Workout class
+//     static printGeneric() {
+//         console.log('Print Generic Static');
+//     }
+// };
+// Workout.prototype.printWorkout = function() {
+//     console.log(`${this.name} consiste nos exercicios ${this.exercises} feitos pelo ${this.trainer}`);
+// }
+// const W1 = new Workout('Monster Treino',['Squat','Bench','Deadlift'],'Fabrigol');
+// console.log(W1);
+// W1.printWorkout();
+// Workout.printGeneric();
+
+// class ExtendedWorkout extends Workout {
+//     constructor(name, exercises, trainer, intensity, goal){
+//         super(name, exercises, trainer);
+//         this.intensity = intensity;
+//         this.goal = goal;
+//     }
+// }
+// ExtendedWorkout.prototype.printExtWorkout = function() {
+//     console.log(`${this.name} consiste nos exercicios ${this.exercises} feitos pelo ${this.trainer}
+//                 with  ${this.intensity} intensity and goal of ${this.goal}`);
+// }
+// const W2 = new ExtendedWorkout('Killa Training',['OHP','Loaded Carry','Explosion Delts'],
+//                                 'Fabrigol','High','Delts Gainz');
+// console.log(W2);
+// W2.printExtWorkout();
+// W2.printWorkout();
+
+// - CLOSURES
+
+// function outer() {
+//     let outerData = ' my friend!';
+//     return function inner() {
+//         let innerData = 'We are the champions,';
+//         return innerData + outerData;
+//     }
+// }
+
+// console.log(outer());
+// console.log(outer()());
+
+// ƒ inner() {
+//     let innerData = 'We are the champions,';
+//     return innerData + outerData;
+// }
+// We are the champions, my friend!

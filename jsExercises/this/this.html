@@ -127,6 +127,89 @@
         </textarea>
     </div>
 
+    <div class="block">
+        <p>
+            <strong>Classes</strong>
+        </p>
+        <textarea rows=25 cols=65>
+            class Workout {
+                constructor(name, exercises, trainer){
+                    this.name = name;
+                    this.exercises = exercises;
+                    this.trainer = trainer;
+                }
+                // static function can only be called on Workout class
+                static printGeneric() {
+                    console.log('Print Generic Static');
+                }
+            };
+            Workout.prototype.printWorkout = function() {
+                console.log(`${this.name} consiste nos exercicios ${this.exercises} feitos pelo ${this.trainer}`);
+            }
+            const W1 = new Workout('Monster Treino',['Squat','Bench','Deadlift'],'Fabrigol');
+            console.log(W1);
+            W1.printWorkout();
+            Workout.printGeneric();
+            
+            class ExtendedWorkout extends Workout {
+                constructor(name, exercises, trainer, intensity, goal){
+                    super(name, exercises, trainer);
+                    this.intensity = intensity;
+                    this.goal = goal;
+                }
+            }
+            ExtendedWorkout.prototype.printExtWorkout = function() {
+                console.log(`${this.name} consiste nos exercicios ${this.exercises} feitos pelo ${this.trainer}
+                            with  ${this.intensity} intensity and goal of ${this.goal}`);
+            }
+            const W2 = new ExtendedWorkout('Killa Training',['OHP','Loaded Carry','Explosion Delts'],
+                                            'Fabrigol','High','Delts Gainz');
+            console.log(W2);
+            W2.printExtWorkout();
+            W2.printWorkout();
+
+            // Workout {name: "Monster Treino", exercises: Array(3), trainer: "Fabrigol"}
+            // Monster Treino consiste nos exercicios Squat,Bench,Deadlift feitos pelo Fabrigol
+            // Print Generic Static
+            // ExtendedWorkout {name: "Killa Training", exercises: Array(3), trainer: "Fabrigol", intensity: "High", goal: "Delts Gainz"}
+            // Killa Training consiste nos exercicios OHP,Loaded Carry,Explosion Delts feitos pelo Fabrigol
+            // with  High intensity and goal of Delts Gainz
+            // Killa Training consiste nos exercicios OHP,Loaded Carry,Explosion Delts feitos pelo Fabrigol
+
+        </textarea>
+    </div>
+
+    <div class="block">
+        <p>
+            <strong>Closures</strong>
+        </p>
+        <textarea rows=25 cols=65>
+            function outer() {
+                let outerData = ' my friend!';
+                return function inner() {
+                    let innerData = 'We are the champions,';
+                    return innerData + outerData;
+                }
+            }
+            
+            console.log(outer());
+            console.log(outer()());
+            
+            ƒ inner() {
+                let innerData = 'We are the champions,';
+                return innerData + outerData;
+            }
+            // We are the champions, my friend!
+        </textarea>
+    </div>
+
+
+
+
+
+
+
+
 
     <script src="this.js"></script>
 </body>
