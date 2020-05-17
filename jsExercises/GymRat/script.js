@@ -1,27 +1,46 @@
-
-let set = document.getElementById('set');
+//let set = document.getElementById('set');
 let session = document.getElementById('session');
+let btn = document.querySelector('button');
 
-let exercise = [{
+let exercises = [{
     name: 'Squat',
     reps: 10,
     sets: 3,
     weight: 20
 }]
 
+displaySession();
 
-
-let btn = document.querySelector('button');
 btn.addEventListener('click',() => {
     let form = document.querySelector('form');
 
-    exercise.push({
-        name: form.elements[0].getAttribute('value'),
-        reps: Number(form.elements[1].getAttribute('value')),
-        sets: Number(form.elements[2].getAttribute('value')),
-        weight: Number(form.elements[3].getAttribute('value'))
+    let name = document.querySelector('input[id="name"]').value;
+    let reps = document.querySelector('input[id="reps"]').value;
+    let sets = document.querySelector('input[id="sets"]').value;
+    let weight = document.querySelector('input[id="weight"]').value;
+
+    exercises.push({
+        name: name,
+        reps: Number(reps),
+        sets: Number(sets),
+        weight: Number(weight)
     })
+    console.log('Exercise Added');
+    displaySession();
+});
 
-    console.log(exercise);
+function displaySession() {
+    session.textContent = null;
+    exercises.forEach((exercise) => {
+        console.log(exercise);
+        session.innerHTML += `<ul>
+        <li><strong>${exercise.name}</strong></li>
+        <li>Reps: ${exercise.reps}</li>
+        <li>Sets: ${exercise.sets}</li>
+        <li>${exercise.weight} kg</li>
+        </ul>`
+    });
+}
 
-})
+
+
