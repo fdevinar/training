@@ -9,6 +9,9 @@
         header {
             display: flex;
         }
+        ul {
+            list-style: none;
+        }
         .workout {
             display: flex;
         }
@@ -17,6 +20,16 @@
             width: 16%;
             text-align: center;
         }
+        .exercise {
+            border: 1px dashed blue; 
+            background-color: ghostwhite;           
+        }
+        #session {
+            display: flex;
+            border: 1px solid black;
+        }
+        
+
 
     </style>
 </head>
@@ -85,7 +98,7 @@
         <div id="set">
         </div>
 
-        <p>Configure New Exercise</p>
+        <p>Create New Session</p>
         <form action="javascript:void(0)">
             <label for="name">Name</label>
                 <input type="text" id="name" required>
