@@ -5,36 +5,20 @@
     <style>#app{background-color: ivory;}</style>
 </head>
 <body>
-    <div v-on:mousemove="updateCoordinates" id="app">
+    <main v-on:mousemove="updateCoordinates" id="app">
 
         <img v-on:mousemove.stop height=150px" v-bind:src="imgLink">
 
         <p>Coordinates</p>
         <p> X:{{ x }} / Y:{{ y }}</p>
-
-        <h1 v-once>
-            {{ title }}
-        </h1>
-
-        <input type="text" v-on:keydown.enter="pressEnter" v-on:keydown='meuTexto = $event.target.value' placeholder="Type me...">
-        <p> {{ meuTexto }} </p>
-        <p> Press Enter to Copy Here: {{ inputValue }} </p>
-
-        <p> {{ sayHello() + toMyLilFriend() }} </p>
-        <p v-html="listItem"></p>
-
+        
         <div>
             <button v-on:click="addCount">Click Me</button>
             <p> {{ counter }} </p>
         </div>
 
 
-
-
-
-    </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
-
-
