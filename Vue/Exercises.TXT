@@ -1,0 +1,174 @@
+HTML:
+
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vue Training</title>
+    <style>
+    #app{background-color: ivory;}
+
+    #effect {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    }
+    .highlight {
+    background-color: red;
+    width: 200px !important;
+    }
+    .shrink {
+    background-color: gray;
+    width: 50px !important;
+    }
+    .neon {
+        background-color: chartreuse;
+        width: 25%;
+    }
+    .line {
+        border: 5px solid brown;
+    }
+    .alpha {
+        background-color: cornflowerblue;
+        color: red;
+    }
+    .omega {
+        background-color: black;
+        color: chocolate;
+    }
+    .star {
+        border: 2px solid black;
+        background-color: yellow;
+    }
+    .planet {
+        border: 2px solid brown;
+        background-color: darkblue;
+        color: yellow;
+    }
+    .border {
+        border: 10px solid crimson;
+    }
+
+    </style>
+</head>
+<body>
+    <main id="app">
+
+        <img @mousemove.stop height=150px" :src="imgLink">
+
+        <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+        <div id="exercise">
+        <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+        <div>
+            <button @click="startEffect">Start Effect</button>
+            <div id="effect" :class="effect"></div>
+        </div>
+        <hr>
+        <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+        <div :class="[neonClass, lineClass]">I got no class :(</div>
+        <hr>
+        <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+        <div>
+            Type Alpha or Omega<input type="text" v-model="typedClass">
+            <div :class="typedClass">Typed Class</div>
+        </div>
+        <hr>
+        <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+        <div>
+            Type Star or Planet<input type="text" v-model="typeOption">
+            Type True or False<input type="text" @keyup = "checkBorder">
+            <div :class="[{border: borderOption }, typeOption]">Boolean and Typed Classes</div>
+        </div>
+        <hr>
+        <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+        <div>
+            Type Value for Font Color<input type="text" v-model="myColor.color">
+            <div :style="myColor">XXX YYY ZZZ OOO PPP MMM NNN QQQ RRR TTTT SSS</div>
+        </div>
+        <hr>
+        <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+        <div>
+            <button @click="startProgress">Start Progress</button>
+            <div :style="progressBar">‎</div>
+        </div>
+        </div>
+        
+
+
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
+JS:
+
+new Vue({
+    el: '#app',
+    data: {
+        imgLink: 'https://vuejs.org/images/logo.png',
+        effect: 'highlight',
+        neonClass: 'neon',
+        lineClass: 'line',
+        typedClass: '',
+        borderOption: false,
+        typeOption: '',
+        myColor: {
+            color: 'black'
+        },
+        progressBar: {
+            backgroundColor: 'grey',
+            width:  '0%',
+            maxWidth: '250px',
+        }
+    },
+    methods: {
+        startEffect: function() {
+            vm = this;
+            setInterval(function(){
+                vm.effect === 'highlight' ? vm.effect = 'shrink' : vm.effect = 'highlight'                
+            },1000);
+        },
+        checkBorder: function(event) {
+            console.log(event.target.value);
+            event.target.value === 'true' ? this.borderOption = true : this.borderOption = false
+        },
+        startProgress: function(event) {
+            vm = this;
+            let count = 0;
+            setInterval(function() {
+                vm.progressBar.width = count + '%';
+                count++;
+            },20)
+        }
+    },
+    watch: {},
+    computed: {}  
+});
+
+//- Vue Notes
+/*
+Directives:
+v-bind:htmlAttribute -> Vue Instance can change HTML attributes -> shorthand :src, :href 
+v-on:event -> add EventListener -> shorthand @click, @keydown
+v-once: renders object only once
+v-html: renders raw HTML - use carefully (Cross Site Scripting XSS)
+v-model: 2-way data binding, change data in Vue instance using Html (e.g. input)
+
+Event Modifiers:
+v-on:keydown.enter
+v-on:mousemove.stop
+
+Using Event object:
+v-on:keydown = "myText = $event.target.value"
+
+Comments:
+functions() run everytime the page renders
+Computed properties only run when X value is changed (they run sync)
+Watch can 'listen' to data properties (can run async)
+On Inputs use v-model to bind data to Vue instance instead of -> @keyup = "variable = $event.target.value"
+
+
+
+*/
+

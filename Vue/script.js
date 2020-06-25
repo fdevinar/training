@@ -1,45 +1,35 @@
 new Vue({
     el: '#app',
     data: {
-        imgLink: 'https://vuejs.org/images/logo.png',
-        effect: 'highlight',
-        neonClass: 'neon',
-        lineClass: 'line',
-        typedClass: '',
-        borderOption: false,
-        typeOption: '',
-        myColor: {
-            color: 'black'
-        },
-        progressBar: {
-            backgroundColor: 'grey',
-            width:  '0%',
-            maxWidth: '250px',
-        }
+        shoppingList: ['yogurt','rice','beer','meat'],
+        gymExercises: [
+            {
+                name: 'Squat',
+                sets: 4,
+                reps: 20,
+                weight: '80Kg',
+            },
+            {
+                name: 'Deadlift',
+                sets: 6,
+                reps: 5,
+                weight: '120Kg',
+            },
+            {
+                name: 'Bench Press',
+                sets: 3,
+                reps: 10,
+                weight: '30Kg',
+            }
+        ]
     },
-    methods: {
-        startEffect: function() {
-            vm = this;
-            setInterval(function(){
-                vm.effect === 'highlight' ? vm.effect = 'shrink' : vm.effect = 'highlight'                
-            },1000);
-        },
-        checkBorder: function(event) {
-            console.log(event.target.value);
-            event.target.value === 'true' ? this.borderOption = true : this.borderOption = false
-        },
-        startProgress: function(event) {
-            vm = this;
-            let count = 0;
-            setInterval(function() {
-                vm.progressBar.width = count + '%';
-                count++;
-            },20)
-        }
-    },
+    methods: {},
     watch: {},
     computed: {}  
 });
+
+
+
 
 //- Vue Notes
 /*
@@ -49,6 +39,10 @@ v-on:event -> add EventListener -> shorthand @click, @keydown
 v-once: renders object only once
 v-html: renders raw HTML - use carefully (Cross Site Scripting XSS)
 v-model: 2-way data binding, change data in Vue instance using Html (e.g. input)
+v-if: v-if="true" -> adds or removes element from DOM
+v-else: looks at last v-if to present else solution
+v-show: v-show="true" enables display:none if true
+v-for: v-for="element in array" -> for loop
 
 Event Modifiers:
 v-on:keydown.enter
@@ -62,7 +56,5 @@ functions() run everytime the page renders
 Computed properties only run when X value is changed (they run sync)
 Watch can 'listen' to data properties (can run async)
 On Inputs use v-model to bind data to Vue instance instead of -> @keyup = "variable = $event.target.value"
-
-
-
+Use (value, key, index) to loop through the Object`s properties during a v-for on Object
 */
