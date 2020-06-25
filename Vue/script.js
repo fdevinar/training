@@ -2,7 +2,20 @@ new Vue({
     el: '#app',
     data: {
         imgLink: 'https://vuejs.org/images/logo.png',
-        effect: 'highlight'
+        effect: 'highlight',
+        neonClass: 'neon',
+        lineClass: 'line',
+        typedClass: '',
+        borderOption: false,
+        typeOption: '',
+        myColor: {
+            color: 'black'
+        },
+        progressBar: {
+            backgroundColor: 'grey',
+            width:  '0%',
+            maxWidth: '250px',
+        }
     },
     methods: {
         startEffect: function() {
@@ -10,6 +23,18 @@ new Vue({
             setInterval(function(){
                 vm.effect === 'highlight' ? vm.effect = 'shrink' : vm.effect = 'highlight'                
             },1000);
+        },
+        checkBorder: function(event) {
+            console.log(event.target.value);
+            event.target.value === 'true' ? this.borderOption = true : this.borderOption = false
+        },
+        startProgress: function(event) {
+            vm = this;
+            let count = 0;
+            setInterval(function() {
+                vm.progressBar.width = count + '%';
+                count++;
+            },20)
         }
     },
     watch: {},
@@ -36,6 +61,7 @@ Comments:
 functions() run everytime the page renders
 Computed properties only run when X value is changed (they run sync)
 Watch can 'listen' to data properties (can run async)
+On Inputs use v-model to bind data to Vue instance instead of -> @keyup = "variable = $event.target.value"
 
 
 
