@@ -21,7 +21,10 @@ new Vue({
                 reps: 10,
                 weight: '30Kg',
             }
-        ]
+        ],
+        para: true,
+        lotr: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'},
+        object: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21], arr: [1,2,3]}
     },
     methods: {},
     watch: {},

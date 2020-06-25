@@ -8,12 +8,12 @@
 <body>
     <main id="app">
 
-        <ul>
+        <!-- <ul>
             <li v-for="item,idx in shoppingList"> {{ idx }} {{ item }} </li>    
         </ul>
 
         <p>Testing Templates:</p>
-        <template v-for="item,idx in shoppingList">
+        <template v-for="item,idx in shoppingList" :key="item">
             <p>{{ idx }}</p>
             <p>{{ item }}</p>
         </template>
@@ -34,8 +34,42 @@
             </li>
         </ul>
 
+        <div>
+            <span v-for="n in 10"> {{ n }} </span>
+        </div> -->
 
 
+
+
+        <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+        <div>
+            <h3>1</h3>
+            <button @click="para = !para">Toggle</button>
+            <p v-if="para">You either see me ...</p>
+            <p v-if="!para">...or me</p>
+            <p v-show="para">You either see me ...</p>
+            <p v-show="!para">...or me</p>
+        </div>
+        <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+        <h3>2</h3>
+        <ul>
+            <li v-for="(item,idx) in shoppingList">{{ idx+1 }}: {{ item }}</li>
+        </ul>
+        <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+        <h3>3</h3>
+        <ul>
+            <li v-for="value,key,idx in lotr"># {{ idx+1 }} {{ key }}: {{ value }}</li>
+        </ul>
+        <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+        <h3>4</h3>
+        <ul>
+            <li v-for="x in object">
+                <ul v-if="Array.isArray(x)">
+                    <li v-for="y in x">{{ y }}</li>
+                </ul>
+                <span v-else> {{ x }} </span>
+            </li>  
+        </ul>
 
     </main>
     <script src="script.js"></script>
