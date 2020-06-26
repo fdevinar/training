@@ -1,43 +1,38 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="slayer.css">
     <title>Vue Training</title>
-    <style>
-    #app{background-color: ivory;}
-    div{
-        border:1px solid black;
-        margin: 0 auto;
-        width: 75%;
-        height: 25%;
-    }
-    </style>
 </head>
 <body>
     <main id="app">
 
-
-
     <h1>THE MONSTER SLAYER</h1>
 
-    <div class="score">
+    <div class="block score">
         <h2>SCORE - INCLUDE SLAYER AND MONSTER HEALTHBARS</h2>
-        <span>
-            SLAYER HEALTH BAR |_____| ---
-        </span>
-        <span>
-            MONSTER HEALTH BAR |_____|
-        </span>
+
+        Slayer
+        <div class="health-bar" :style="slayerHealthBar">{{ slayerHealth }}</div>
+
+        Monster
+        <div class="health-bar" :style="monsterHealthBar">{{ monsterHealth }}</div>
     </div>
 
-    <div class="controls">
-        <h2>CONTROLS - INTERACT WITH GAME CHOOSING ACTIONS</h2>
-        <p>START NEW GAME <-> ATK(5-10), SPC ATK(10-15), HEAL, GIVE UP</p>
+    <div class="block controls">
+        <h2>PICK YOUR ACTION</h2>
+        <button v-if="!isActive" @click="isActive = true">Start New Game</button>
+        <template v-if="isActive">
+            <button @click="attack('regular')">Attack (0-3 dmg)</button>
+            <button @click="attack('special')">Special Attack (0-10 dmg)</button>
+            <button @click="heal">Heal (4-8 health)</button>
+            <button @click="isActive = false">Give Up</button>
+        </template>
     </div>
 
-    <div class="log">
+    <div class="block log">
         <h2>LOG - LOG THE ACTIONS TAKEN AND PRESENT THEM</h2>
         <p>SLAYER HITS MONSTER FOR x DMG, MONSTER HITS SLAYER FOR x DMG, ETC...</p>
     </div>
-
 
     </main>
     <script src="slayer.js"></script>
