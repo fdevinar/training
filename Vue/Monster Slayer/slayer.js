@@ -11,8 +11,9 @@ new Vue({
         slayerHealthBar: {
             backgroundColor: 'green',
             width: '100px'
-        }
-
+        },
+        result: '',
+        log: ['']
     },
     methods: {
         attack: function(type){
@@ -24,41 +25,60 @@ new Vue({
         slayerAttack: function(type) {
             if (type === 'special'){
                 // SPECIAL ATTACK
-                dmgSlayer = Math.floor(Math.random()*10);
+                dmgSlayer = (Math.floor(Math.random()*10)+5);
                 this.monsterHealth -= dmgSlayer;
-                console.log('Slayer Dmg: ' + dmgSlayer);
+                this.log.push('Slayer attacked for ' + dmgSlayer + ' dmg');
             }else{
                 // REGULAR ATTACK
-                dmgSlayer = Math.floor(Math.random()*5);
+                dmgSlayer = (Math.floor(Math.random()*5))+5;
                 this.monsterHealth -= dmgSlayer;
-                console.log('Slayer Dmg: ' + dmgSlayer);
+                this.log.push('Slayer attacked for ' + dmgSlayer + ' dmg');
             }
         },
         monsterAttack: function(type) {
             if (type === 'special'){
                 // SPECIAL ATTACK
-                dmgMonster = Math.floor(Math.random()*10);
+                dmgMonster = (Math.floor(Math.random()*10)+5);
                 this.slayerHealth -= dmgMonster;
-                console.log('Monster Dmg: ' + dmgMonster);
+                this.log.push('Monster attacked for ' + dmgMonster + ' dmg');
             }else{
                 // REGULAR ATTACK
-                dmgMonster = Math.floor(Math.random()*5);
+                dmgMonster = (Math.floor(Math.random()*5))+5;
                 this.slayerHealth -= dmgMonster;
-                console.log('Monster Dmg: ' + dmgMonster);
+                this.log.push('Monster attacked for ' + dmgMonster + ' dmg');
             }      
         },
         heal: function(){
-            slayerHeal = Math.floor(Math.random()*5);
+            slayerHeal = (Math.floor(Math.random()*5))+5;
             this.slayerHealth += slayerHeal;
-            console.log('Slayer healed for ' + slayerHeal);
+            this.log.push('Slayer healed for ' + slayerHeal);
             this.slayerHealthBar.width = this.slayerHealth + 'px';
             this.monsterAttack('regular');
+        },
+        endGame: function() {
+            if(this.slayerHealth > this.monsterHealth){
+                this.result = 'Slayer Won!';
+            }else{
+                this.result = 'Monster Won!';
+            }
+            this.isActive = false;
+        },
+        giveUp: function() {
+            location.reload();
+        },
+        newGame: function() {
+            // CHECK IF LOG HAS CONTENT TO RELOAD
+            if (this.log.length > 1){
+                location.reload();
+            }
+            this.isActive = true;
         }
 
     },
     computed: {},  
     watch: {
         slayerHealth: function() {
+            if (this.slayerHealth <= 0) {this.endGame()};
             if(this.slayerHealth > 60){
                 this.slayerHealthBar.backgroundColor = 'green'
             }else if(this.slayerHealth > 30){
@@ -68,6 +88,7 @@ new Vue({
             }
         },
         monsterHealth: function() {
+            if (this.monsterHealth <= 0) {this.endGame()};
             if(this.monsterHealth > 60){
                 this.monsterHealthBar.backgroundColor = 'green'
             }else if(this.monsterHealth > 30){

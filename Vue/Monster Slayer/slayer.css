@@ -10,5 +10,16 @@
     border: 1px solid black;
     margin: 0 auto;
     width: 75%;
-    height: 25%;
+    height: 15%;
     }
+
+.bars {
+    display:flex;
+    justify-content: space-evenly;
+}
+.log {
+    height: fit-content;
+}
+li {
+    list-style: none;
+}
