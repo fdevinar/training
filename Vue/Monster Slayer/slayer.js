@@ -6,21 +6,21 @@ new Vue({
         monsterHealth:100,
         monsterHealthBar: {
             backgroundColor: 'green',
-            width: '100px'
+            width: '300px'
         },
         slayerHealthBar: {
             backgroundColor: 'green',
-            width: '100px'
+            width: '300px'
         },
         result: '',
-        log: ['']
+        log: []
     },
     methods: {
         attack: function(type){
         this.slayerAttack(type);
         this.monsterAttack(type);
-        this.monsterHealthBar.width = this.monsterHealth + 'px';
-        this.slayerHealthBar.width = this.slayerHealth + 'px'; 
+        this.monsterHealthBar.width = (this.monsterHealth * 3) + 'px';
+        this.slayerHealthBar.width = (this.slayerHealth *3) + 'px'; 
         },
         slayerAttack: function(type) {
             if (type === 'special'){
@@ -52,12 +52,14 @@ new Vue({
             slayerHeal = (Math.floor(Math.random()*5))+5;
             this.slayerHealth += slayerHeal;
             this.log.unshift('Slayer healed for ' + slayerHeal);
-            this.slayerHealthBar.width = this.slayerHealth + 'px';
+            this.slayerHealthBar.width = (this.slayerHealth * 3) + 'px';
             this.monsterAttack('regular');
         },
         endGame: function() {
             if(this.slayerHealth > this.monsterHealth){
                 this.result = 'Slayer Won!';
+            }else if(this.slayerHealth === this.monsterHealth){
+                this.result = 'Draw';
             }else{
                 this.result = 'Monster Won!';
             }

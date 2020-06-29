@@ -13,15 +13,19 @@
 
             <div>
                 <h2>Slayer</h2>
-                <div class="health-bar" :style="slayerHealthBar">
-                {{ slayerHealth }}
+                <div class="max-health">
+                    <div class="health-bar" :style="slayerHealthBar">
+                    {{ slayerHealth }}
+                    </div>
                 </div>
             </div>
 
             <div>
                 <h2>Monster</h2>
-                <div class="health-bar" :style="monsterHealthBar">
-                {{ monsterHealth }}
+                <div class="max-health">
+                    <div class="health-bar" :style="monsterHealthBar">
+                    {{ monsterHealth }}
+                    </div>
                 </div>
             </div>
 
