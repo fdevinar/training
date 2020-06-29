@@ -1,25 +1,71 @@
-#app {
+body {
     background-color: ivory;
+    font-size: 24px;
 }
+
+/* HEALTH BAR */
 .health-bar {
     border: 1px solid black;
-    height: 25px;
+    height: 30px;
+    font-size: 1.3rem;
     }
-
 .block {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
     width: 75%;
-    height: 15%;
+    height: 20%;
     }
-
 .bars {
     display:flex;
     justify-content: space-evenly;
 }
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: space-around;
+    height: 10%;
+}
+
+/* LOG */
 .log {
     height: fit-content;
 }
 li {
     list-style: none;
+    color: white;
+    font-size: 1.1rem;
+    width: fit-content;
+    height: 30px;
+    margin: 6px;
+}
+li:nth-child(even){
+    background: blue;
+    opacity: 75%;
+}
+li:nth-child(odd){
+    background: crimson;
+    opacity: 75%;
+}
+
+/* STYLE BUTTONS */
+.btn {
+    font-size: 1.1rem;
+    border-radius: 18px;
+}
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+.btn-green {
+    background-color: greenyellow;
+}
+.btn-red {
+    background-color: red;
+}
+.btn-yellow {
+    background-color: gold;
+}
+.btn-white {
+    background-color: white;
 }

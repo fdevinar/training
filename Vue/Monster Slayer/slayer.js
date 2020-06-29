@@ -27,12 +27,12 @@ new Vue({
                 // SPECIAL ATTACK
                 dmgSlayer = (Math.floor(Math.random()*10)+5);
                 this.monsterHealth -= dmgSlayer;
-                this.log.push('Slayer attacked for ' + dmgSlayer + ' dmg');
+                this.log.unshift('Slayer attacked for ' + dmgSlayer + ' dmg');
             }else{
                 // REGULAR ATTACK
                 dmgSlayer = (Math.floor(Math.random()*5))+5;
                 this.monsterHealth -= dmgSlayer;
-                this.log.push('Slayer attacked for ' + dmgSlayer + ' dmg');
+                this.log.unshift('Slayer attacked for ' + dmgSlayer + ' dmg');
             }
         },
         monsterAttack: function(type) {
@@ -40,18 +40,18 @@ new Vue({
                 // SPECIAL ATTACK
                 dmgMonster = (Math.floor(Math.random()*10)+5);
                 this.slayerHealth -= dmgMonster;
-                this.log.push('Monster attacked for ' + dmgMonster + ' dmg');
+                this.log.unshift('Monster attacked for ' + dmgMonster + ' dmg');
             }else{
                 // REGULAR ATTACK
                 dmgMonster = (Math.floor(Math.random()*5))+5;
                 this.slayerHealth -= dmgMonster;
-                this.log.push('Monster attacked for ' + dmgMonster + ' dmg');
+                this.log.unshift('Monster attacked for ' + dmgMonster + ' dmg');
             }      
         },
         heal: function(){
             slayerHeal = (Math.floor(Math.random()*5))+5;
             this.slayerHealth += slayerHeal;
-            this.log.push('Slayer healed for ' + slayerHeal);
+            this.log.unshift('Slayer healed for ' + slayerHeal);
             this.slayerHealthBar.width = this.slayerHealth + 'px';
             this.monsterAttack('regular');
         },

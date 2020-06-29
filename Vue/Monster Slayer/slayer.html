@@ -6,38 +6,39 @@
 <body>
     <main id="app">
 
-    <h1>THE MONSTER SLAYER</h1>
 
     <div class="block score">
-        <h2>Score</h2>
-
+    
         <div class="bars">
-            Slayer
-            <div class="health-bar" :style="slayerHealthBar">
+
+            <div>
+                <h2>Slayer</h2>
+                <div class="health-bar" :style="slayerHealthBar">
                 {{ slayerHealth }}
+                </div>
             </div>
 
-            Monster
-            <div class="health-bar" :style="monsterHealthBar">
+            <div>
+                <h2>Monster</h2>
+                <div class="health-bar" :style="monsterHealthBar">
                 {{ monsterHealth }}
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
     <div class="block controls">
-        <h2>Pick your Action</h2>
-        <button v-if="!isActive" @click="newGame">Start New Game</button>
+        <button class="btn btn-green" v-if="!isActive" @click="newGame">Start New Game</button>
         <template v-if="isActive">
-            <button @click="attack('regular')">Attack (0-3 dmg)</button>
-            <button @click="attack('special')">Special Attack (0-10 dmg)</button>
-            <button @click="heal">Heal (4-8 health)</button>
-            <button @click="giveUp">Give Up</button>
+            <button class="btn btn-yellow" @click="attack('regular')">Attack (0-3 dmg)</button>
+            <button class="btn btn-red" @click="attack('special')">Special Attack (0-10 dmg)</button>
+            <button class="btn btn-green" @click="heal">Heal (4-8 health)</button>
+            <button class="btn btn-white" @click="giveUp">Give Up</button>
         </template>
     </div>
 
     <div class="block log">
-        <h2>Action Log:</h2>
 
         <div :class="result">
             <h3>{{ result }}</h3>
