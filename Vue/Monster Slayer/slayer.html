@@ -14,7 +14,7 @@
             <div>
                 <h2>Slayer</h2>
                 <div class="max-health">
-                    <div class="health-bar" :style="slayerHealthBar">
+                    <div class="health-bar" :style="slayerHealthBar" ref="slayerRef">
                     {{ slayerHealth }}
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <div>
                 <h2>Monster</h2>
                 <div class="max-health">
-                    <div class="health-bar" :style="monsterHealthBar">
+                    <div class="health-bar" :style="monsterHealthBar" ref="monsterRef">
                     {{ monsterHealth }}
                     </div>
                 </div>

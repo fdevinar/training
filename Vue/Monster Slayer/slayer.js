@@ -1,5 +1,5 @@
-new Vue({
-    el: '#app',
+let vm = new Vue({
+    //el: '#app',
     data: {
         isActive: false,
         slayerHealth: 100,
@@ -99,7 +99,16 @@ new Vue({
                 this.monsterHealthBar.backgroundColor = 'red'
             }
         }
+    },
+    // Vue Lifecycle Sample 
+    beforeCreate: function() {
+        console.log('beforeCreate');
+    },
+    mounted: function() {
+        console.log('mounted');
     }
 });
 
+vm.$mount('#app');
+console.log(vm.$refs);
 
