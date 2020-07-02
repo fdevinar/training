@@ -6,16 +6,20 @@
                         Server #{{ index }}
                     </li>
                 </ul>
-            </div>
-            <!-- Server Details -->
             <server-details></server-details>
-
-
+            </div>
         </div>
+            <!-- Server Details -->
+
 </template>
 
 <script>
+import ServerDetails from './ServerDetails.vue'
+
 export default {
+    components: {
+        'server-details': ServerDetails
+    }
     
 }
 </script>
