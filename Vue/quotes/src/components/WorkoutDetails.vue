@@ -1,39 +1,38 @@
 <template>
     <div class="details">
-        <h3>This is the Workout Details component</h3>
-        <p> Workout Name: {{ workoutName }} </p>
-        <button @click="resetName">Click to reset Workout Name Property</button>
-        <p>Trainer: {{ trainer }}</p>
-
+        <p>Workout #{{ details.id }} Details:</p>
+        <p>{{ details.status }}</p>
+        <p>M1: {{ details.primary }}</p>
+        <p>M2: {{ details.secondary }}</p>
+        <button @click="complete()">Click to Complete Workout</button>
     </div>
 </template>
 
 <script>
-import { eventBus } from '../main';
+//import { eventBus } from '../main';
 
 export default {
     props: {
-        workoutName: String,
-        trainer: String
-    },
-    methods: {
-        resetName() {
-            this.workoutName = 'Fika grande porra!'
-            this.$emit('nameReset', this.workoutName);
+        details: {
+            id: Number,
+            status: String,
+            primary: String,
+            secondary: String
         }
     },
-    created() {
-        eventBus.$on('trainerChanged', (trainer) => {
-            this.trainer = trainer;
-        })
+    methods: {
+        complete(){
+            this.details.status = 'Completed';
+        }
     }
+    // created() {
+    //     eventBus.$on('trainerChanged', (trainer) => {
+    //         this.trainer = trainer;
+    //     });
+    // }
 }
 </script>
 
 <style scoped>
-.details {
-    background-color: crimson;
-    height: 150px;
-}
 
 </style>
