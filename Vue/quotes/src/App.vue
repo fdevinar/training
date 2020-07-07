@@ -1,16 +1,7 @@
 <template>
   <div id="app">
-   
-   <div class="container">
-     <!-- Server Header -->
-     <server-header></server-header>
-       <hr>
-        <!-- Server List -->
-        <server-list></server-list>
-        <hr>
-        <!-- Server Footer -->
-        <server-footer></server-footer>
-    </div>
+
+    <workout></workout>
 
   </div>
 
@@ -18,12 +9,12 @@
 </template>
 
 <script>
-import ServerList from './components/ServerList.vue'
+import Workout from './components/Workout.vue'
 
 export default {
   name: 'App',
   components: {
-    'server-list': ServerList
+    'workout': Workout
   }
 }
 </script>
