@@ -9,7 +9,7 @@ Vue.component('workout-footer', WorkoutFooter);
 
 Vue.config.productionTip = false
 
-//export const eventBus = new Vue();
+export const selectedBus = new Vue();
 
 
 new Vue({

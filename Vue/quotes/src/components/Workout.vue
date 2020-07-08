@@ -2,21 +2,14 @@
 <div class="workout">
     <div class="block">
         <ul>
-            <li v-for="ex in exercises" :key="ex.id" @click="displayDetails(ex.id)">
-                
-                
-                <workout-item   :id="ex.id"
-                                :status="ex.status"
-                                >
+                <!-- MANDA O EXERCICIO ESPECIFICO QUE FOI CLICADO (EX) PARA WORKOUT ITEM -->
+                <workout-item v-for="ex in exercises" :key="ex.id"  :workout="ex">
                 </workout-item>
-            </li>
         </ul>
     </div>
 
-    <!-- TODO: USE EVENT BUSES TO CHANGE SELECTED SERVER INSTEAD OF USING CURRENT EXERCISE AS DEFAULT -->
-
     <div class="block">
-    <workout-details :details="exercises[currentExercise-1]">
+    <workout-details :workout="exercises">
     </workout-details>
     </div>
 
@@ -38,19 +31,14 @@ export default {
                 {id: 3, status: 'To be Completed', primary: 'Back', secondary: 'Biceps'},
                 {id: 4, status: 'To be Completed', primary: 'Shoulder', secondary: 'Legs'},
                 {id: 5, status: 'To be Completed', primary: 'Chest', secondary: 'Triceps'}
-            ],
-            currentExercise: 1
+            ]
         }
     },
     components: {
         'workout-item': WorkoutItem,
         'workout-details': WorkoutDetails
     },
-    methods: {
-        displayDetails(id) {
-            this.currentExercise = id;
-        }
-    }
+    methods: {}
     
 }
 </script>
@@ -65,11 +53,7 @@ export default {
     width: 100%;
     border: 3px solid black;
 }
-
-
 li {
     list-style: none;
 }
-
-
 </style>

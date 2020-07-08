@@ -1,35 +1,37 @@
 <template>
-    <div class="details">
-        <p>Workout #{{ details.id }} Details:</p>
-        <p>{{ details.status }}</p>
-        <p>M1: {{ details.primary }}</p>
-        <p>M2: {{ details.secondary }}</p>
+    <div class="details" v-if="selected">
+        <p>Workout #{{ selected.id }} Details:</p>
+        <p>{{ selected.status }}</p>
+        <p>M1: {{ selected.primary }}</p>
+        <p>M2: {{ selected.secondary }}</p>
         <button @click="complete()">Click to Complete Workout</button>
+    </div>
+    <div v-else>
+        <p>No Workout Selected</p>
     </div>
 </template>
 
 <script>
-//import { eventBus } from '../main';
+import { selectedBus } from '../main';
 
 export default {
-    props: {
-        details: {
-            id: Number,
-            status: String,
-            primary: String,
-            secondary: String
-        }
-    },
-    methods: {
-        complete(){
-            this.details.status = 'Completed';
+    data: function() {
+        return {
+            selected: null
         }
     }
-    // created() {
-    //     eventBus.$on('trainerChanged', (trainer) => {
-    //         this.trainer = trainer;
-    //     });
-    // }
+    ,
+    methods: {
+        complete(){
+            this.selected.status = 'Completed';
+        }
+    },
+    created() {
+        // RECEBE O OBJETO WORKOUT E SETA COMO SELECTED(O OBJETO INTEIRO WORKOUT)
+        selectedBus.$on('selected', (workout) => {
+            this.selected = workout;
+        });
+    }
 }
 </script>
 

@@ -1,19 +1,23 @@
 <template>
-    <div class="list">
-        <p>Workout #{{ id }}</p>
+    <li class="list">
+        <p @click="selectWorkout()">Workout #{{ workout.id }}</p>
         <!-- <p>Status: {{ status }}</p> -->
-    </div>
+    </li>
 </template>
 
 <script>
-//import { eventBus } from '../main';
+import { selectedBus } from '../main';
 
 export default {
-    props: {
-        id: Number,
-        status: String
-    },
-    methods: {}
+
+    // RECEBE O OBJETO WORKOUT (SELECTED) COMO PROPS PARA PASSAR ADIANTA USANDO O SELECTEDBUS
+    props: ['workout']
+    ,
+    methods: {
+        selectWorkout(){
+            selectedBus.$emit('selected',this.workout);
+        }
+    }
 }
 </script>
 
