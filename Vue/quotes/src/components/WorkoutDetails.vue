@@ -5,6 +5,10 @@
         <p>M1: {{ selected.primary }}</p>
         <p>M2: {{ selected.secondary }}</p>
         <button @click="complete()">Click to Complete Workout</button>
+        <slot></slot>
+        <slot name="h2"></slot>
+        <slot name="h2"></slot>
+        <slot name="paragraph">This slot is named paragraph and will display this placeholder content</slot>
     </div>
     <div v-else>
         <p>No Workout Selected</p>
