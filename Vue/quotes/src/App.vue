@@ -1,8 +1,6 @@
 <template>
   <div id="app">
 
-    <workout></workout>
-
   </div>
 
 
@@ -14,7 +12,7 @@ import Workout from './components/Workout.vue'
 export default {
   name: 'App',
   components: {
-    'workout': Workout
+    // 'quotes': Workout
   }
 }
 </script>

@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import WorkoutHeader from './components/shared/WorkoutHeader.vue'
-import WorkoutFooter from './components/shared/WorkoutFooter.vue'
+import QuotesHeader from './components/shared/QuotesHeader.vue'
+import QuotesFooter from './components/shared/QuotesFooter.vue'
 
-Vue.component('workout-header', WorkoutHeader);
-Vue.component('workout-footer', WorkoutFooter);
+Vue.component('quotes-header', QuotesHeader);
+Vue.component('quotes-footer', QuotesFooter);
 
 Vue.config.productionTip = false
 
-export const selectedBus = new Vue();
-
+//export const selectedBus = new Vue();
 
 new Vue({
   render: h => h(App),
