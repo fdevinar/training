@@ -1,6 +1,36 @@
 <template>
     <div>
-        <p>Progress Bar</p>
-        <p>0/10</p>
+        <p>{{ progress }}/10 Quotes</p>
+        <div class="bar full">
+            <div class="bar progress" :style="{width: this.barWidth, progressBar}">.</div>
+        </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: {'progress': Number},
+    computed: {
+        barWidth() {
+            return this.progress * 10 + '%';
+    }
+    }
+}
+</script>
+
+<style>
+.bar {
+height: 50px;
+max-width: 100%;
+color: transparent;
+border-radius: 12px;
+box-sizing: border-box;
+}
+.progress {
+background-color: navy;
+}
+.full {
+background-color: grey;
+margin: 10px;
+}
+</style>

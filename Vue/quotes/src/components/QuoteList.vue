@@ -2,7 +2,7 @@
     <div>
         <p>Quote List</p>
         <ul>
-            <li v-for="quote in quoteList" :key="quote">
+            <li v-for="quote in quotes" :key="quote">
                 {{ quote }}
             </li>
         </ul>
@@ -10,17 +10,11 @@
 </template>
 
 <script>
-import { quoteBus } from '../main';
+// import { quoteBus } from '../main';
 
 export default {
-    data: function() {
-        return {
-            quoteList: null
-        }},
-    created() {
-        quoteBus.$on('quoteAdded', (quoteList) => {
-            this.quoteList = quoteList;
-        })
+    props: {
+        'quotes': Array
     }
 }
 </script>

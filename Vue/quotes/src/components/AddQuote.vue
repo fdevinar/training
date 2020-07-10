@@ -1,8 +1,8 @@
 <template>
 <div>
     <p>Add Quote</p>
-    <input type="text" name="quote">
-    <button @click="addQuote">Add Quote</button>
+    <input type="text" v-model="quote">
+    <button @click="addQuote()">Add Quote</button>
 </div>
 </template>
 
@@ -10,14 +10,14 @@
 import { quoteBus } from '../main';
 
 export default {
-    data: function() {
+    data() {
         return {
-            quoteList: ['First Test Quote', 'Second Test Quote']
+            quote: ''
         }
     },
     methods: {
         addQuote() {
-            quoteBus.$emit('quoteAdded',this.quoteList);
+            quoteBus.$emit('quoteAdded',this.quote);
         }
     }
 }
