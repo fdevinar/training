@@ -9,7 +9,7 @@ Vue.component('quotes-footer', QuotesFooter);
 
 Vue.config.productionTip = false
 
-//export const selectedBus = new Vue();
+export const quoteBus = new Vue();
 
 new Vue({
   render: h => h(App),
