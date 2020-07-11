@@ -2,7 +2,7 @@
     <div>
         <p>{{ progress }}/10 Quotes</p>
         <div class="bar full">
-            <div class="bar progress" :style="{width: this.barWidth, progressBar}">.</div>
+            <div class="bar progress" :style="{width: this.barWidth}">.</div>
         </div>
     </div>
 </template>
