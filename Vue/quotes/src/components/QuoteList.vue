@@ -1,8 +1,8 @@
 <template>
     <div>
         <p>Quote List</p>
-        <ul>
-            <li v-for="quote in quotes" :key="quote" @click="remove(quote)">
+        <ul class="quote-list">
+            <li class="quote" v-for="quote in quotes" :key="quote" @click="remove(quote)">
                 {{ quote }}
             </li>
         </ul>
@@ -24,3 +24,16 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.quote-list {
+    display: flex;
+}
+.quote {
+    width: 180px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: beige;
+}
+</style>

@@ -21,7 +21,7 @@ export default {
   name: 'App',
   data() {
     return {
-      quoteList: ['Placeholder','Quote','Test'],
+      quoteList: [],
     }
   },
   components: {
@@ -32,7 +32,11 @@ export default {
   },
   created() {
         quoteBus.$on('quoteAdded', (quote) => {
-            this.quoteList.push(quote);
+            if (this.quoteList.length > 9) {
+              alert('Limit of 10 items reached. Please remove a quote to add another.')
+            } else {
+                this.quoteList.push(quote);
+            }
         })
     }
 }
@@ -49,9 +53,6 @@ export default {
 }
 li {
   list-style: none;
-}
-div {
-  border: 1px solid black;
 }
 </style>
 
