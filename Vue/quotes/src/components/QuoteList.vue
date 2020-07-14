@@ -31,9 +31,11 @@ export default {
 }
 .quote {
     width: 180px;
+    height: 50px;
     border: 1px solid black;
-    margin: 10px;
     border-radius: 10px;
+    margin: 10px;
+    padding-top: 10px;
     background-color: beige;
 }
 </style>

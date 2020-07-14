@@ -28,6 +28,7 @@ box-sizing: border-box;
 }
 .progress {
 background-color: navy;
+transition: 1s;
 }
 .full {
 background-color: grey;

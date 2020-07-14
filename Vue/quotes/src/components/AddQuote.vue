@@ -18,6 +18,7 @@ export default {
     methods: {
         addQuote() {
             quoteBus.$emit('quoteAdded',this.quote);
+            this.quote = '';
         }
     }
 }
