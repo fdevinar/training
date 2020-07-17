@@ -11,15 +11,6 @@
     <h1>Form Exercises</h1>
     <h2>Workout</h2>
     <div v-if="!submit">
-      <!-- <div>
-        <label for="trainer">Trainer Name</label>
-        <input type="text" id="trainer" v-model.trim="workoutData.trainer">
-      </div>
-
-      <div>
-        <label for="name">Workout Name</label>
-        <input type="text" id="name" v-model.lazy="workoutData.name">
-      </div> -->
 
     <trainer-workout :data="workoutData"></trainer-workout>
 
@@ -77,23 +68,6 @@
     <p>Type: {{ type }} </p>
     <p>Focus: {{ focusedArea }} </p>
   </div>
-
-
-<!-- Exercise 1 -->
-<!-- Create a Signup Form where you retrieve the following Information -->
-<!-- Full Name (First Name + Last Name) -->
-<!-- Mail -->
-<!-- Password -->
-<!-- Store Data? Yes/No -->
-
-<!-- Exercise 2 -->
-<!-- Only display the Form if it has NOT been submitted -->
-<!-- Display the Data Summary ONCE the Form HAS been submitted -->
-
-<!-- Exercise 3 -->
-<!-- Edit the Example from above and create a custom "Full Name" Control -->
-<!-- which still holds the First Name and Last Name Input Field -->
-
 
   </div>
 
