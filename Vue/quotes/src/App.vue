@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    <div class="hidden">
+    <div>
       <progress-bar :progress="quoteList.length"></progress-bar>
       <add-quote></add-quote>
       <quote-list :quotes="quoteList"></quote-list>
@@ -15,15 +15,15 @@
     <trainer-workout :data="workoutData"></trainer-workout>
 
       <div>
-        <label for="days-monday">Days of Week (Monday)</label>
+        <label v-flash="'red'" for="days-monday">Days of Week (Monday)</label>
         <input type="checkbox" id="days-monday" value="monday" v-model="workoutData.days">
       </div>
       <div>
-        <label for="days-wednesdat">Days of Week (Wednesday)</label>
+        <label v-flash:white="'blue'" for="days-wednesday">Days of Week (Wednesday)</label>
         <input type="checkbox" id="days-wednesday" value="wednesday" v-model="workoutData.days">
       </div>
       <div>
-        <label for="days-friday">Days of Week (Friday)</label>
+        <label v-flash:white.bold="'green'" for="days-friday">Days of Week (Friday)</label>
         <input type="checkbox" id="days-friday" value="friday" v-model="workoutData.days">
       </div>
 
@@ -119,6 +119,19 @@ export default {
     methods: {
       submitForm() {
         this.submit = true;
+      }
+    },
+    directives: {
+      'flash': {
+        bind(el, binding) {
+          el.style.backgroundColor = binding.value;
+          if (binding.arg == 'white'){
+            el.style.color = "white";
+          }
+          if (binding.modifiers['bold']){
+            el.style.fontWeight = 'bold';
+          }
+        }
       }
     }
 }
