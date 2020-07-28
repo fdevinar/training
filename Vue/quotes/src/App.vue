@@ -12,18 +12,21 @@
     <h2>Workout</h2>
     <div v-if="!submit">
 
+    <button v-myon:click="alertMe">Click My On</button>
+    <!-- POSSIBLE TO REFACTOR USING ARGUMENT :CLICK FOR EXAMPLE -->
+
     <trainer-workout :data="workoutData"></trainer-workout>
 
       <div>
-        <label v-flash="'red'" for="days-monday">Days of Week (Monday)</label>
+        <label v-color.bold="{color:'red',size:'30px'}" for="days-monday">Days of Week (Monday)</label>
         <input type="checkbox" id="days-monday" value="monday" v-model="workoutData.days">
       </div>
       <div>
-        <label v-flash:color="'blue'" for="days-wednesday">Days of Week (Wednesday)</label>
+        <label v-color:white="{color:'blue',size:'24px'}" for="days-wednesday">Days of Week (Wednesday)</label>
         <input type="checkbox" id="days-wednesday" value="wednesday" v-model="workoutData.days">
       </div>
       <div>
-        <label v-flash:color.bold="'green'" for="days-friday">Days of Week (Friday)</label>
+        <label v-color:white.bold="{color:'cyan',size:'18px'}" for="days-friday">Days of Week (Friday)</label>
         <input type="checkbox" id="days-friday" value="friday" v-model="workoutData.days">
       </div>
 
@@ -119,18 +122,28 @@ export default {
     methods: {
       submitForm() {
         this.submit = true;
+      },
+      alertMe() {
+        alert('Yeah Buddy!! Lightweigth!');
       }
     },
     directives: {
       'color': {
         bind(el, binding) {
-          el.style.backgroundColor = binding.value;
+          el.style.backgroundColor = binding.value.color;
+          el.style.fontSize = binding.value.size;
           if (binding.arg == 'white'){
             el.style.color = "white";
           }
           if (binding.modifiers['bold']){
             el.style.fontWeight = 'bold';
           }
+        }
+      },
+      'myon': {
+        bind(el, binding) {
+          // (type of event - function)
+          el.addEventListener(binding.arg,binding.value);
         }
       }
     }
