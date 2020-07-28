@@ -19,11 +19,11 @@
         <input type="checkbox" id="days-monday" value="monday" v-model="workoutData.days">
       </div>
       <div>
-        <label v-flash:white="'blue'" for="days-wednesday">Days of Week (Wednesday)</label>
+        <label v-flash:color="'blue'" for="days-wednesday">Days of Week (Wednesday)</label>
         <input type="checkbox" id="days-wednesday" value="wednesday" v-model="workoutData.days">
       </div>
       <div>
-        <label v-flash:white.bold="'green'" for="days-friday">Days of Week (Friday)</label>
+        <label v-flash:color.bold="'green'" for="days-friday">Days of Week (Friday)</label>
         <input type="checkbox" id="days-friday" value="friday" v-model="workoutData.days">
       </div>
 
@@ -122,7 +122,7 @@ export default {
       }
     },
     directives: {
-      'flash': {
+      'color': {
         bind(el, binding) {
           el.style.backgroundColor = binding.value;
           if (binding.arg == 'white'){
@@ -138,9 +138,6 @@ export default {
 </script>
 
 <style>
-.hidden {
-  visibility: hidden;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
