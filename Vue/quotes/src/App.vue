@@ -12,7 +12,19 @@
     <h2>Workout</h2>
     <div v-if="!submit">
 
+    <div>
+      <h3>Filter Me</h3>
+      <p> {{ filtered | gremiar | to-upper-case }}</p>
+      <p> {{ filtered | to-upper-case }}</p>
+      <h3>Jogadores</h3>
+      <input v-model="filteredPlayer">
+      <ul>
+        <li v-for="player in computedPlayer" :key="player">{{ player }}</li>
+      </ul>
+    </div>
+
     <button v-myon:click="alertMe">Click My On</button>
+
     <!-- POSSIBLE TO REFACTOR USING ARGUMENT :CLICK FOR EXAMPLE -->
 
     <trainer-workout :data="workoutData"></trainer-workout>
@@ -79,11 +91,12 @@
 <script>
 import { quoteBus } from './main';
 
-import ProgressBar from './components/ProgressBar.vue'
-import AddQuote from './components/AddQuote.vue'
-import QuoteList from './components/QuoteList.vue'
-import Info from './components/Info.vue'
-import TrainerWorkout from './components/TrainerWorkout.vue'
+import ProgressBar from './components/ProgressBar.vue';
+import AddQuote from './components/AddQuote.vue';
+import QuoteList from './components/QuoteList.vue';
+import Info from './components/Info.vue';
+import TrainerWorkout from './components/TrainerWorkout.vue';
+
 
 export default {
   name: 'App',
@@ -100,7 +113,11 @@ export default {
       type: '',
       focus: ['Shoulder','Arms','Chest','Legs','Back'],
       focusedArea: 'Arms',
-      submit: false
+      submit: false,
+      filtered: 'xyz',
+      players: ['Jardel','Renato','Geromel','Danrlei','Everaldo','Jailson','Everton','Kannemann','Pedro Rocha',
+                'Ortunho','Calvet','Lara'],
+      filteredPlayer: ''
     }
   },
   components: {
@@ -146,6 +163,18 @@ export default {
           el.addEventListener(binding.arg,binding.value);
         }
       }
+    },
+    filters: {
+      gremiar(value) {
+        return value + '...e dale Gremio!';
+      }
+    },
+    computed: {
+    computedPlayer() {
+    return this.players.filter((player) => {
+        return player.match(this.filteredPlayer);
+    });
+    }
     }
 }
 </script>

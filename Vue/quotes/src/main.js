@@ -9,6 +9,10 @@ Vue.component('quotes-footer', QuotesFooter);
 
 Vue.config.productionTip = false
 
+Vue.filter('to-upper-case', function(value){
+    return value.toUpperCase();
+  });
+
 export const quoteBus = new Vue();
 
 new Vue({
