@@ -13,19 +13,31 @@
     <div v-if="!submit">
 
     <div>
-      <h3>Filter Me</h3>
+      <h3>Filters</h3>
       <p> {{ filtered | gremiar | to-upper-case }}</p>
       <p> {{ filtered | to-upper-case }}</p>
-      <h3>Jogadores</h3>
+      <!-- <h3>Jogadores</h3>
       <input v-model="filteredPlayer">
       <ul>
         <li v-for="player in computedPlayer" :key="player">{{ player }}</li>
-      </ul>
+      </ul> -->
+      <p>1- Build Local Filter Which Reverses Text</p>
+      {{ focusedArea | reverse }}
+      {{ filtered | reverse }}
+      <p>2 - Global Filter count length of Word and appends to end</p>
+      {{ focusedArea | count }}
+      {{ filtered | count }}
+      <p>3 - Same as 1 and 2 with computed properties</p>
+      {{ compReverse }}
+      {{ compCount }}
+      <p>4 - Share 3 using Mixin</p>
+
+
     </div>
 
-    <button v-myon:click="alertMe">Click My On</button>
+    <p>Mixin Data: {{ mixinData }} </p>
 
-    <!-- POSSIBLE TO REFACTOR USING ARGUMENT :CLICK FOR EXAMPLE -->
+    <button v-myon:click="alertMe">Click My On</button>
 
     <trainer-workout :data="workoutData"></trainer-workout>
 
@@ -97,6 +109,8 @@ import QuoteList from './components/QuoteList.vue';
 import Info from './components/Info.vue';
 import TrainerWorkout from './components/TrainerWorkout.vue';
 
+import { PlayerMixin } from './PlayerMixin.js';
+
 
 export default {
   name: 'App',
@@ -115,9 +129,9 @@ export default {
       focusedArea: 'Arms',
       submit: false,
       filtered: 'xyz',
-      players: ['Jardel','Renato','Geromel','Danrlei','Everaldo','Jailson','Everton','Kannemann','Pedro Rocha',
-                'Ortunho','Calvet','Lara'],
-      filteredPlayer: ''
+      // players: ['Jardel','Renato','Geromel','Danrlei','Everaldo','Jailson','Everton','Kannemann','Pedro Rocha',
+      //           'Ortunho','Calvet','Lara'],
+      // filteredPlayer: ''
     }
   },
   components: {
@@ -167,15 +181,34 @@ export default {
     filters: {
       gremiar(value) {
         return value + '...e dale Gremio!';
+      },
+      reverse(text) {
+        //! EASIER WAY TO REVERSE
+        return text.split('').reverse().join('');
+        // let reversed = []
+        // for (let i=text.length; i--; i>0){
+        //   reversed.push(text[i]);
+        // }
+        // reversed = reversed.toString().replace(/,/g,'');
+        // return reversed;
       }
     },
     computed: {
-    computedPlayer() {
-    return this.players.filter((player) => {
-        return player.match(this.filteredPlayer);
-    });
-    }
-    }
+    // compReverse() {
+    //     let text = this.filtered;
+    //     let reversed = [];
+    //     for (let i=text.length; i--; i>0){
+    //       reversed.push(text[i]);
+    //     }
+    //     reversed = reversed.toString().replace(/,/g,'');
+    //     return reversed
+    // },
+    // compCount() {
+    //   let text = this.filtered;
+    //   return text + text.length
+    // }
+    },
+    mixins: [PlayerMixin]
 }
 </script>
 
