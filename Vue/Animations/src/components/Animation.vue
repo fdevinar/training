@@ -5,7 +5,7 @@
     <button class="btn btn-primary" @click="display = !display">Click Me</button>
     <hr>
     <transition name="fade">
-      <p class="alert alert-info" v-show="display">Animate this paragraph by clicking the button</p>
+      <p class="alert alert-success" v-show="display">Animate this paragraph by clicking the button</p>
     </transition>
    
   </div>
