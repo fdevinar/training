@@ -7,7 +7,6 @@
     <transition name="fade">
       <p class="alert alert-success" v-show="display">Animate this paragraph by clicking the button</p>
     </transition>
-   
   </div>
 </template>
 
@@ -63,6 +62,5 @@ a {
   transition: opacity 1s;
   opacity: 0;
 }
-
 
 </style>
