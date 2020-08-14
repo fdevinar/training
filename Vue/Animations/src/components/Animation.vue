@@ -7,6 +7,11 @@
     <transition name="fade">
       <p class="alert alert-success" v-show="display">Animate this paragraph by clicking the button</p>
     </transition>
+    <ul>
+      <li>Dr Guilherme Merlo - Nutrologia</li>
+      <li>Dr Raphael Rossi - Clinica da Dor</li>
+      <li>Chef Eduardo Cioni - Du.Bakery</li>
+    </ul>
   </div>
 </template>
 
