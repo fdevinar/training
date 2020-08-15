@@ -49,6 +49,7 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
+  font-weight: 700;
 }
 a {
   color: #42b983;
