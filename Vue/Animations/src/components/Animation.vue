@@ -28,7 +28,7 @@ export default {
 export default {
   data() {
     return {
-      title: 'Animations',
+      title: 'Animations!',
       display: true
     }
   },
