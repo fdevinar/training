@@ -1,17 +1,33 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <h1 class="animate__animated animate__tada">{{ title }}</h1>
     <hr>
     <button class="btn btn-primary" @click="display = !display">Click Me</button>
     <hr>
-    <transition name="fade">
-      <p class="alert alert-success" v-show="display">Animate this paragraph by clicking the button</p>
+    <transition
+      name="fade"
+      appear>
+      <p class="alert alert-success" v-show="display">TRANSITION this paragraph by clicking the button</p>
     </transition>
-    <ul>
+    <!-- Use TYPE to dictate which length Vue will look at to determine when transition is over -->
+    <transition
+      name="slide"
+      type="animation"
+      appear>
+        <p class="alert alert-primary" v-show="display">ANIMATE this paragraph by clicking the button</p>
+    </transition>
+    <transition
+      appear
+      enter-active-class="animate__animated animate__bounceInLeft"
+      leave-active-class="animate__animated animate__bounceOutDown">
+    <h2 v-show="display">Bounce In Left - Bounce Out Down</h2>
+    </transition>
+
+    <!-- <ul>
       <li>Dr Guilherme Merlo - Nutrologia</li>
       <li>Dr Raphael Rossi - Clinica da Dor</li>
       <li>Chef Eduardo Cioni - Du.Bakery</li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -67,6 +83,44 @@ a {
 .fade-leave-active {
   transition: opacity 1s;
   opacity: 0;
+}
+
+.slide-enter {
+  /* transform: translateY(20px); */
+  opacity: 0;
+}
+.slide-enter-active {
+  animation: slide-in 1s ease-out forwards;
+  transition: opacity 500ms;
+}
+.slide-leave {
+
+}
+.slide-leave-active {
+  animation: slide-out 1s ease-out forwards;
+  transition: opacity 3s;
+  opacity: 0;
+
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50px);
+  }
+}
+
+.animate__animated.animate__bounceOutDown {
+  --animate-duration: 1900ms;
 }
 
 </style>
