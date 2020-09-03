@@ -22,12 +22,6 @@
       leave-active-class="animate__animated animate__bounceOutDown">
     <h2 v-show="display">Bounce In Left - Bounce Out Down</h2>
     </transition>
-
-    <!-- <ul>
-      <li>Dr Guilherme Merlo - Nutrologia</li>
-      <li>Dr Raphael Rossi - Clinica da Dor</li>
-      <li>Chef Eduardo Cioni - Du.Bakery</li>
-    </ul> -->
   </div>
 </template>
 
