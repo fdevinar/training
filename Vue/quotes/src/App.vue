@@ -110,7 +110,6 @@ import TrainerWorkout from './components/TrainerWorkout.vue';
 
 import { PlayerMixin } from './PlayerMixin.js';
 
-
 export default {
   name: 'App',
   data() {
