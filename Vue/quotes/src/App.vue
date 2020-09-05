@@ -11,7 +11,6 @@
     <h1>Form Exercises</h1>
     <h2>Workout</h2>
     <div v-if="!submit">
-
     <div>
       <h3>Filters</h3>
       <p> {{ filtered | gremiar | to-upper-case }}</p>
