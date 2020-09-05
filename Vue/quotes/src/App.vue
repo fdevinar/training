@@ -32,7 +32,6 @@
       {{ compCount }}
       <p>4 - Share 3 using Mixin</p>
 
-
     </div>
 
     <p>Mixin Data: {{ mixinData }} </p>
