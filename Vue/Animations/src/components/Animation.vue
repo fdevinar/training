@@ -4,9 +4,7 @@
     <hr>
     <button class="btn btn-primary" @click="display = !display">Click Me</button>
     <hr>
-    <transition
-      name="fade"
-      appear>
+    <transition appear name="fade">
       <p class="alert alert-success" v-show="display">TRANSITION this paragraph by clicking the button</p>
     </transition>
     <!-- Use TYPE to dictate which length Vue will look at to determine when transition is over -->
@@ -16,8 +14,7 @@
       appear>
         <p class="alert alert-primary" v-show="display">ANIMATE this paragraph by clicking the button</p>
     </transition>
-    <transition
-      appear
+    <transition appear
       enter-active-class="animate__animated animate__bounceInLeft"
       leave-active-class="animate__animated animate__bounceOutDown">
     <h2 v-show="display">Bounce In Left - Bounce Out Down</h2>
