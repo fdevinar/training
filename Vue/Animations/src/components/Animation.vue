@@ -17,7 +17,7 @@
     <transition appear
       enter-active-class="animate__animated animate__bounceInLeft"
       leave-active-class="animate__animated animate__bounceOutDown">
-    <h2 v-show="display">Bounce In Left - Bounce Out Down</h2>
+    <h3 v-show="display">Bounce In Left - Bounce Out Down</h3>
     </transition>
   </div>
 </template>
@@ -44,7 +44,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
@@ -61,7 +60,7 @@ li {
 a {
   color: #42b983;
 }
-
+/* Configuring Fade animation */
 .fade-enter {
   opacity: 0;
 }
@@ -75,7 +74,7 @@ a {
   transition: opacity 1s;
   opacity: 0;
 }
-
+/* Configuring Slide animation */
 .slide-enter {
   /* transform: translateY(20px); */
   opacity: 0;
@@ -91,7 +90,6 @@ a {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 3s;
   opacity: 0;
-
 }
 @keyframes slide-in {
   from {
@@ -109,7 +107,6 @@ a {
     transform: translateY(50px);
   }
 }
-
 .animate__animated.animate__bounceOutDown {
   --animate-duration: 1900ms;
 }
