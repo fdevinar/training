@@ -54,7 +54,7 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 12px;
+  margin: 0 14px;
   font-weight: 700;
 }
 a {
