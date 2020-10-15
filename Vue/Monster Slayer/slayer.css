@@ -6,7 +6,7 @@ body {
 /* HEALTH BAR */
 .health-bar {
     border: 1px solid black;
-    height: 32px;
+    height: 30px;
     font-size: 1.3rem;
     /* TRANSITION ENABLES SMOOTH CHANGES TO HEALTH BAR */
     transition: width 800ms;
